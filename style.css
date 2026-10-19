@@ -129,3 +129,35 @@ footer a {
     gap: 12px;
   }
 }
+
+.tabel {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rand);
+  color: var(--zacht);
+}
+
+th {
+  color: var(--tekst);
+  font-weight: 600;
+  background: var(--kaart);
+}
+
+.datum {
+  font-size: 14px;
+  color: var(--zacht);
+  margin: 0 0 24px;
+}
