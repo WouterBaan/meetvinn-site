@@ -79,23 +79,76 @@
       }
 
       /* Een iPhone met het openingsscherm van Vinn: het logo op de donkere achtergrond, met
-         de groene gloeden die in de app langzaam bewegen (Achtergrond.tsx), hier iets sneller. */
+         de twee groene gloeden die in de app langzaam over de onderkant bewegen
+         (Achtergrond.tsx): dezelfde plekken en banen, hier iets sneller. */
       .telefoon {
+        position: relative;
         zoom: 0.78;
-        width: 410px;
-        padding: 10px;
-        border-radius: 62px;
-        background: #1a1d1c;
+        width: 404px;
+        padding: 3px;
+        border-radius: 66px;
+        background: linear-gradient(
+          140deg,
+          #e4e6e3 0%,
+          #8c918e 22%,
+          #f4f5f3 46%,
+          #7b807d 70%,
+          #d3d6d2 100%
+        );
         box-shadow:
-          0 0 0 2px #3a3f3d,
-          0 40px 80px -20px #06121055,
-          0 18px 36px -18px #06121066;
+          -30px 50px 90px -24px #06121066,
+          -12px 22px 40px -18px #06121066;
+        transform: perspective(1800px) rotateY(-18deg) rotateX(6deg) rotate(4deg);
+      }
+
+      /* Zijknoppen: links actieknop en volume, rechts aan/uit en de cameraknop. */
+      .knop {
+        position: absolute;
+        width: 4px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #9a9f9c, #e6e8e5 60%, #8a8f8c);
+      }
+
+      .knop.actie {
+        left: -3px;
+        top: 150px;
+        height: 34px;
+      }
+
+      .knop.hoger {
+        left: -3px;
+        top: 205px;
+        height: 62px;
+      }
+
+      .knop.lager {
+        left: -3px;
+        top: 280px;
+        height: 62px;
+      }
+
+      .knop.aan {
+        right: -3px;
+        top: 230px;
+        height: 96px;
+      }
+
+      .knop.camera {
+        right: -3px;
+        top: 520px;
+        height: 54px;
+      }
+
+      .rand {
+        padding: 7px;
+        border-radius: 63px;
+        background: #050606;
       }
 
       .scherm {
         position: relative;
-        height: 844px;
-        border-radius: 52px;
+        height: 860px;
+        border-radius: 56px;
         overflow: hidden;
         background: #000307;
         color: #fff;
@@ -131,15 +184,6 @@
         animation: twee 19s ease-in-out infinite alternate;
       }
 
-      .gloed.drie {
-        --d: 0.6;
-        width: 520px;
-        height: 520px;
-        left: 70px;
-        top: -170px;
-        animation: drie 23s ease-in-out infinite alternate;
-      }
-
       @keyframes een {
         to {
           transform: translate(293px, 152px);
@@ -152,12 +196,6 @@
         }
       }
 
-      @keyframes drie {
-        to {
-          transform: translate(-250px, 120px);
-        }
-      }
-
       @media (prefers-reduced-motion: reduce) {
         .gloed {
           animation: none;
@@ -166,12 +204,12 @@
 
       .eiland {
         position: absolute;
-        top: 11px;
+        top: 12px;
         left: 50%;
-        width: 124px;
-        height: 36px;
-        margin-left: -62px;
-        border-radius: 20px;
+        width: 108px;
+        height: 32px;
+        margin-left: -54px;
+        border-radius: 18px;
         background: #000;
         z-index: 2;
       }
@@ -183,7 +221,7 @@
         justify-content: space-between;
         align-items: center;
         height: 54px;
-        padding: 6px 34px 0 46px;
+        padding: 6px 36px 0 48px;
         font-weight: 650;
         font-size: 16px;
       }
@@ -235,10 +273,15 @@
 
       <div class="toneel">
         <div class="telefoon" role="img" aria-label="Een iPhone met het logo van Vinn">
+          <span class="knop actie"></span>
+          <span class="knop hoger"></span>
+          <span class="knop lager"></span>
+          <span class="knop aan"></span>
+          <span class="knop camera"></span>
+          <div class="rand">
           <div class="scherm" aria-hidden="true">
             <span class="gloed een"></span>
             <span class="gloed twee"></span>
-            <span class="gloed drie"></span>
             <div class="eiland"></div>
             <div class="statusbalk">
               <span>9:41</span>
@@ -249,6 +292,7 @@
               </span>
             </div>
             <div class="logo"><img src="icon.png" alt="" /></div>
+          </div>
           </div>
         </div>
       </div>
