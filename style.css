@@ -120,6 +120,19 @@ a {
   transition: transform 0.15s ease;
 }
 
+button.knop {
+  border: 0;
+  font: inherit;
+  font-weight: 650;
+  font-size: 15.5px;
+  cursor: pointer;
+}
+
+.knop:focus-visible {
+  outline: 3px solid var(--groen-licht);
+  outline-offset: 3px;
+}
+
 .knop:hover {
   transform: translateY(-1px);
 }
@@ -517,6 +530,72 @@ h1 {
 .tab.aan {
   color: #fff;
   font-weight: 700;
+}
+
+/* ---------- Venster met de QR-code ---------- */
+
+.qrvenster {
+  width: min(360px, calc(100% - 32px));
+  padding: 36px 28px 32px;
+  border: 0;
+  border-radius: 28px;
+  background: var(--vlak);
+  color: var(--tekst);
+  text-align: center;
+  box-shadow: 0 30px 80px -20px #06121066;
+}
+
+.qrvenster::backdrop {
+  background: #06121066;
+  backdrop-filter: blur(4px);
+}
+
+.qrvenster h2 {
+  font-size: 24px;
+  letter-spacing: -0.4px;
+  margin: 14px 0 6px;
+}
+
+.qrvenster p {
+  margin: 0 0 22px;
+  color: var(--zacht);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.qrlogo {
+  width: 56px;
+  height: 56px;
+  border-radius: 22.5%;
+}
+
+.qrcode {
+  width: 200px;
+  aspect-ratio: 1;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 2px dashed var(--rand);
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--zacht);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sluit {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--vlak-zacht);
+  color: var(--tekst);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 }
 
 /* ---------- Secties ---------- */

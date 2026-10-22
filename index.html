@@ -36,7 +36,11 @@
               waar je staat, en wat een volgende stap kan zijn. Vinn zorgt voor rust en overzicht.
             </p>
             <div class="knoppen">
-              <a class="knop" href="#hoe">Zo werkt het</a>
+              <!-- Opent een venster met de QR-code naar de App Store. Zodra de app erin staat:
+                   de link in data-appstore zetten en de QR-code in het venster vervangen. -->
+              <button class="knop" type="button" id="download" data-appstore="">
+                Download Vinn
+              </button>
               <a class="knop licht" href="#privacy">Hoe we je gegevens beschermen</a>
             </div>
           </div>
@@ -315,7 +319,39 @@
       </div>
     </footer>
 
+    <dialog class="qrvenster" id="qrvenster" aria-labelledby="qrtitel">
+      <button class="sluit" type="button" aria-label="Sluiten">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <img class="qrlogo" src="favicon-192.png" alt="" />
+      <h2 id="qrtitel">Download Vinn</h2>
+      <p>Scan de code met de camera van je iPhone. Je gaat dan naar Vinn in de App Store.</p>
+      <div class="qrcode" aria-label="QR-code naar de App Store">
+        <span>QR-code</span>
+      </div>
+    </dialog>
+
     <script>
+      // Download Vinn: op een iPhone straks rechtstreeks naar de App Store, verder het venster
+      // met de QR-code. Zolang data-appstore leeg is, opent altijd het venster.
+      const download = document.getElementById('download');
+      const venster = document.getElementById('qrvenster');
+      if (download && venster) {
+        download.addEventListener('click', () => {
+          const winkel = download.dataset.appstore;
+          if (winkel && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            location.href = winkel;
+            return;
+          }
+          if (venster.showModal) venster.showModal();
+          else venster.setAttribute('open', '');
+        });
+        venster.querySelector('.sluit').addEventListener('click', () => venster.close());
+        venster.addEventListener('click', (e) => {
+          if (e.target === venster) venster.close();
+        });
+      }
+
       // De scorering draait van 0 naar 74% zodra hij in beeld komt. Zonder script, of met
       // "beweging verminderen", staat hij meteen op 74%.
       const schaal = document.querySelector('.schaal');
