@@ -833,7 +833,11 @@ h2 {
   color: #919191;
 }
 
+/* Het nummer midden boven elke stap, boven het kaartje. */
 .stap .nr {
+  display: block;
+  margin-bottom: 14px;
+  text-align: center;
   font-size: 15px;
   font-weight: 700;
   color: var(--groen);
