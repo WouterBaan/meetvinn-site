@@ -154,9 +154,13 @@ button.knop {
   padding: 9px 16px;
   font-size: 14.5px;
   white-space: nowrap;
-  /* "Vinn" is een los stuk (het valt weg op de telefoon) met zijn eigen spatie ervoor; de
-     ruimte tussen de stukken van een knop zou daar nog bovenop komen. */
+  /* "Vinn" is een los stuk, zodat het op de telefoon kan wegvallen. Een spatie aan het begin
+     van zo'n stuk telt niet mee, dus de woordafstand komt van .breed zelf. */
   gap: 0;
+}
+
+.kop .breed {
+  margin-left: 0.28em;
 }
 
 /* ---------- Opening ---------- */
