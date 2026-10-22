@@ -891,54 +891,15 @@ h3 {
   margin-bottom: 0;
 }
 
-/* In de stijl van de app: donker, met de twee groene gloeden die langzaam over de onderkant gaan. */
 .schaal {
-  position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
-  background: #000307;
-  color: #fff;
-  border-radius: 28px;
+  background: var(--bg);
+  border: 1px solid var(--rand);
+  border-radius: 24px;
   padding: 40px 24px;
-  box-shadow: 0 30px 60px -30px #06121080;
-}
-
-.schaal > :not(.gloed) {
-  position: relative;
-  z-index: 1;
-}
-
-.gloed.kaart-een {
-  --d: 0.8;
-  width: 440px;
-  height: 440px;
-  left: -170px;
-  top: 52%;
-  animation: kaart-een 41s ease-in-out infinite alternate;
-}
-
-.gloed.kaart-twee {
-  --d: 0.6;
-  width: 340px;
-  height: 340px;
-  left: 72%;
-  top: 62%;
-  animation: kaart-twee 57s ease-in-out infinite alternate;
-}
-
-@keyframes kaart-een {
-  to {
-    transform: translate(380px, 50px);
-  }
-}
-
-@keyframes kaart-twee {
-  to {
-    transform: translate(-380px, -60px);
-  }
 }
 
 .scorering {
@@ -959,7 +920,7 @@ h3 {
 }
 
 .spoor {
-  stroke: #ffffff24;
+  stroke: #0c161314;
 }
 
 /* Omtrek 2 × π × 105 = 659,73; 74% gevuld laat 26% open: 171,53. */
@@ -997,7 +958,7 @@ h3 {
   gap: 8px 24px;
   font-size: 14px;
   font-weight: 600;
-  color: #fff;
+  color: var(--tekst);
 }
 
 .banden li {
@@ -1014,7 +975,7 @@ h3 {
 }
 
 .banden span {
-  color: #919191;
+  color: var(--zacht);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
@@ -1040,14 +1001,12 @@ h3 {
   font-weight: 700;
 }
 
-/* Zoals het vlakje onder het rondje in de app. */
 .ringlabel {
-  padding: 5px 14px;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: #1c1c1c;
-  border: 0.5px solid #353535;
-  color: #919191;
-  font-size: 14px;
+  background: #f5b8412e;
+  color: #8a5d00;
+  font-size: 15px;
   font-weight: 700;
 }
 
