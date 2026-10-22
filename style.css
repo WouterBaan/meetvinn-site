@@ -1152,6 +1152,7 @@ th {
   .kop .breed {
     display: none;
   }
+
   .artikel {
     padding: 36px 16px 72px;
   }
@@ -1189,5 +1190,4 @@ th {
     padding: 8px 13px;
     font-size: 14px;
   }
-
 }
