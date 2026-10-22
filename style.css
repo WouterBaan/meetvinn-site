@@ -106,6 +106,13 @@ a {
   opacity: 0.7;
 }
 
+/* De downloadknop in de menubalk is een link, maar geen tabje. */
+.kop nav a.knop {
+  font-weight: 650;
+  color: #000307;
+  opacity: 1;
+}
+
 /* Alle tabjes zwart; het tabje van de pagina waar je bent, krijgt een streepje eronder. */
 .kop nav a[aria-current='page'] {
   text-decoration: underline;
