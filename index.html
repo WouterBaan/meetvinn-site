@@ -76,27 +76,24 @@
       .toneel {
         display: flex;
         justify-content: center;
-        perspective: 2200px;
       }
 
-      /* Een iPhone met het openingsscherm van Vinn, in 3D gekanteld. De dikte komt van een
-         stapel lagen achter de voorkant, zodat de afgeronde zijkant zichtbaar wordt. Op het
-         scherm de twee groene gloeden die in de app langzaam over de onderkant bewegen
+      /* Een iPhone met het openingsscherm van Vinn. Op het scherm de twee groene gloeden die in de app langzaam over de onderkant bewegen
          (Achtergrond.tsx): dezelfde plekken en banen, hier iets sneller. */
       .telefoon {
         position: relative;
         zoom: 0.78;
         width: 404px;
         height: 880px;
-        transform-style: preserve-3d;
-        transform: rotateY(-24deg) rotateX(9deg) rotateZ(4deg);
       }
 
-      .voorkant,
-      .laag {
+      .voorkant {
         position: absolute;
         inset: 0;
         border-radius: 66px;
+        box-shadow:
+          0 50px 100px -30px #06121066,
+          0 20px 40px -20px #06121066;
       }
 
       .voorkant {
@@ -109,56 +106,41 @@
           #858a87 72%,
           #d9dcd8 100%
         );
-        transform: translateZ(0);
-      }
-
-      /* De zijkant: geborsteld metaal, van licht naar donker zodat hij rond lijkt. */
-      .laag {
-        background: linear-gradient(90deg, #6f7471, #c9ccc8 30%, #f1f2ef 50%, #a4a8a5 70%, #5f6461);
-        transform: translateZ(calc(var(--z) * -1px));
-      }
-
-      .laag.achter {
-        background: #2b2f2d;
-        box-shadow:
-          -40px 60px 110px -20px #0612106e,
-          -16px 26px 46px -18px #06121075;
       }
 
       .knop {
         position: absolute;
-        width: 6px;
-        border-radius: 3px;
+        width: 4px;
+        border-radius: 2px;
         background: linear-gradient(90deg, #8a8f8c, #eceeeb 55%, #7d827f);
-        transform: translateZ(-20px);
       }
 
       .knop.actie {
-        left: -4px;
+        left: -3px;
         top: 150px;
         height: 34px;
       }
 
       .knop.hoger {
-        left: -4px;
+        left: -3px;
         top: 205px;
         height: 62px;
       }
 
       .knop.lager {
-        left: -4px;
+        left: -3px;
         top: 280px;
         height: 62px;
       }
 
       .knop.aan {
-        right: -4px;
+        right: -3px;
         top: 230px;
         height: 96px;
       }
 
       .knop.camera {
-        right: -4px;
+        right: -3px;
         top: 520px;
         height: 54px;
       }
@@ -312,46 +294,6 @@
 
       <div class="toneel">
         <div class="telefoon" role="img" aria-label="Een iPhone met het logo van Vinn">
-          <span class="laag achter" style="--z: 40"></span>
-          <span class="laag" style="--z: 1"></span>
-          <span class="laag" style="--z: 2"></span>
-          <span class="laag" style="--z: 3"></span>
-          <span class="laag" style="--z: 4"></span>
-          <span class="laag" style="--z: 5"></span>
-          <span class="laag" style="--z: 6"></span>
-          <span class="laag" style="--z: 7"></span>
-          <span class="laag" style="--z: 8"></span>
-          <span class="laag" style="--z: 9"></span>
-          <span class="laag" style="--z: 10"></span>
-          <span class="laag" style="--z: 11"></span>
-          <span class="laag" style="--z: 12"></span>
-          <span class="laag" style="--z: 13"></span>
-          <span class="laag" style="--z: 14"></span>
-          <span class="laag" style="--z: 15"></span>
-          <span class="laag" style="--z: 16"></span>
-          <span class="laag" style="--z: 17"></span>
-          <span class="laag" style="--z: 18"></span>
-          <span class="laag" style="--z: 19"></span>
-          <span class="laag" style="--z: 20"></span>
-          <span class="laag" style="--z: 21"></span>
-          <span class="laag" style="--z: 22"></span>
-          <span class="laag" style="--z: 23"></span>
-          <span class="laag" style="--z: 24"></span>
-          <span class="laag" style="--z: 25"></span>
-          <span class="laag" style="--z: 26"></span>
-          <span class="laag" style="--z: 27"></span>
-          <span class="laag" style="--z: 28"></span>
-          <span class="laag" style="--z: 29"></span>
-          <span class="laag" style="--z: 30"></span>
-          <span class="laag" style="--z: 31"></span>
-          <span class="laag" style="--z: 32"></span>
-          <span class="laag" style="--z: 33"></span>
-          <span class="laag" style="--z: 34"></span>
-          <span class="laag" style="--z: 35"></span>
-          <span class="laag" style="--z: 36"></span>
-          <span class="laag" style="--z: 37"></span>
-          <span class="laag" style="--z: 38"></span>
-          <span class="laag" style="--z: 39"></span>
           <span class="knop actie"></span>
           <span class="knop hoger"></span>
           <span class="knop lager"></span>
