@@ -237,8 +237,17 @@
               <div class="mini" aria-hidden="true">
                 <span class="mini-kop">Gezondheidsscore</span>
                 <svg class="mini-lijn" viewBox="0 0 200 100" aria-hidden="true">
+                  <!-- Rood (onder de 40) in juni en juli, vanaf augustus geel, zoals de kleuren van de score in de app. -->
+                  <defs>
+                    <linearGradient id="scorelijn" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="0">
+                      <stop offset="0" stop-color="#FF6369" />
+                      <stop offset="0.3" stop-color="#FF6369" />
+                      <stop offset="0.42" stop-color="#F5B841" />
+                      <stop offset="1" stop-color="#F5B841" />
+                    </linearGradient>
+                  </defs>
                   <path d="M0 25H200M0 50H200M0 75H200" stroke="#ffffff14" stroke-width="1" />
-                  <path d="M6 86 L43 74 L80 69 L117 51 L154 40 L193 24" fill="none" stroke="#F5B841" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6 86 L43 74 L80 69 L117 51 L154 40 L193 24" fill="none" stroke="url(#scorelijn)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                   <circle cx="193" cy="24" r="5" fill="#F5B841" />
                 </svg>
                 <div class="mini-maanden"><span>jun</span><span>jul</span><span>aug</span><span>sep</span><span>okt</span><span>nov</span></div>
