@@ -817,15 +817,18 @@ h2 {
   font-weight: 700;
 }
 
+/* Vult de ruimte tussen kop en maanden; zonder vaste hoogte, zodat de lijn niet platgedrukt wordt. */
 .mini-lijn {
+  display: block;
   width: 100%;
-  height: 82px;
+  flex: 1;
+  min-height: 0;
 }
 
 .mini-maanden {
   display: flex;
   justify-content: space-between;
-  margin-top: -6px;
+  margin-top: -4px;
   font-size: 10.5px;
   color: #919191;
 }
