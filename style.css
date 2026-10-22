@@ -791,8 +791,10 @@ h2 {
   align-items: center;
 }
 
+/* Zoals op Home in de app: het label midden boven het rondje, in wit. */
 .mini-midden .mini-kop {
-  align-self: stretch;
+  align-self: center;
+  color: #fff;
 }
 
 .mini-ring {
