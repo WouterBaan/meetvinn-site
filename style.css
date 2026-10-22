@@ -790,6 +790,11 @@ h3 {
   z-index: 1;
 }
 
+/* De titel past hier op één regel; de gewone sectiekop is smaller. */
+.donker .sectiekop {
+  max-width: 920px;
+}
+
 /* Dezelfde twee gloeden als in de app, over de onderkant van het blok. Breedte en baan in vw,
    omdat het blok zo breed is als het scherm. */
 .gloed.band-een {
