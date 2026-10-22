@@ -851,15 +851,32 @@ h3 {
   padding-top: 24px;
 }
 
+/* Icoon en kopje op één regel; de tekst eronder over de volle breedte. */
+.beloftes > div {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 12px;
+}
+
+.beloftes > div > p {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+}
+
 .beloftes .icoon {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  margin-bottom: 16px;
-  border-radius: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
   background: #44d6a51f;
   color: var(--mint);
+}
+
+.beloftes .icoon svg {
+  width: 19px;
+  height: 19px;
 }
 
 .beloftes h3 {
