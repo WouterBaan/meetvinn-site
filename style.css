@@ -138,6 +138,12 @@ button.knop {
   transform: translateY(-1px);
 }
 
+/* Het groen van de app (theme.green), met donkere tekst zoals op de groene knoppen daar. */
+.knop.groen {
+  background: #2ecc71;
+  color: #000307;
+}
+
 .knop.licht {
   background: transparent;
   color: var(--tekst);
