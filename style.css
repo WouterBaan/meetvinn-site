@@ -704,7 +704,7 @@ h2 {
   font-weight: 700;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  color: #919191;
+  color: #fff;
 }
 
 .mini-betaling {
@@ -791,10 +791,9 @@ h2 {
   align-items: center;
 }
 
-/* Zoals op Home in de app: het label midden boven het rondje, in wit. */
+/* Zoals op Home in de app: het label midden boven het rondje. */
 .mini-midden .mini-kop {
   align-self: center;
-  color: #fff;
 }
 
 .mini-ring {
