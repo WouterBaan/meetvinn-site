@@ -262,7 +262,7 @@ h1 {
 }
 
 /* De twee groene gloeden die in de app langzaam over de onderkant bewegen (Achtergrond.tsx):
-   dezelfde plekken en banen, hier iets sneller zodat je de beweging ziet. */
+   dezelfde plekken, banen en snelheid (41 en 57 seconden). Rustig is het punt. */
 .gloed {
   position: absolute;
   border-radius: 50%;
@@ -281,7 +281,7 @@ h1 {
   height: 585px;
   left: -234px;
   top: 265px;
-  animation: gloed-een 14s ease-in-out infinite alternate;
+  animation: gloed-een 41s ease-in-out infinite alternate;
 }
 
 .gloed.twee {
@@ -290,7 +290,7 @@ h1 {
   height: 450px;
   left: 145px;
   top: 568px;
-  animation: gloed-twee 19s ease-in-out infinite alternate;
+  animation: gloed-twee 57s ease-in-out infinite alternate;
 }
 
 @keyframes gloed-een {
@@ -803,7 +803,7 @@ h3 {
   aspect-ratio: 1;
   left: -15vw;
   top: 45%;
-  animation: band-een 16s ease-in-out infinite alternate;
+  animation: band-een 41s ease-in-out infinite alternate;
 }
 
 .gloed.band-twee {
@@ -812,7 +812,7 @@ h3 {
   aspect-ratio: 1;
   left: 70vw;
   top: 55%;
-  animation: band-twee 21s ease-in-out infinite alternate;
+  animation: band-twee 57s ease-in-out infinite alternate;
 }
 
 @keyframes band-een {
