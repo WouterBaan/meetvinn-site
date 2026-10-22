@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prijs Vinn</title>
+    <meta name="description" content="Wat Vinn kost en wat je ervoor krijgt." />
+    <meta name="theme-color" content="#f6f6f2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="kop">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
+        <nav>
+          <a href="veiligheid.html">Privacy</a>
+          <a href="prijs.html" aria-current="page">Prijs</a>
+          <a href="support.html">Contact</a>
+          <a class="knop groen" href="index.html#download">Download<span class="breed"> Vinn</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="artikel">
+      <h1>Prijs</h1>
+      <p class="ondertitel">Eén abonnement, met alles erin. Je probeert Vinn eerst een week.</p>
+
+      <div class="prijskaart">
+        <div class="prijskop">
+          <img src="favicon-192.png" alt="" />
+          <div>
+            <h2>Vinn</h2>
+            <p>Voor jou, of samen met je partner</p>
+          </div>
+        </div>
+        <!-- PRIJS NOG INVULLEN: het bedrag staat nog niet vast. Niet live zetten zo. -->
+        <p class="bedrag"><b>€ …</b> per maand</p>
+        <p class="proef">De eerste 7 dagen betaal je niets.</p>
+        <ul class="wat">
+          <li>Je bank koppelen en je betalingen inlezen</li>
+          <li>Betalingen indelen in potjes en budgetten</li>
+          <li>Je financiële gezondheidsscore</li>
+          <li>Inzicht in je uitgaven, maand na maand</li>
+          <li>Sparen met potjes en spaardoelen</li>
+          <li>Samen met je partner in één huishouden</li>
+        </ul>
+        <button class="knop groen" type="button" onclick="location.href='index.html#download'">
+          Download Vinn
+        </button>
+      </div>
+
+      <h2>Betalen en opzeggen</h2>
+
+      <h3>Hoe betaal ik?</h3>
+      <p>
+        Via de App Store, met de betaalmethode van je Apple ID. Vinn ziet je betaalgegevens niet.
+      </p>
+
+      <h3>Hoe werkt de proefweek?</h3>
+      <p>
+        Je gebruikt Vinn 7 dagen helemaal, zonder te betalen. Zeg je in die week op, dan betaal je
+        niets. Anders gaat je abonnement daarna vanzelf in.
+      </p>
+
+      <h3>Hoe zeg ik op?</h3>
+      <p>
+        In de instellingen van je iPhone: tik op je naam en dan op <strong>Abonnementen</strong>.
+        Je houdt Vinn tot het einde van de periode die je al betaald hebt.
+      </p>
+    </main>
+
+    <footer class="voet">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
+        <span>© 2026 Vinn</span>
+        <nav>
+          <a href="veiligheid.html">Privacy</a>
+          <a href="privacy.html">Privacyverklaring</a>
+          <a href="prijs.html">Prijs</a>
+          <a href="support.html">Contact</a>
+          <a href="voorwaarden.html">Voorwaarden</a>
+          <a href="mailto:support@meetvinn.nl">support@meetvinn.nl</a>
+        </nav>
+        <p class="voetnoot">
+          Vinn geeft inzicht in je eigen geld, geen financieel advies. De score en de inzichten
+          zijn informatief en geen advies over leningen, sparen, beleggen of verzekeren.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const kop = document.querySelector('.kop');
+      const zet = () => kop.classList.toggle('gescrold', window.scrollY > 8);
+      addEventListener('scroll', zet, { passive: true });
+      zet();
+    </script>
+  </body>
+</html>
