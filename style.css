@@ -475,6 +475,11 @@ h2 {
   margin: 0;
 }
 
+.sectiekop p.kanttekening {
+  font-size: 15px;
+  margin-top: 16px;
+}
+
 .stappen {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -672,6 +677,14 @@ h3 {
 .voet a {
   color: var(--zacht);
   text-decoration: none;
+}
+
+.voetnoot {
+  flex-basis: 100%;
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  max-width: 46em;
 }
 
 .voet a:hover {
