@@ -656,7 +656,7 @@ h2 {
   margin-top: 16px;
 }
 
-/* Elke stap is vier rijen (nummer, kopje, tekst, kaartje) die over de stappen heen
+/* Elke stap is drie rijen (kopje met nummer, tekst, kaartje) die over de stappen heen
    gelijk lopen, zodat de kaartjes op dezelfde hoogte staan, ook bij ongelijke teksten. */
 .stappen {
   display: grid;
@@ -668,7 +668,7 @@ h2 {
 
 .stap {
   display: grid;
-  grid-row: span 4;
+  grid-row: span 3;
   grid-template-rows: subgrid;
   align-content: start;
   row-gap: 0;
@@ -842,13 +842,9 @@ h2 {
   color: #919191;
 }
 
-/* Het nummer midden boven elke stap, boven het kaartje. */
+/* Het nummer voor het kopje van de stap. */
 .stap .nr {
-  display: block;
-  margin-bottom: 14px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 700;
+  margin-right: 10px;
   color: var(--groen);
   font-variant-numeric: tabular-nums;
 }
