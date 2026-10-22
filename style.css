@@ -188,8 +188,8 @@ h1 {
   height: 0.2em;
   margin-left: 0.07em;
   border-radius: 50%;
-  background: linear-gradient(180deg, #3ee37f, #1fb85c);
-  box-shadow: 0 0 0.18em #1fb85c55;
+  background: linear-gradient(180deg, #24d865, #14a849);
+  box-shadow: 0 0 0.18em #14a84955;
 }
 
 .inleiding {
