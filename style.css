@@ -154,6 +154,9 @@ button.knop {
   padding: 9px 16px;
   font-size: 14.5px;
   white-space: nowrap;
+  /* "Vinn" is een los stuk (het valt weg op de telefoon) met zijn eigen spatie ervoor; de
+     ruimte tussen de stukken van een knop zou daar nog bovenop komen. */
+  gap: 0;
 }
 
 /* ---------- Opening ---------- */
