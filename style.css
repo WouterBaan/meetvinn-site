@@ -10,6 +10,8 @@
   --groen: #13744a;
   --groen-licht: #2ecc71;
   --mint: #44d6a5;
+  --rood: #ff6369;
+  --amber: #f5b841;
   --breed: 1160px;
   --smal: 780px;
   color-scheme: light;
@@ -516,7 +518,7 @@ h3 {
   margin: 0;
 }
 
-/* Score: tekst links, pijlers rechts */
+/* Score: tekst links, schaal rechts */
 
 .score {
   background: var(--vlak);
@@ -535,31 +537,79 @@ h3 {
   margin-bottom: 0;
 }
 
-.pijlers {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.schaal {
+  background: var(--bg);
+  border: 1px solid var(--rand);
+  border-radius: 24px;
+  padding: 36px;
 }
 
-.pijlers li {
-  display: grid;
+.schaal-getal {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.schaal-getal b {
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.schaal-getal span {
+  font-size: 20px;
+  font-weight: 650;
+  color: #b07a12;
+}
+
+.schaal-balk {
+  position: relative;
+  display: flex;
   gap: 4px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--rand);
+  height: 12px;
 }
 
-.pijlers li:first-child {
-  border-top: 1px solid var(--rand);
+.schaal-balk i {
+  display: block;
+  height: 100%;
+  border-radius: 6px;
 }
 
-.pijlers strong {
-  font-size: 18px;
-  letter-spacing: -0.2px;
+.wijzer {
+  position: absolute;
+  top: -6px;
+  width: 4px;
+  height: 24px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: var(--tekst);
+  box-shadow: 0 0 0 3px var(--bg);
 }
 
-.pijlers span {
+.schaal-banden {
+  display: flex;
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--zacht);
-  font-size: 15.5px;
+}
+
+.schaal-banden li {
+  padding-right: 6px;
+  white-space: nowrap;
+}
+
+.schaal-randen {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
 }
 
 /* Samen of alleen */
@@ -852,6 +902,18 @@ th {
 
   .zij {
     padding: 28px 24px;
+  }
+
+  .schaal {
+    padding: 28px 20px;
+  }
+
+  .schaal-banden {
+    font-size: 11.5px;
+  }
+
+  .schaal-getal b {
+    font-size: 60px;
   }
 
   .telefoon {
