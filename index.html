@@ -47,6 +47,8 @@
             <!-- Het startscherm van Vinn, nagemaakt met een verzonnen account. -->
             <div class="telefoon" role="img" aria-label="Het startscherm van Vinn, met voorbeeldbedragen">
               <div class="scherm" aria-hidden="true">
+                <span class="gloed een"></span>
+                <span class="gloed twee"></span>
                 <div class="eiland"></div>
                 <div class="statusbalk">
                   <span>9:41</span>
@@ -212,21 +214,15 @@
               advies.
             </p>
           </div>
-          <div class="schaal" role="img" aria-label="Een score van 74 op een schaal van 0 tot 100: gezond">
-            <div class="schaal-getal"><b>74</b><span>Gezond</span></div>
-            <div class="schaal-balk">
-              <i style="width: 40%; background: var(--rood)"></i>
-              <i style="width: 40%; background: var(--amber)"></i>
-              <i style="width: 20%; background: var(--groen-licht)"></i>
-              <span class="wijzer" style="left: 74%"></span>
+          <div class="schaal" role="img" aria-label="Een score van 74 van de 100: gezond">
+            <div class="scorering">
+              <svg viewBox="0 0 240 240" aria-hidden="true">
+                <circle class="spoor" cx="120" cy="120" r="105" />
+                <circle class="boog" cx="120" cy="120" r="105" transform="rotate(-90 120 120)" />
+              </svg>
+              <span class="ringgetal"><b>74</b>%</span>
             </div>
-            <ol class="schaal-banden">
-              <li style="width: 40%">Risico</li>
-              <li style="width: 20%">Kan beter</li>
-              <li style="width: 20%">Gezond</li>
-              <li style="width: 20%">Uitstekend</li>
-            </ol>
-            <div class="schaal-randen"><span>0</span><span>100</span></div>
+            <span class="ringlabel">Gezond</span>
           </div>
         </div>
       </section>
@@ -322,6 +318,35 @@
     </footer>
 
     <script>
+      // De scorering draait van 0 naar 74% zodra hij in beeld komt. Zonder script, of met
+      // "beweging verminderen", staat hij meteen op 74%.
+      const schaal = document.querySelector('.schaal');
+      const getal = schaal && schaal.querySelector('.ringgetal b');
+      const rustig = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (schaal && getal && 'IntersectionObserver' in window && !rustig) {
+        const doel = 74;
+        const duur = 1600;
+        schaal.classList.add('wacht');
+        getal.textContent = '0';
+        const kijker = new IntersectionObserver(
+          (items) => {
+            if (!items.some((item) => item.isIntersecting)) return;
+            kijker.disconnect();
+            requestAnimationFrame(() => schaal.classList.remove('wacht'));
+            const start = performance.now();
+            const stap = (nu) => {
+              const t = Math.min(1, (nu - start) / duur);
+              const zacht = 1 - Math.pow(1 - t, 3);
+              getal.textContent = String(Math.round(doel * zacht));
+              if (t < 1) requestAnimationFrame(stap);
+            };
+            requestAnimationFrame(stap);
+          },
+          { threshold: 0.5 },
+        );
+        kijker.observe(schaal);
+      }
+
       const kop = document.querySelector('.kop');
       const zet = () => kop.classList.toggle('gescrold', window.scrollY > 8);
       addEventListener('scroll', zet, { passive: true });

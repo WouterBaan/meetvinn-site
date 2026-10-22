@@ -223,16 +223,70 @@ h1 {
   border-radius: 52px;
   overflow: hidden;
   color: #fff;
-  background:
-    radial-gradient(120% 60% at 100% 0%, #1b5b5070, transparent 60%),
-    radial-gradient(90% 50% at 0% 100%, #1b5b5033, transparent 70%),
-    #000307;
+  background: #000307;
   font-size: 15px;
   line-height: 1.35;
 }
 
+/* De twee groene gloeden die in de app langzaam over de onderkant bewegen (Achtergrond.tsx):
+   dezelfde plekken en banen, hier iets sneller zodat je de beweging ziet. */
+.gloed {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgb(27 91 80 / var(--d)),
+    rgb(27 91 80 / calc(var(--d) * 0.45)) 45%,
+    rgb(27 91 80 / 0)
+  );
+  will-change: transform;
+}
+
+.gloed.een {
+  --d: 0.8;
+  width: 585px;
+  height: 585px;
+  left: -234px;
+  top: 265px;
+  animation: gloed-een 14s ease-in-out infinite alternate;
+}
+
+.gloed.twee {
+  --d: 0.6;
+  width: 450px;
+  height: 450px;
+  left: 145px;
+  top: 568px;
+  animation: gloed-twee 19s ease-in-out infinite alternate;
+}
+
+@keyframes gloed-een {
+  to {
+    transform: translate(293px, 152px);
+  }
+}
+
+@keyframes gloed-twee {
+  to {
+    transform: translate(-332px, -186px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gloed {
+    animation: none;
+  }
+}
+
+.statusbalk,
+.app {
+  position: relative;
+  z-index: 1;
+}
+
 .eiland {
   position: absolute;
+  z-index: 3;
   top: 11px;
   left: 50%;
   width: 124px;
@@ -424,6 +478,7 @@ h1 {
 
 .tabbalk {
   position: absolute;
+  z-index: 2;
   left: 14px;
   right: 14px;
   bottom: 26px;
@@ -518,7 +573,7 @@ h3 {
   margin: 0;
 }
 
-/* Score: tekst links, schaal rechts */
+/* Score: tekst links, de scorering rechts */
 
 .score {
   background: var(--vlak);
@@ -538,78 +593,69 @@ h3 {
 }
 
 .schaal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
   background: var(--bg);
   border: 1px solid var(--rand);
   border-radius: 24px;
-  padding: 36px;
+  padding: 40px 24px;
 }
 
-.schaal-getal {
+.scorering {
+  position: relative;
+  width: min(240px, 100%);
+  aspect-ratio: 1;
+}
+
+.scorering svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scorering circle {
+  fill: none;
+  stroke-width: 18;
+}
+
+.spoor {
+  stroke: #0c161314;
+}
+
+/* Omtrek 2 × π × 105 = 659,73; 74% gevuld laat 26% open: 171,53. */
+.boog {
+  stroke: var(--amber);
+  stroke-linecap: round;
+  stroke-dasharray: 659.73;
+  stroke-dashoffset: 171.53;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+
+.schaal.wacht .boog {
+  stroke-dashoffset: 659.73;
+}
+
+.ringgetal {
+  position: absolute;
+  inset: 0;
   display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 28px;
-}
-
-.schaal-getal b {
-  font-size: 72px;
-  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  font-weight: 760;
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
 }
 
-.schaal-getal span {
-  font-size: 20px;
-  font-weight: 650;
-  color: #b07a12;
-}
-
-.schaal-balk {
-  position: relative;
-  display: flex;
-  gap: 4px;
-  height: 12px;
-}
-
-.schaal-balk i {
-  display: block;
-  height: 100%;
-  border-radius: 6px;
-}
-
-.wijzer {
-  position: absolute;
-  top: -6px;
-  width: 4px;
-  height: 24px;
-  margin-left: -2px;
-  border-radius: 2px;
-  background: var(--tekst);
-  box-shadow: 0 0 0 3px var(--bg);
-}
-
-.schaal-banden {
-  display: flex;
-  list-style: none;
-  margin: 14px 0 0;
-  padding: 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--zacht);
-}
-
-.schaal-banden li {
-  padding-right: 6px;
-  white-space: nowrap;
-}
-
-.schaal-randen {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 6px;
-  font-size: 13px;
-  color: var(--zacht);
-  font-variant-numeric: tabular-nums;
+.ringlabel {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #f5b8412e;
+  color: #8a5d00;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 /* Samen of alleen */
@@ -905,15 +951,7 @@ th {
   }
 
   .schaal {
-    padding: 28px 20px;
-  }
-
-  .schaal-banden {
-    font-size: 11.5px;
-  }
-
-  .schaal-getal b {
-    font-size: 60px;
+    padding: 32px 20px;
   }
 
   .telefoon {
