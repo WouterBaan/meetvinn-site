@@ -153,6 +153,7 @@ button.knop {
 .kop .knop {
   padding: 9px 16px;
   font-size: 14.5px;
+  white-space: nowrap;
 }
 
 /* ---------- Opening ---------- */
@@ -1067,8 +1068,13 @@ th {
   }
 
   .kop nav {
-    gap: 16px;
+    gap: 14px;
     font-size: 14.5px;
+  }
+
+  /* In de smalle menubalk alleen "Download". */
+  .kop .breed {
+    display: none;
   }
 
 
