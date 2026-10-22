@@ -5,30 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vinn support</title>
     <meta name="description" content="Hulp bij Vinn en contact." />
-    <link rel="icon" href="favicon.png" />
+    <meta name="theme-color" content="#f6f6f2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" href="icon.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <header>
-        <img src="icon.png" alt="" />
-        <a href="/">Vinn</a>
+    <header class="kop">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
         <nav>
+          <a href="index.html#hoe">Hoe het werkt</a>
           <a href="privacy.html">Privacy</a>
-          <a href="support.html">Support</a>
+          <a href="support.html" aria-current="page">Support</a>
         </nav>
-      </header>
+        <a class="knop" href="mailto:support@meetvinn.nl?subject=Meedoen%20aan%20de%20test"
+          >Meedoen</a
+        >
+      </div>
+    </header>
 
+    <main class="artikel">
       <h1>Support</h1>
       <p class="ondertitel">
         Mail naar <a href="mailto:support@meetvinn.nl">support@meetvinn.nl</a>.
       </p>
 
+      <div class="kader">
       <p>
         Zet er geen bedragen, rekeningnummers of wachtwoorden in de mail bij: die hebben we niet
         nodig. Je gegevens staan versleuteld met een sleutel die alleen jij hebt, dus we kunnen
         ze ook niet voor je opzoeken.
       </p>
+      </div>
 
       <h2>Veelgestelde vragen</h2>
 
@@ -62,10 +72,25 @@
         In de testfase staat er aan de rechterrand van elk scherm een knopje om iets te melden.
         Bedragen en winkelnamen worden in een schermafbeelding automatisch afgeschermd.
       </p>
-
-      <footer>
-        © 2026 Vinn · <a href="/">Home</a> · <a href="privacy.html">Privacy</a>
-      </footer>
     </main>
+
+    <footer class="voet">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
+        <span>© 2026 Vinn</span>
+        <nav>
+          <a href="privacy.html">Privacy</a>
+          <a href="support.html">Support</a>
+          <a href="mailto:support@meetvinn.nl">support@meetvinn.nl</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const kop = document.querySelector('.kop');
+      const zet = () => kop.classList.toggle('gescrold', window.scrollY > 8);
+      addEventListener('scroll', zet, { passive: true });
+      zet();
+    </script>
   </body>
 </html>

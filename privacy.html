@@ -5,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Privacyverklaring Vinn</title>
     <meta name="description" content="Welke gegevens Vinn gebruikt, waarvoor, en wat Vinn niet kan lezen." />
-    <link rel="icon" href="favicon.png" />
+    <meta name="theme-color" content="#f6f6f2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" href="icon.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <header>
-        <img src="icon.png" alt="" />
-        <a href="/">Vinn</a>
+    <header class="kop">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
         <nav>
-          <a href="privacy.html">Privacy</a>
+          <a href="index.html#hoe">Hoe het werkt</a>
+          <a href="privacy.html" aria-current="page">Privacy</a>
           <a href="support.html">Support</a>
         </nav>
-      </header>
+        <a class="knop" href="mailto:support@meetvinn.nl?subject=Meedoen%20aan%20de%20test"
+          >Meedoen</a
+        >
+      </div>
+    </header>
 
+    <main class="artikel">
       <h1>Privacyverklaring</h1>
       <p class="datum">Versie van 19 oktober 2026</p>
 
@@ -461,8 +469,25 @@
         zetten we de datum bovenaan bij. Gaat het om iets wezenlijks, zoals een nieuwe dienst die
         gegevens ziet, dan laten we het je in de app weten voordat het ingaat.
       </p>
-
-      <footer>© 2026 Vinn · <a href="/">Home</a> · <a href="support.html">Support</a></footer>
     </main>
+
+    <footer class="voet">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
+        <span>© 2026 Vinn</span>
+        <nav>
+          <a href="privacy.html">Privacy</a>
+          <a href="support.html">Support</a>
+          <a href="mailto:support@meetvinn.nl">support@meetvinn.nl</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const kop = document.querySelector('.kop');
+      const zet = () => kop.classList.toggle('gescrold', window.scrollY > 8);
+      addEventListener('scroll', zet, { passive: true });
+      zet();
+    </script>
   </body>
 </html>
