@@ -484,17 +484,17 @@ h2 {
 
 .stappen {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   border-top: 1px solid var(--rand);
 }
 
 .stap {
-  padding: 32px 32px 8px 0;
+  padding: 32px 28px 8px 0;
 }
 
 .stap + .stap {
-  padding-left: 32px;
+  padding-left: 28px;
   border-left: 1px solid var(--rand);
 }
 
