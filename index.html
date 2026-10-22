@@ -14,46 +14,244 @@
       :root {
         --bg: #f6f6f2;
         --tekst: #0c1613;
-        --zacht: #535e5a;
         color-scheme: light;
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
       html,
       body {
-        height: 100%;
+        min-height: 100%;
         margin: 0;
       }
+
       body {
-        display: grid;
-        place-items: center;
         background:
-          radial-gradient(60% 50% at 50% 42%, #44d6a526, transparent 70%),
+          radial-gradient(50% 45% at 72% 50%, #44d6a522, transparent 70%),
           var(--bg);
         color: var(--tekst);
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
           sans-serif;
         -webkit-font-smoothing: antialiased;
-        text-align: center;
-        padding: 24px 16px;
-        box-sizing: border-box;
+        overflow-x: hidden;
       }
-      img {
-        width: 96px;
-        height: 96px;
+
+      main {
+        min-height: 100vh;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 48px 24px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 48px;
+      }
+
+      .merk {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 24px;
+        font-weight: 750;
+        letter-spacing: -0.4px;
+      }
+
+      .merk img {
+        width: 44px;
+        height: 44px;
         border-radius: 22.5%;
-        box-shadow: 0 18px 40px -16px #06121059;
       }
+
       h1 {
-        font-size: clamp(36px, 7vw, 60px);
-        letter-spacing: -0.035em;
-        line-height: 1.05;
+        font-size: clamp(44px, 6.4vw, 80px);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        font-weight: 780;
         margin: 28px 0 0;
+        text-wrap: balance;
+      }
+
+      .toneel {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Een iPhone met het openingsscherm van Vinn: het logo op de donkere achtergrond, met
+         de groene gloeden die in de app langzaam bewegen (Achtergrond.tsx), hier iets sneller. */
+      .telefoon {
+        zoom: 0.78;
+        width: 410px;
+        padding: 10px;
+        border-radius: 62px;
+        background: #1a1d1c;
+        box-shadow:
+          0 0 0 2px #3a3f3d,
+          0 40px 80px -20px #06121055,
+          0 18px 36px -18px #06121066;
+      }
+
+      .scherm {
+        position: relative;
+        height: 844px;
+        border-radius: 52px;
+        overflow: hidden;
+        background: #000307;
+        color: #fff;
+      }
+
+      .gloed {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          closest-side,
+          rgb(27 91 80 / var(--d)),
+          rgb(27 91 80 / calc(var(--d) * 0.45)) 45%,
+          rgb(27 91 80 / 0)
+        );
+        will-change: transform;
+      }
+
+      .gloed.een {
+        --d: 0.8;
+        width: 585px;
+        height: 585px;
+        left: -234px;
+        top: 265px;
+        animation: een 14s ease-in-out infinite alternate;
+      }
+
+      .gloed.twee {
+        --d: 0.6;
+        width: 450px;
+        height: 450px;
+        left: 145px;
+        top: 568px;
+        animation: twee 19s ease-in-out infinite alternate;
+      }
+
+      .gloed.drie {
+        --d: 0.6;
+        width: 520px;
+        height: 520px;
+        left: 70px;
+        top: -170px;
+        animation: drie 23s ease-in-out infinite alternate;
+      }
+
+      @keyframes een {
+        to {
+          transform: translate(293px, 152px);
+        }
+      }
+
+      @keyframes twee {
+        to {
+          transform: translate(-332px, -186px);
+        }
+      }
+
+      @keyframes drie {
+        to {
+          transform: translate(-250px, 120px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .gloed {
+          animation: none;
+        }
+      }
+
+      .eiland {
+        position: absolute;
+        top: 11px;
+        left: 50%;
+        width: 124px;
+        height: 36px;
+        margin-left: -62px;
+        border-radius: 20px;
+        background: #000;
+        z-index: 2;
+      }
+
+      .statusbalk {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 54px;
+        padding: 6px 34px 0 46px;
+        font-weight: 650;
+        font-size: 16px;
+      }
+
+      .statusbalk svg {
+        height: 13px;
+        margin-left: 6px;
+      }
+
+      .logo {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        z-index: 1;
+      }
+
+      .logo img {
+        width: 132px;
+        height: 132px;
+        border-radius: 22.5%;
+        box-shadow: 0 24px 60px -20px #000;
+      }
+
+      @media (max-width: 860px) {
+        main {
+          grid-template-columns: minmax(0, 1fr);
+          text-align: center;
+          gap: 40px;
+          padding: 40px 16px 56px;
+        }
+
+        .merk {
+          justify-content: center;
+        }
+
+        .telefoon {
+          zoom: 0.62;
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <img src="favicon-192.png" alt="Vinn" />
-      <h1>Vind je balans met Vinn</h1>
+      <div>
+        <div class="merk"><img src="favicon-192.png" alt="" />Vinn</div>
+        <h1>Vind je balans met Vinn</h1>
+      </div>
+
+      <div class="toneel">
+        <div class="telefoon" role="img" aria-label="Een iPhone met het logo van Vinn">
+          <div class="scherm" aria-hidden="true">
+            <span class="gloed een"></span>
+            <span class="gloed twee"></span>
+            <span class="gloed drie"></span>
+            <div class="eiland"></div>
+            <div class="statusbalk">
+              <span>9:41</span>
+              <span>
+                <svg viewBox="0 0 18 12"><g fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></g></svg>
+                <svg viewBox="0 0 16 12"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .7 10.4 10.4 0 0 0 .8 3.6L2 4.9a8.6 8.6 0 0 1 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.7 6.7 0 0 0 8 4.3a6.7 6.7 0 0 0-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5c-.6 0-1.2.2-1.6.6L8 11.8l1.6-1.6c-.4-.4-1-.6-1.6-.6Z" fill="#fff"/></svg>
+                <svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="23" height="11" rx="3" fill="none" stroke="#ffffff73"/><rect x="2" y="2" width="17" height="8" rx="1.6" fill="#fff"/><path d="M25 4v4c.8-.3 1.3-1.1 1.3-2S25.8 4.3 25 4Z" fill="#ffffff73"/></svg>
+              </span>
+            </div>
+            <div class="logo"><img src="icon.png" alt="" /></div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
