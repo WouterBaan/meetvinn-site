@@ -794,31 +794,31 @@ h3 {
    omdat het blok zo breed is als het scherm. */
 .gloed.band-een {
   --d: 0.75;
-  width: min(1100px, 95vw);
+  width: min(620px, 60vw);
   aspect-ratio: 1;
-  left: -35vw;
-  top: 30%;
+  left: -15vw;
+  top: 45%;
   animation: band-een 16s ease-in-out infinite alternate;
 }
 
 .gloed.band-twee {
   --d: 0.55;
-  width: min(900px, 80vw);
+  width: min(500px, 50vw);
   aspect-ratio: 1;
-  left: 60vw;
-  top: 45%;
+  left: 70vw;
+  top: 55%;
   animation: band-twee 21s ease-in-out infinite alternate;
 }
 
 @keyframes band-een {
   to {
-    transform: translate(70vw, 80px);
+    transform: translate(75vw, 40px);
   }
 }
 
 @keyframes band-twee {
   to {
-    transform: translate(-75vw, -60px);
+    transform: translate(-70vw, -50px);
   }
 }
 
