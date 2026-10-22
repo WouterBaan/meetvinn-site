@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veiligheid Vinn</title>
+    <meta name="description" content="Hoe Vinn je geld en je gegevens beschermt." />
+    <meta name="theme-color" content="#f6f6f2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="kop">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
+        <nav>
+          <a href="veiligheid.html" aria-current="page">Veiligheid</a>
+          <a href="support.html">Contact</a>
+          <a class="knop groen" href="index.html#download">Download Vinn</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="artikel">
+      <h1>Veiligheid</h1>
+      <p class="ondertitel">
+        Je geldzaken zijn persoonlijk. Daarom is Vinn zo gebouwd dat je gegevens van jou blijven.
+      </p>
+
+      <div class="blokken">
+        <section class="blok">
+          <h2>Alleen jij hebt de sleutel</h2>
+          <p>
+            Je bedragen, betalingen, budgetten en potjes worden versleuteld met een sleutel die
+            alleen jij en je huisgenoot hebben. Wij bewaren ze alleen versleuteld. Vinn kan jouw
+            persoonlijke financiële gegevens niet inzien.
+          </p>
+        </section>
+
+        <section class="blok">
+          <h2>Je bank, met jouw toestemming</h2>
+          <p>
+            Je koppelt je bank via Enable Banking, een partij met een Europese vergunning voor het
+            veilig ophalen van bankgegevens. Je logt in bij je eigen bank; je inloggegevens zien wij
+            nooit.
+          </p>
+        </section>
+
+        <section class="blok">
+          <h2>Alleen meelezen</h2>
+          <p>
+            Vinn vraagt je bank alleen om je rekeningen en betalingen te lezen. Geld overmaken of
+            verplaatsen kan niet. Je toestemming geldt 180 dagen en je kunt hem altijd intrekken.
+          </p>
+        </section>
+
+        <section class="blok">
+          <h2>Goed beveiligd inloggen</h2>
+          <p>
+            Een wachtwoord dat al eens is uitgelekt, accepteert Vinn niet. Je kunt
+            tweestapsverificatie aanzetten, en doe je een paar minuten niets, dan log je
+            automatisch uit.
+          </p>
+        </section>
+
+        <section class="blok">
+          <h2>Samen, en toch privé</h2>
+          <p>
+            Doe je mee met je partner, dan zien jullie samen wat gezamenlijk is. Je eigen rekeningen
+            en potjes blijven van jou.
+          </p>
+        </section>
+
+        <section class="blok">
+          <h2>Weg is weg</h2>
+          <p>
+            Verwijder je je account, dan verdwijnen je gegevens en trekken we je toestemming bij de
+            bank in. Je gegevens staan in Europa.
+          </p>
+        </section>
+      </div>
+
+      <p class="verder">
+        Precies lezen welke gegevens Vinn gebruikt en waarom? Dat staat in de
+        <a href="privacy.html">privacyverklaring</a>.
+      </p>
+    </main>
+
+    <footer class="voet">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
+        <span>© 2026 Vinn</span>
+        <nav>
+          <a href="veiligheid.html">Veiligheid</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="support.html">Contact</a>
+          <a href="voorwaarden.html">Voorwaarden</a>
+          <a href="mailto:support@meetvinn.nl">support@meetvinn.nl</a>
+        </nav>
+        <p class="voetnoot">
+          Vinn geeft inzicht in je eigen geld, geen financieel advies. De score en de inzichten
+          zijn informatief en geen advies over leningen, sparen, beleggen of verzekeren.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const kop = document.querySelector('.kop');
+      const zet = () => kop.classList.toggle('gescrold', window.scrollY > 8);
+      addEventListener('scroll', zet, { passive: true });
+      zet();
+    </script>
+  </body>
+</html>

@@ -930,6 +930,42 @@ h3 {
   margin: 0 0 32px;
 }
 
+/* Veiligheid: zes korte blokken in twee kolommen. */
+.blokken {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 8px 0 32px;
+}
+
+.blok {
+  background: var(--vlak);
+  border: 1px solid var(--rand);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.artikel .blok h2 {
+  font-size: 19px;
+  letter-spacing: -0.3px;
+  margin: 0 0 8px;
+}
+
+.blok p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.verder {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .blokken {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .kader {
   background: var(--vlak);
   border: 1px solid var(--rand);
