@@ -664,11 +664,11 @@ h2 {
 }
 
 .stap {
-  padding: 32px 28px 8px 0;
+  padding: 32px 20px 8px 0;
 }
 
 .stap + .stap {
-  padding-left: 28px;
+  padding-left: 20px;
   border-left: 1px solid var(--rand);
 }
 
@@ -679,7 +679,7 @@ h2 {
   gap: 10px;
   min-height: 200px;
   margin-bottom: 24px;
-  padding: 14px;
+  padding: 14px 12px;
   border-radius: 22px;
   background:
     radial-gradient(90% 70% at 20% 120%, #1b5b5066, transparent 70%),
@@ -701,16 +701,16 @@ h2 {
 .mini-betaling {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 9px 10px;
+  gap: 8px;
+  padding: 8px;
   border-radius: 14px;
   background: #1c1c1c;
   border: 0.5px solid #353535;
 }
 
 .mini-ico {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -761,13 +761,13 @@ h2 {
 }
 
 .mini-status {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #2ecc71;
-  white-space: nowrap;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2ecc7124;
 }
 
 .mini-midden {
