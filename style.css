@@ -987,6 +987,10 @@ h3 {
   margin-top: 28px;
 }
 
+.stapkaart .mini-naam {
+  white-space: normal;
+}
+
 .punten {
   flex: none;
   padding: 4px 10px;
