@@ -841,8 +841,8 @@ h3 {
 
 .beloftes {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 56px;
   margin-top: 64px;
 }
 
@@ -856,12 +856,14 @@ h3 {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
+  align-content: start;
   column-gap: 12px;
 }
 
 .beloftes > div > p {
   grid-column: 1 / -1;
   margin-top: 12px;
+  max-width: 34em;
 }
 
 .beloftes .icoon {
