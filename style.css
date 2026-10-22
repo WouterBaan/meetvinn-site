@@ -167,6 +167,17 @@ h1 {
   margin: 0 0 24px;
 }
 
+/* De groene stip uit het logo, als punt achter de kop. Kleuren gemeten in icon.png. */
+.stip {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.2em;
+  margin-left: 0.07em;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #6cf3c6, #45dbaf);
+  box-shadow: 0 0 0.18em #45dbaf66;
+}
+
 .inleiding {
   font-size: 20px;
   line-height: 1.55;
