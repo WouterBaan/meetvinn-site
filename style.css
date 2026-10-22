@@ -851,6 +851,17 @@ h3 {
   padding-top: 24px;
 }
 
+.beloftes .icoon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: #44d6a51f;
+  color: var(--mint);
+}
+
 .beloftes h3 {
   color: #fff;
   margin-top: 0;
