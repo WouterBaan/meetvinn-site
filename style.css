@@ -90,7 +90,8 @@ a {
 
 .kop nav {
   display: flex;
-  gap: 26px;
+  align-items: center;
+  gap: 22px;
   margin-left: auto;
   font-size: 15px;
 }
@@ -1028,10 +1029,6 @@ th {
     font-size: 14.5px;
   }
 
-  .kop .knop,
-  .kop nav a[href$='#hoe'] {
-    display: none;
-  }
 
   .artikel {
     padding: 36px 16px 72px;
