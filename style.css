@@ -779,8 +779,47 @@ h3 {
 /* Privacy: donkere band */
 
 .donker {
+  position: relative;
+  overflow: hidden;
   background: var(--inkt);
   color: #fff;
+}
+
+.donker .binnen {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dezelfde twee gloeden als in de app, over de onderkant van het blok. Breedte en baan in vw,
+   omdat het blok zo breed is als het scherm. */
+.gloed.band-een {
+  --d: 0.75;
+  width: min(1100px, 95vw);
+  aspect-ratio: 1;
+  left: -35vw;
+  top: 30%;
+  animation: band-een 16s ease-in-out infinite alternate;
+}
+
+.gloed.band-twee {
+  --d: 0.55;
+  width: min(900px, 80vw);
+  aspect-ratio: 1;
+  left: 60vw;
+  top: 45%;
+  animation: band-twee 21s ease-in-out infinite alternate;
+}
+
+@keyframes band-een {
+  to {
+    transform: translate(70vw, 80px);
+  }
+}
+
+@keyframes band-twee {
+  to {
+    transform: translate(-75vw, -60px);
+  }
 }
 
 .donker .label {
