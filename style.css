@@ -739,19 +739,27 @@ h2 {
   font-variant-numeric: tabular-nums;
 }
 
+/* Twee per rij, even breed en even hoog, zoals de potjes bij het beoordelen in de app. */
 .mini-potjes {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 5px;
 }
 
 .mini-potjes span {
-  padding: 4px 9px;
+  display: grid;
+  place-items: center;
+  height: 28px;
+  padding: 0 4px;
   border-radius: 999px;
   background: #1c1c1c;
   border: 0.5px solid #353535;
-  font-size: 11.5px;
-  font-weight: 600;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .mini-potjes .gekozen {
