@@ -948,6 +948,55 @@ h3 {
   font-variant-numeric: tabular-nums;
 }
 
+/* De vier niveaus van de score, zoals de app ze noemt en kleurt. */
+.banden {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tekst);
+}
+
+.banden li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.banden i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.banden span {
+  color: var(--zacht);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Het kaartje met een volgende stap, onder de tekst van de score. */
+.mini.stapkaart {
+  height: auto;
+  max-width: 400px;
+  margin-top: 28px;
+}
+
+.punten {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #2ecc71;
+  color: #000307;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .ringlabel {
   padding: 6px 14px;
   border-radius: 999px;
