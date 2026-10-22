@@ -656,6 +656,15 @@ h2 {
   margin-top: 16px;
 }
 
+/* Direct onder de opening: minder lucht tussen de intro en dit blok. */
+section#hoe {
+  padding-top: 8px;
+}
+
+#hoe .sectiekop {
+  margin-bottom: 36px;
+}
+
 /* Elke stap is drie rijen (kopje met nummer, tekst, kaartje) die over de stappen heen
    gelijk lopen, zodat de kaartjes op dezelfde hoogte staan, ook bij ongelijke teksten. */
 .stappen {
