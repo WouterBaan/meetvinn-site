@@ -1703,8 +1703,8 @@ th {
   }
 }
 
-/* Op 320 pixels past het niet meer: dan alleen het logo als weg naar huis. */
-@media (max-width: 340px) {
+/* Op de smalste telefoons past Home er niet meer bij: dan is het logo de weg naar huis. */
+@media (max-width: 380px) {
   .kop nav a[href='index.html'] {
     display: none;
   }
