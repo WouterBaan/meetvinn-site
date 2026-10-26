@@ -1261,14 +1261,60 @@ section.donker {
   margin: 0 0 32px;
 }
 
-/* Prijs: één kaart met het abonnement. */
+/* Prijs: twee kaarten naast elkaar, en wat bij allebei zit eronder. */
+.prijzen {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 8px 0 16px;
+}
+
 .prijskaart {
   background: var(--vlak);
   border: 1px solid var(--rand);
   border-radius: 24px;
-  padding: 32px;
-  margin: 8px 0 48px;
-  max-width: 460px;
+  padding: 28px;
+}
+
+.artikel .jaar {
+  margin: 0 0 20px;
+  color: var(--zacht);
+  font-size: 15px;
+}
+
+.jaar strong {
+  color: var(--tekst);
+}
+
+.prijskaart .wat {
+  margin: 0;
+}
+
+.beide {
+  background: var(--vlak);
+  border: 1px solid var(--rand);
+  border-radius: 24px;
+  padding: 28px;
+  margin: 0 0 48px;
+}
+
+.artikel .beide h2 {
+  font-size: 19px;
+  margin: 0 0 4px;
+}
+
+.beide .wat {
+  border-top: 0;
+  padding-top: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .prijzen,
+  .beide .wat {
+    grid-template-columns: 1fr;
+  }
 }
 
 .prijskop {
