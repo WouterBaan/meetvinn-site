@@ -2167,3 +2167,42 @@ section.slot.donker {
     gap: 12px;
   }
 }
+
+/* Privacy: vier thema's, elk met een kopje en twee blokken met een icoon. */
+.thema {
+  margin: 0 0 40px;
+}
+
+.artikel .thema h2 {
+  font-size: 22px;
+  letter-spacing: -0.3px;
+  margin: 0 0 14px;
+}
+
+.thema .blokken {
+  margin: 0;
+}
+
+.blokkop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.blokkop h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.blok .icoon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: #2ecc711f;
+  color: var(--groen);
+}
