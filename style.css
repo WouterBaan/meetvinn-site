@@ -1232,8 +1232,8 @@ section.donker {
 /* Vier kolommen: Vinn met de slogan, en drie rijtjes links. */
 .voet-raster {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) repeat(3, auto);
+  gap: 32px 72px;
 }
 
 .voet .merk {
