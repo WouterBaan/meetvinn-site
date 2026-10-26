@@ -1635,3 +1635,20 @@ th {
     display: none;
   }
 }
+
+/* Het bolletje aan het eind van de lijn bij stap 5 knippert rustig: dit is waar je nu staat. */
+.mini-lijn .knipper {
+  animation: knipper 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes knipper {
+  to {
+    opacity: 0.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-lijn .knipper {
+    animation: none;
+  }
+}
