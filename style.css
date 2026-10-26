@@ -1244,7 +1244,8 @@ section.donker {
 
 .voet nav {
   display: flex;
-  gap: 22px;
+  flex-wrap: wrap;
+  gap: 10px 22px;
   margin-left: auto;
 }
 
@@ -1773,4 +1774,78 @@ section.score {
    donkergroen; het mint van Privacy was op wit te fel. */
 .score h2 {
   margin-bottom: 24px;
+}
+
+/* Samen: twee tekstkaarten en een nagemaakt stukje van de app ernaast. */
+.samen-raster {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.mini.samenkaart {
+  height: auto;
+  margin-top: 0;
+  align-self: stretch;
+  padding: 18px 16px;
+  gap: 8px;
+}
+
+.samenkaart .potjes-kop {
+  margin-top: 8px;
+}
+
+.deeltag {
+  flex: none;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.deeltag.alleen {
+  background: #5b92ff24;
+  color: #8fb4ff;
+}
+
+.deeltag.samen {
+  background: #9d7bf024;
+  color: #b9a1f5;
+}
+
+#samen .verder {
+  margin: 28px 0 0;
+  color: var(--zacht);
+}
+
+#samen .verder a {
+  color: var(--groen);
+  font-weight: 650;
+}
+
+@media (max-width: 900px) {
+  .samen-raster {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Afsluiting onderaan de pagina. */
+section.slot {
+  padding: 24px 0 96px;
+  text-align: center;
+}
+
+.slot h2 {
+  margin-bottom: 10px;
+}
+
+.slot p {
+  margin: 0 0 24px;
+  font-size: 19px;
+  color: var(--zacht);
+}
+
+#samen .sectiekop {
+  max-width: none;
 }
