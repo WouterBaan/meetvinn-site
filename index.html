@@ -28,8 +28,7 @@
       </div>
     </header>
 
-    <main class="met-gloed">
-      <span class="opening-gloed" aria-hidden="true"></span>
+    <main>
       <div class="opening">
         <div class="binnen">
           <div>
@@ -521,16 +520,6 @@
           if (e.target === venster) venster.close();
         });
       }
-
-      // De groene gloed bovenaan zakt tot achter het donkere privacyblok en verdwijnt daar.
-      // Hoe ver dat is, hangt af van de schermbreedte; daarom gemeten in plaats van vast.
-      const gloed = document.querySelector('.opening-gloed');
-      const privacy = document.getElementById('privacy');
-      const zet_zak = () => {
-        if (gloed && privacy) gloed.style.setProperty('--zak', `${privacy.offsetTop + 420}px`);
-      };
-      zet_zak();
-      addEventListener('resize', zet_zak);
 
       // De telefoon bovenaan gaat open zoals de app: de begroeting typt zich uit, en de twee
       // rondjes lopen vol. De snelheden van de app (TypedText: 30 ms per teken, de tweede regel

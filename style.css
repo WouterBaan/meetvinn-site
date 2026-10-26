@@ -184,60 +184,6 @@ button.knop {
   overflow: hidden;
 }
 
-/* Een groene gloed die bovenaan begint, langzaam over de pagina naar beneden zakt en achter
-   het donkere privacyblok verdwijnt, en daarna weer terugkomt (Wouter, 26-10-2026). Het
-   groen van de app, zacht op de lichte achtergrond. Hoe ver hij zakt (--zak) meet het script. */
-main.met-gloed {
-  position: relative;
-  /* Zonder dit kon de gloed de pagina opzij laten schuiven op een telefoon. */
-  overflow-x: clip;
-}
-
-.opening-gloed {
-  position: absolute;
-  z-index: 0;
-  width: 560px;
-  height: 560px;
-  left: 18%;
-  top: -60px;
-  border-radius: 50%;
-  background: radial-gradient(
-    closest-side,
-    rgb(46 204 113 / 0.4),
-    rgb(46 204 113 / 0.17) 45%,
-    rgb(46 204 113 / 0)
-  );
-  pointer-events: none;
-  animation: opening-zakt 40s ease-in-out infinite alternate;
-}
-
-/* Alles erboven, zodat de gloed achter de inhoud blijft en achter het donkere blok wegvalt. */
-.met-gloed > :not(.opening-gloed) {
-  position: relative;
-  z-index: 1;
-}
-
-.met-gloed > .donker {
-  z-index: 2;
-}
-
-@keyframes opening-zakt {
-  0% {
-    transform: translate(0, 0);
-  }
-  45% {
-    transform: translate(16vw, calc(var(--zak, 1600px) * 0.45));
-  }
-  100% {
-    transform: translate(-4vw, var(--zak, 1600px));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .opening-gloed {
-    animation: none;
-  }
-}
 
 .opening .binnen {
   display: grid;
