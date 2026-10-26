@@ -1758,8 +1758,15 @@ th {
    elkaar; op de telefoon staat de schaal onder de tekst. */
 @media (min-width: 901px) {
   .score .schaal {
-    padding-top: 128px;
+    padding-top: 116px;
+    gap: 14px;
   }
+}
+
+/* Minder lucht boven en onder het blok (Wouter, 26-10-2026): de kolom met het rondje is de
+   hoogste, dus die bepaalt de hoogte al. */
+section.score {
+  padding: 48px 0;
 }
 
 /* Bij de score: wat meer lucht onder de titel (Wouter, 26-10-2026). Het label houdt zijn
