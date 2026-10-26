@@ -2123,3 +2123,22 @@ section.slot.donker {
     animation: none;
   }
 }
+
+/* De tekst in de label-vlakjes (v.d. €650, Gezond) optisch in het midden: een lettertype
+   heeft boven de letters meer ruimte dan eronder, en op een Mac of iPhone viel de tekst daardoor
+   net uit het midden. text-box snijdt die ruimte weg tot de hoofdletterhoogte en de basislijn. */
+.pil,
+.mini-pil,
+.deeltag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
+}
+
+.mini-pil,
+.deeltag {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
