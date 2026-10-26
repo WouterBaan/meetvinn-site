@@ -1752,3 +1752,12 @@ th {
   height: 100%;
   border-radius: 3px;
 }
+
+/* Het rondje in het midden van het witte vlak, met het label en de niveaus eronder: boven
+   het rondje evenveel ruimte als eronder voor label en niveaus gebruikt wordt. Alleen naast
+   elkaar; op de telefoon staat de schaal onder de tekst. */
+@media (min-width: 901px) {
+  .score .schaal {
+    padding-top: 128px;
+  }
+}
