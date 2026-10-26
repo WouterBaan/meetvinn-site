@@ -1224,16 +1224,16 @@ section.donker {
 
 .voet {
   border-top: 1px solid var(--rand);
-  padding: 48px 0 56px;
+  padding: 56px 0 40px;
   font-size: 14.5px;
   color: var(--zacht);
 }
 
-.voet .binnen {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 24px;
+/* Vier kolommen: Vinn met de slogan, en drie rijtjes links. */
+.voet-raster {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  gap: 32px;
 }
 
 .voet .merk {
@@ -1245,11 +1245,23 @@ section.donker {
   height: 26px;
 }
 
+.voet-merk p {
+  margin: 12px 0 0;
+}
+
 .voet nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 22px;
-  margin-left: auto;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.voet h4 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tekst);
 }
 
 .voet a {
@@ -1257,16 +1269,53 @@ section.donker {
   text-decoration: none;
 }
 
+.voet a:hover {
+  color: var(--tekst);
+}
+
+/* Onderaan, onder een dunne lijn: copyright, bedrijfsgegevens en de kanttekening. */
+.voet-onder {
+  position: relative;
+  margin-top: 40px;
+  padding-top: 24px;
+  font-size: 13.5px;
+}
+
+/* De lijn zo breed als de inhoud, niet over de zijmarge van .binnen heen. */
+.voet-onder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  border-top: 1px solid var(--rand);
+}
+
+.voet-onder > span {
+  display: inline-block;
+  margin: 0 24px 8px 0;
+}
+
+.voet-kvk {
+  color: var(--zacht);
+  font-style: italic;
+}
+
 .voetnoot {
-  flex-basis: 100%;
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   font-size: 13.5px;
   line-height: 1.5;
   max-width: 46em;
 }
 
-.voet a:hover {
-  color: var(--tekst);
+@media (max-width: 760px) {
+  .voet-raster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .voet-merk {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ---------- Tekstpagina's (privacy, support) ---------- */
@@ -1617,9 +1666,6 @@ th {
     zoom: 0.68;
   }
 
-  .voet nav {
-    margin-left: 0;
-  }
 }
 
 @media (max-width: 430px) {
