@@ -2106,7 +2106,7 @@ section.slot.donker {
 /* Bij de score: een smalle, lange kaart met twee posten en hun beoordeling. */
 .mini.beoordeelkaart {
   height: auto;
-  max-width: 540px;
+  max-width: 430px;
   margin-top: 24px;
   padding: 6px 18px;
   gap: 0;
