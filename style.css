@@ -1652,3 +1652,8 @@ th {
     animation: none;
   }
 }
+
+/* Twee alinea's bij de score: wat lucht ertussen. */
+.score p + p {
+  margin-top: 14px;
+}
