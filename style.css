@@ -910,6 +910,20 @@ h3 {
   margin-bottom: 0;
 }
 
+/* De titel van de score op één regel (Wouter, 26-10-2026): de tekstkolom breder dan die met
+   de ring, en de titel iets kleiner dan de andere sectiekoppen. Op de telefoon mag hij weer
+   over twee regels. */
+.score .tweeluik {
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+}
+
+@media (min-width: 901px) {
+  .score h2 {
+    white-space: nowrap;
+    font-size: clamp(28px, 3.1vw, 40px);
+  }
+}
+
 /* De ring staat los op de achtergrond van de sectie, zonder eigen vlak. */
 .schaal {
   display: flex;
