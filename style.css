@@ -301,7 +301,7 @@ h1 {
   height: 585px;
   left: -234px;
   top: 265px;
-  animation: gloed-een 41s ease-in-out infinite alternate;
+  animation: gloed-een 20s ease-in-out infinite alternate;
 }
 
 .gloed.twee {
@@ -310,7 +310,7 @@ h1 {
   height: 450px;
   left: 145px;
   top: 568px;
-  animation: gloed-twee 57s ease-in-out infinite alternate;
+  animation: gloed-twee 28s ease-in-out infinite alternate;
 }
 
 @keyframes gloed-een {
