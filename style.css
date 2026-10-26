@@ -1761,3 +1761,13 @@ th {
     padding-top: 128px;
   }
 }
+
+/* Bij de score: het label in hetzelfde groen als bij Privacy, en wat meer lucht onder de
+   titel (Wouter, 26-10-2026). */
+.score .label {
+  color: var(--mint);
+}
+
+.score h2 {
+  margin-bottom: 24px;
+}
