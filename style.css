@@ -1229,11 +1229,31 @@ section.donker {
   color: var(--zacht);
 }
 
-/* Vier kolommen: Vinn met de slogan, en drie rijtjes links. */
-.voet-raster {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) repeat(3, auto);
-  gap: 32px 72px;
+/* Boven: Vinn met de slogan links, de links rechts op één regel. */
+.voet-boven {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 48px;
+}
+
+.voet-merk {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.voet-boven nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+  font-weight: 600;
+}
+
+.voet-boven nav a {
+  color: var(--tekst);
 }
 
 .voet .merk {
@@ -1243,25 +1263,6 @@ section.donker {
 .voet .merk img {
   width: 26px;
   height: 26px;
-}
-
-.voet-merk p {
-  margin: 12px 0 0;
-}
-
-.voet nav {
-  display: grid;
-  align-content: start;
-  gap: 10px;
-}
-
-.voet h4 {
-  margin: 0 0 4px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--tekst);
 }
 
 .voet a {
@@ -1291,9 +1292,12 @@ section.donker {
   border-top: 1px solid var(--rand);
 }
 
-.voet-onder > span {
-  display: inline-block;
-  margin: 0 24px 8px 0;
+/* Onder de lijn: copyright, bedrijfsgegevens en de juridische links op één regel. */
+.voet-gegevens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  margin-bottom: 10px;
 }
 
 .voet-kvk {
@@ -1306,16 +1310,6 @@ section.donker {
   font-size: 13.5px;
   line-height: 1.5;
   max-width: 46em;
-}
-
-@media (max-width: 760px) {
-  .voet-raster {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .voet-merk {
-    grid-column: 1 / -1;
-  }
 }
 
 /* ---------- Tekstpagina's (privacy, support) ---------- */
