@@ -1836,6 +1836,15 @@ section.slot {
   text-align: center;
 }
 
+/* Als donker vlak, met de bewegende gloeden van Privacy (Wouter, 26-10-2026). */
+section.slot.donker {
+  padding: 88px 0 96px;
+}
+
+.slot.donker p {
+  color: #b7c2be;
+}
+
 .slot h2 {
   margin-bottom: 10px;
 }
