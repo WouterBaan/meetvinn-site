@@ -669,7 +669,7 @@ section#hoe {
    gelijk lopen, zodat de kaartjes op dezelfde hoogte staan, ook bij ongelijke teksten. */
 .stappen {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-auto-rows: auto;
   gap: 0;
   border-top: 1px solid var(--rand);
@@ -681,11 +681,11 @@ section#hoe {
   grid-template-rows: subgrid;
   align-content: start;
   row-gap: 0;
-  padding: 32px 20px 8px 0;
+  padding: 32px 16px 8px 0;
 }
 
 .stap + .stap {
-  padding-left: 20px;
+  padding-left: 16px;
   border-left: 1px solid var(--rand);
 }
 
@@ -772,11 +772,13 @@ section#hoe {
   border-radius: 999px;
   background: #1c1c1c;
   border: 0.5px solid #353535;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: -0.1px;
+  line-height: 1.05;
   text-align: center;
-  white-space: nowrap;
+  /* Met vijf stappen naast elkaar is een kolom smal: een lange naam mag dan over twee regels. */
+  white-space: normal;
   overflow: hidden;
 }
 
@@ -1468,6 +1470,23 @@ th {
   color: var(--tekst);
   font-weight: 650;
   background: var(--vlak-zacht);
+}
+
+/* Vijf stappen passen niet naast elkaar op een kleine laptop: dan drie en twee. */
+@media (max-width: 1180px) and (min-width: 901px) {
+  .stappen {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stap:nth-child(3n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .stap:nth-child(n + 4) {
+    border-top: 1px solid var(--rand);
+    margin-top: 24px;
+  }
 }
 
 /* ---------- Smal scherm ---------- */
