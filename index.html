@@ -116,13 +116,6 @@
                       <b>€ 1.284,56</b>
                     </div>
                     <div class="rekening">
-                      <span class="ico" style="background: #9d7bf024">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9D7BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20z"/><path d="M9.5 21.5v-8h5v8"/></svg>
-                      </span>
-                      <span class="naam">Gezamenlijk<small>Samen · ••5530</small></span>
-                      <b>€ 612,30</b>
-                    </div>
-                    <div class="rekening">
                       <span class="ico" style="background: #2ecc7124">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/><path d="M2 9v1c0 1.1.9 2 2 2h1"/></svg>
                       </span>
@@ -433,6 +426,52 @@
         venster.addEventListener('click', (e) => {
           if (e.target === venster) venster.close();
         });
+      }
+
+      // De telefoon bovenaan gaat open zoals de app: de begroeting typt zich uit, en de twee
+      // rondjes lopen vol. Dezelfde snelheden als in de app (TypedText: 30 en 17 ms per teken,
+      // de tweede regel na de eerste plus 280 ms; ProgressRing: 900 ms, ease-out). De rest van
+      // de regel staat er al onzichtbaar, zodat er niets verspringt terwijl hij typt.
+      const app = document.querySelector('.telefoon .app');
+      if (app && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const typ = (el, snelheid, wacht) => {
+          const tekst = el.textContent.replace(/\s+/g, ' ').trim();
+          el.innerHTML = '<span></span><span class="cursor">|</span><span class="nog"></span>';
+          const [klaar, cursor, nog] = el.children;
+          nog.textContent = tekst;
+          cursor.hidden = true;
+          let n = 0;
+          const stap = () => {
+            n += 1;
+            klaar.textContent = tekst.slice(0, n);
+            nog.textContent = tekst.slice(n);
+            cursor.hidden = n >= tekst.length;
+            if (n < tekst.length) setTimeout(stap, snelheid);
+          };
+          setTimeout(stap, wacht);
+        };
+        const kop = app.querySelector('.groet h2');
+        const sub = app.querySelector('.groet-sub');
+        const begin = 450;
+        if (kop) typ(kop, 30, begin);
+        if (sub && kop) typ(sub, 17, begin + kop.textContent.trim().length * 30 + 280);
+
+        const bogen = [...app.querySelectorAll('.ring circle[stroke-dasharray]')];
+        const doelen = bogen.map((boog) => parseFloat(boog.getAttribute('stroke-dasharray')));
+        bogen.forEach((boog) => (boog.style.opacity = '0'));
+        setTimeout(() => {
+          const start = performance.now();
+          const teken = (nu) => {
+            const t = Math.min((nu - start) / 900, 1);
+            const v = 1 - Math.pow(1 - t, 3);
+            bogen.forEach((boog, i) => {
+              boog.style.opacity = '1';
+              boog.setAttribute('stroke-dasharray', `${(doelen[i] * v).toFixed(1)} 400`);
+            });
+            if (t < 1) requestAnimationFrame(teken);
+          };
+          requestAnimationFrame(teken);
+        }, begin);
       }
 
       // De scorering draait van 0 naar 74% zodra hij in beeld komt. Zonder script, of met

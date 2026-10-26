@@ -1567,3 +1567,13 @@ th {
     font-size: 14px;
   }
 }
+
+/* De telefoon bovenaan typt zijn begroeting uit; zie het script in index.html. */
+.app .nog {
+  color: transparent;
+}
+
+.app .cursor {
+  color: #ffffff59;
+  font-weight: 400;
+}
