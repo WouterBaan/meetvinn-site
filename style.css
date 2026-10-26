@@ -1231,7 +1231,6 @@ section.donker {
 /* ---------- Voet ---------- */
 
 .voet {
-  border-top: 1px solid var(--rand);
   padding: 56px 0 40px;
   font-size: 14.5px;
   color: var(--zacht);
