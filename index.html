@@ -471,7 +471,9 @@
         setTimeout(() => {
           const start = performance.now();
           const teken = (nu) => {
-            const t = Math.min((nu - start) / 900, 1);
+            // Het tijdstempel van het eerste beeld kan net vóór \`start\` liggen; een negatieve
+            // waarde gaf een ongeldige streep, en dan tekent de browser een vol rondje.
+            const t = Math.min(Math.max((nu - start) / 900, 0), 1);
             const v = 1 - Math.pow(1 - t, 3);
             bogen.forEach((boog, i) => {
               boog.style.opacity = '1';
