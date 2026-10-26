@@ -1231,6 +1231,7 @@ section.donker {
 /* ---------- Voet ---------- */
 
 .voet {
+  border-top: 1px solid var(--rand);
   padding: 56px 0 40px;
   font-size: 14.5px;
   color: var(--zacht);
@@ -2230,4 +2231,9 @@ section.slot.donker {
 
 .faq p {
   margin: 0;
+}
+
+/* Op de pagina Privacy zonder lijn boven de voet (Wouter, 26-10-2026). */
+.artikel.breed + .voet {
+  border-top: 0;
 }
