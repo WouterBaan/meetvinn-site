@@ -179,10 +179,13 @@ button.knop {
 
 /* ---------- Opening ---------- */
 
+/* Alleen opzij afsnijden: naar beneden mag de schaduw van de telefoon doorlopen over
+   "Zo werkt Vinn" heen, in plaats van recht afgekapt te worden. */
 .opening {
   position: relative;
   padding: 56px 0 48px;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 
