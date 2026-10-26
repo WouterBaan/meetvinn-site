@@ -2217,3 +2217,18 @@ section.slot.donker {
 .artikel.breed .verder {
   max-width: 46em;
 }
+
+/* Veelgestelde vragen op de pagina Privacy: korte vragen en antwoorden, smal genoeg om te lezen. */
+.faq {
+  max-width: 46em;
+  margin-top: 16px;
+}
+
+.artikel .faq h3 {
+  font-size: 18px;
+  margin: 22px 0 6px;
+}
+
+.faq p {
+  margin: 0;
+}
