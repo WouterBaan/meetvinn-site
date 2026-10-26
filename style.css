@@ -1579,3 +1579,23 @@ th {
   color: #ffffff59;
   font-weight: 400;
 }
+
+/* Vier tabjes en de knop op de smalste telefoons (360 pixels en minder). */
+@media (max-width: 380px) {
+  .kop nav {
+    gap: 9px;
+    font-size: 13.5px;
+  }
+
+  .kop .knop {
+    padding: 7px 11px;
+    font-size: 13.5px;
+  }
+}
+
+/* Op 320 pixels past het niet meer: dan alleen het logo als weg naar huis. */
+@media (max-width: 340px) {
+  .kop nav a[href='index.html'] {
+    display: none;
+  }
+}
