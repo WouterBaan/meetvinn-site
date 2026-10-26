@@ -1256,8 +1256,10 @@ section.donker {
   color: var(--tekst);
 }
 
+/* Het logo in de voet is geen link (Wouter, 26-10-2026); zelfde grijs als voorheen. */
 .voet .merk {
   font-size: 17px;
+  color: var(--zacht);
 }
 
 .voet .merk img {
