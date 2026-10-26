@@ -93,13 +93,14 @@ a {
   align-items: center;
   gap: 22px;
   margin-left: auto;
-  font-size: 15px;
+  font-size: 14.5px;
 }
 
+/* Zelfde dikte en grootte als de links onderaan de pagina (Wouter, 26-10-2026). */
 .kop nav a {
   color: var(--tekst);
   text-decoration: none;
-  font-weight: 550;
+  font-weight: 600;
 }
 
 .kop nav a:hover {
@@ -916,8 +917,10 @@ h3 {
 /* De titel van de score op één regel en even groot als de andere sectiekoppen (Wouter,
    26-10-2026): daarom is de tekstkolom breder dan die met de ring. Op de telefoon mag hij weer
    over twee regels. */
-.score .tweeluik {
-  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+@media (min-width: 901px) {
+  .score .tweeluik {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  }
 }
 
 /* De kolom is breed voor de titel; de alinea's eronder houden een prettige regellengte. */
@@ -1674,7 +1677,7 @@ th {
   }
 
   .kop nav {
-    gap: 12px;
+    gap: 10px;
     font-size: 14px;
   }
 
@@ -1707,8 +1710,8 @@ th {
   }
 }
 
-/* Op de smalste telefoons past Home er niet meer bij: dan is het logo de weg naar huis. */
-@media (max-width: 380px) {
+/* Op telefoons past Home er niet meer bij: dan is het logo de weg naar huis. */
+@media (max-width: 430px) {
   .kop nav a[href='index.html'] {
     display: none;
   }
@@ -2087,4 +2090,77 @@ section.slot.donker {
 .deeltag {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+/* 320 pixels: net iets compacter, zodat de knop niet tegen de rand komt. */
+@media (max-width: 340px) {
+  .kop nav {
+    gap: 7px;
+  }
+
+  .kop .knop {
+    padding: 7px 9px;
+  }
+}
+
+/* Bij de score: een smalle, lange kaart met twee posten en hun beoordeling. */
+.mini.beoordeelkaart {
+  height: auto;
+  max-width: 540px;
+  margin-top: 24px;
+  padding: 6px 18px;
+  gap: 0;
+}
+
+.beoordeling {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 84px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.beoordeling + .beoordeling {
+  border-top: 0.5px solid #2a2a2a;
+}
+
+.beoordeling-naam {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.beoordeling-naam small,
+.beoordeling-cijfer small {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #919191;
+}
+
+.beoordeling-balk {
+  height: 6px;
+  border-radius: 3px;
+  background: #ffffff1f;
+  overflow: hidden;
+}
+
+.beoordeling-balk em {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.beoordeling-cijfer {
+  text-align: right;
+}
+
+.beoordeling-cijfer b {
+  font-size: 14px;
+}
+
+@media (max-width: 430px) {
+  .beoordeling {
+    grid-template-columns: 96px minmax(0, 1fr) 76px;
+    gap: 12px;
+  }
 }
