@@ -1909,3 +1909,49 @@ section.slot {
 #samen .sectiekop p {
   max-width: 620px;
 }
+
+/* De score van het huishouden: rondje links, de twee leden en het oordeel rechts. */
+.samenscore-rij {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.samenscore .mini-ring {
+  width: 96px;
+  height: 96px;
+}
+
+.samenscore .mini-ring span {
+  font-size: 20px;
+}
+
+.samenscore-rechts {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatars span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: #2b4a8f;
+  border: 2px solid #000307;
+}
+
+.avatars span + span {
+  margin-left: -10px;
+  background: #6b4fb8;
+}
