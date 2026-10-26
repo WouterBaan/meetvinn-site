@@ -855,6 +855,18 @@ section#hoe {
 }
 
 /* Het nummer voor het kopje van de stap. */
+/* Elke titel op één regel. Met vijf stappen naast elkaar is een kolom smal, dus daar iets
+   kleiner (Wouter, 26-10-2026). */
+.stap h3 {
+  white-space: nowrap;
+}
+
+@media (min-width: 1181px) {
+  .stap h3 {
+    font-size: 17px;
+  }
+}
+
 .stap .nr {
   margin-right: 10px;
   color: var(--groen);
