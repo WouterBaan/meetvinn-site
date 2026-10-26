@@ -428,8 +428,10 @@
       }
 
       // De telefoon bovenaan gaat open zoals de app: de begroeting typt zich uit, en de twee
-      // rondjes lopen vol. Dezelfde snelheden als in de app (TypedText: 30 en 17 ms per teken,
-      // de tweede regel na de eerste plus 280 ms; ProgressRing: 900 ms, ease-out). De rest van
+      // rondjes lopen vol. De snelheden van de app (TypedText: 30 ms per teken, de tweede regel
+      // na de eerste plus 280 ms; ProgressRing: 900 ms, ease-out). De tweede regel staat in de
+      // app op 17 ms, maar op een telefoon kost elke stap meer dan dat; 30 ms ziet er hetzelfde
+      // uit (Wouter, 26-10-2026: "minder snel, zelfde snelheid als de app"). De rest van
       // de regel staat er al onzichtbaar, zodat er niets verspringt terwijl hij typt.
       const app = document.querySelector('.telefoon .app');
       if (app && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -453,7 +455,7 @@
         const sub = app.querySelector('.groet-sub');
         const begin = 450;
         if (kop) typ(kop, 30, begin);
-        if (sub && kop) typ(sub, 17, begin + kop.textContent.trim().length * 30 + 280);
+        if (sub && kop) typ(sub, 30, begin + kop.textContent.trim().length * 30 + 280);
 
         const bogen = [...app.querySelectorAll('.ring circle[stroke-dasharray]')];
         const doelen = bogen.map((boog) => parseFloat(boog.getAttribute('stroke-dasharray')));
