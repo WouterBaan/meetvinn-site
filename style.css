@@ -1186,9 +1186,12 @@ section.donker {
   height: 19px;
 }
 
+/* Zonder marge onder de titel: die schoof hem een paar pixels boven het midden van het
+   icoon. */
 .beloftes h3 {
   color: #fff;
-  margin-top: 0;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .beloftes p {
