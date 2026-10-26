@@ -2206,3 +2206,14 @@ section.slot.donker {
   background: #2ecc711f;
   color: var(--groen);
 }
+
+/* Een tekstpagina die op dezelfde lijn begint als de homepagina, in plaats van smal in het
+   midden: dezelfde breedte als .binnen. */
+.artikel.breed {
+  max-width: var(--breed);
+}
+
+.artikel.breed .ondertitel,
+.artikel.breed .verder {
+  max-width: 46em;
+}
