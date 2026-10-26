@@ -199,12 +199,12 @@ main.met-gloed {
   width: 560px;
   height: 560px;
   left: 18%;
-  top: -220px;
+  top: -60px;
   border-radius: 50%;
   background: radial-gradient(
     closest-side,
-    rgb(46 204 113 / 0.22),
-    rgb(46 204 113 / 0.09) 45%,
+    rgb(46 204 113 / 0.4),
+    rgb(46 204 113 / 0.17) 45%,
     rgb(46 204 113 / 0)
   );
   pointer-events: none;
