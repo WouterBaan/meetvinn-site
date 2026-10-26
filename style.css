@@ -1345,10 +1345,12 @@ section.donker {
   font-size: 17px;
 }
 
+/* Gewone, niet even brede cijfers: met tabelcijfers kreeg elke 1 de breedte van een 8, en
+   stond € 11,99 zichtbaar uit elkaar. */
 .bedrag b {
   font-size: 44px;
   letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: proportional-nums;
 }
 
 .artikel .proef {
