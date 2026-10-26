@@ -2108,7 +2108,7 @@ section.slot.donker {
   height: auto;
   max-width: 430px;
   margin-top: 24px;
-  padding: 6px 18px;
+  padding: 2px 18px;
   gap: 0;
 }
 
@@ -2117,7 +2117,7 @@ section.slot.donker {
   grid-template-columns: 112px minmax(0, 1fr) 84px;
   align-items: center;
   gap: 16px;
-  padding: 12px 0;
+  padding: 8px 0;
 }
 
 .beoordeling + .beoordeling {
