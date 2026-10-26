@@ -960,16 +960,27 @@ h3 {
 }
 
 /* Omtrek 2 × π × 105 = 659,73; 74% gevuld laat 26% open: 171,53. */
+/* Zoals in de app (ProgressRing): de boog begint recht, en alleen de tip is rond. Die tip is
+   een streepje van lengte nul met een ronde kop, op dezelfde plek als het eind van de boog. */
 .boog {
   stroke: var(--amber);
-  stroke-linecap: round;
+  stroke-linecap: butt;
   stroke-dasharray: 659.73;
   stroke-dashoffset: 171.53;
   transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 0.7, 0.2, 1);
 }
 
+.boog.tip {
+  stroke-linecap: round;
+  stroke-dasharray: 0 659.73;
+}
+
 .schaal.wacht .boog {
   stroke-dashoffset: 659.73;
+}
+
+.schaal.wacht .boog.tip {
+  opacity: 0;
 }
 
 .ringgetal {
