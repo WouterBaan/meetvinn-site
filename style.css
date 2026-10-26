@@ -917,6 +917,11 @@ h3 {
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
 }
 
+/* De kolom is breed voor de titel; de alinea's eronder houden een prettige regellengte. */
+.score .sectiekop p {
+  max-width: 540px;
+}
+
 @media (min-width: 901px) {
   .score h2 {
     white-space: nowrap;
