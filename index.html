@@ -336,13 +336,25 @@
               En hoe groot hoort je noodbuffer te zijn? Vinn beantwoordt het voor je met een beoordeling
               van je huidige situatie.
             </p>
-            <!-- Nagemaakt stukje van de app: een volgende stap en wat die oplevert. -->
-            <div class="mini stapkaart" aria-hidden="true">
-              <span class="mini-kop">Je volgende stap</span>
-              <div class="mini-betaling">
-                <span class="mini-ico" style="background: #2ecc7124"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z" /><path d="M2 9v1c0 1.1.9 2 2 2h1M16 11h.01" /></svg></span>
-                <span class="mini-naam">Zet € 50 per maand extra opzij<small>Je nieuwe doel</small></span>
-                <span class="punten">+4 punten</span>
+            <!-- Nagemaakt stukje van Score in de app: de vier pijlers met elk een eigen
+                 beoordeling. Gewogen zoals de app (0,1 / 0,35 / 0,3 / 0,25) komt dit uit op 74%. -->
+            <div class="mini pijlerkaart" aria-hidden="true">
+              <span class="mini-kop">Je beoordeling</span>
+              <div class="pijler">
+                <span class="pijler-naam">Uitgavenpatroon<small style="color: #F5B841">Kan beter</small></span>
+                <span class="pijler-meter"><b>52%</b><i><em style="width: 52%; background: #F5B841"></em></i></span>
+              </div>
+              <div class="pijler">
+                <span class="pijler-naam">Spaarcijfer<small style="color: #F5B841">Gezond</small></span>
+                <span class="pijler-meter"><b>70%</b><i><em style="width: 70%; background: #F5B841"></em></i></span>
+              </div>
+              <div class="pijler">
+                <span class="pijler-naam">Spaarbudget<small style="color: #2ECC71">Uitstekend</small></span>
+                <span class="pijler-meter"><b>80%</b><i><em style="width: 80%; background: #2ECC71"></em></i></span>
+              </div>
+              <div class="pijler">
+                <span class="pijler-naam">Schuld<small style="color: #2ECC71">Uitstekend</small></span>
+                <span class="pijler-meter"><b>81%</b><i><em style="width: 81%; background: #2ECC71"></em></i></span>
               </div>
             </div>
             <p class="kanttekening">

@@ -1687,3 +1687,68 @@ th {
 .score p + p {
   margin-top: 14px;
 }
+
+/* De vier pijlers bij de score, zoals op Score in de app: naam met het oordeel eronder, en
+   rechts het percentage met een balkje in de kleur van dat oordeel. */
+.mini.pijlerkaart {
+  height: auto;
+  max-width: 400px;
+  margin-top: 28px;
+  gap: 0;
+  padding: 14px 16px 6px;
+}
+
+.pijlerkaart .mini-kop {
+  margin-bottom: 4px;
+}
+
+.pijler {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 0.5px solid #2a2a2a;
+}
+
+.pijler:first-of-type {
+  border-top: 0;
+}
+
+.pijler-naam {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pijler-naam small {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.pijler-meter {
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+  width: 92px;
+  flex: none;
+}
+
+.pijler-meter b {
+  font-size: 14px;
+}
+
+.pijler-meter i {
+  display: block;
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: #ffffff1f;
+  overflow: hidden;
+}
+
+.pijler-meter em {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
