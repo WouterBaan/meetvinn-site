@@ -145,6 +145,13 @@
       const zet = () => kop.classList.toggle('gescrold', window.scrollY > 8);
       addEventListener('scroll', zet, { passive: true });
       zet();
+
+      // Elke pagina begint bovenaan, ook als de browser of het voorbeeld de vorige plek onthoudt
+      // (Wouter, 27-10-2026). scrollIntoView schuift ook een omringend venster mee.
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      addEventListener('pageshow', () => {
+        if (!location.hash) document.documentElement.scrollIntoView({ block: 'start' });
+      });
     </script>
   </body>
 </html>
