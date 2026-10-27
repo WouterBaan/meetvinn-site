@@ -3298,18 +3298,6 @@ section.privacy-verder {
   font-variant-numeric: tabular-nums;
 }
 
-.genummerd .samenvatting {
-  margin: 8px 0 24px;
-  padding: 20px 24px 6px;
-  border-radius: 18px;
-  background: #2ecc7114;
-}
-
-.genummerd .samenvatting h2 {
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-
 .genummerd .begrippen {
   padding-left: 1.2em;
 }
