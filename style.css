@@ -2736,10 +2736,11 @@ section.privacy-verder {
   }
 
   .k-tel {
+    /* Gemeten: pijl 1 vertrekt op 36% van de hoogte van de kaart, pijl 4 komt binnen op 91%. */
     --uit-x: 100%;
-    --uit-y: 22%;
+    --uit-y: 36%;
     --in-x: 100%;
-    --in-y: 80%;
+    --in-y: 91%;
   }
 
   .reis-breed {
