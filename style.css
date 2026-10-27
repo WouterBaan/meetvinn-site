@@ -2290,13 +2290,6 @@ section.privacy-punten {
   padding: 28px;
 }
 
-/* Het schema: knopen met pijlen ertussen. */
-.schema {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr);
-  gap: 10px;
-}
-
 .knoop {
   flex: 1;
   background: var(--vlak);
@@ -2334,13 +2327,6 @@ section.privacy-punten {
   border-radius: 12px;
   background: #2ecc711f;
   color: var(--groen);
-}
-
-.pijl {
-  display: grid;
-  place-items: center;
-  flex: none;
-  color: #9aa5a1;
 }
 
 /* En verder: de overige punten als rustige lijst, zonder kaders. */
@@ -2382,15 +2368,6 @@ section.privacy-verder {
 }
 
 @media (max-width: 900px) {
-  .schema {
-    grid-template-columns: 1fr;
-  }
-
-  .pijl {
-    transform: rotate(90deg);
-    height: 28px;
-  }
-
   .lijstpunten {
     grid-template-columns: 1fr;
   }
@@ -2402,14 +2379,153 @@ section.privacy-verder {
   }
 }
 
-/* Vier stappen naast elkaar passen pas vanaf een brede laptop; daaronder twee aan twee. */
-@media (min-width: 901px) and (max-width: 1180px) {
-  .schema {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+/* Zo reizen je gegevens: een rondje dat bij je telefoon begint en eindigt. Op een
+   telefoon en een smalle laptop onder elkaar, met de stappen als pijlen ertussen. */
+.reis {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'tel' 's1' 'bank' 's2' 'vinn' 's3' 'db' 's4';
+  max-width: 520px;
+}
+
+.k-tel { grid-area: tel; }
+.k-vinn { grid-area: vinn; }
+.k-bank { grid-area: bank; }
+.k-db { grid-area: db; }
+.s1 { grid-area: s1; }
+.s2 { grid-area: s2; }
+.s3 { grid-area: s3; }
+.s4 { grid-area: s4; }
+
+.knoop.jij {
+  border-color: #2ecc7166;
+  background: #2ecc710d;
+}
+
+.stap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 10px 38px;
+  color: var(--zacht);
+  font-size: 14.5px;
+  line-height: 1.35;
+}
+
+.stap .nr {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--groen);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* De pijl: een lijn met een punt, getekend met randen zodat hij elke kant op kan. */
+.lijn {
+  position: relative;
+  order: -1;
+  flex: none;
+  width: 2px;
+  height: 36px;
+  color: #9aa5a1;
+  background: currentColor;
+}
+
+.lijn::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.stap .breed {
+  display: none;
+}
+
+@media (min-width: 1181px) {
+  .reis {
+    grid-template-columns: minmax(0, 1fr) 160px minmax(0, 1fr) 150px minmax(0, 1fr);
+    grid-template-areas:
+      'tel s1 vinn s2 bank'
+      'tel .  s3   .  .'
+      'tel s4 db   .  .';
+    max-width: none;
   }
 
-  .schema .pijl {
+  .k-tel {
+    align-content: center;
+  }
+
+  .stap .breed {
+    display: inline;
+  }
+
+  .stap .smal {
     display: none;
+  }
+
+  .s1,
+  .s2,
+  .s4 {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 14px;
+    text-align: center;
+  }
+
+  .s1 .lijn,
+  .s2 .lijn,
+  .s4 .lijn {
+    order: 0;
+    width: 100%;
+    height: 2px;
+  }
+
+  .s1 .lijn::after,
+  .s2 .lijn::after {
+    left: auto;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* Vinn en je bank: heen en terug. */
+  .s2 .lijn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid;
+    border-top: 2px solid;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .s4 .lijn::after {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+  }
+
+  .s3 {
+    justify-content: center;
+    padding: 6px 0;
+  }
+
+  .s3 .lijn {
+    height: 40px;
   }
 }
