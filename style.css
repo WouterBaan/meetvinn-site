@@ -1367,60 +1367,94 @@ section.donker {
   margin: 0 0 32px;
 }
 
-/* Prijs: twee kaarten naast elkaar, en wat bij allebei zit eronder. */
-.prijzen {
+/* Prijzen (27-10-2026): een keuze per maand of per jaar, twee kaarten waarvan Huishouden opvalt,
+   wat bij allebei zit, en de vragen inklapbaar. */
+section.prijs-keuze {
+  padding: 56px 0 8px;
+}
+
+.periode {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--rand);
+  background: var(--vlak-zacht);
+}
+
+.periode button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--zacht);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.periode button[aria-pressed='true'] {
+  background: var(--vlak);
+  color: var(--tekst);
+  box-shadow: 0 1px 2px #06121014, 0 4px 12px -6px #0612102e;
+}
+
+.periode .kort {
+  display: none;
+}
+
+.periode .bespaar {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #2ecc711f;
+  color: var(--groen);
+  font-size: 12.5px;
+}
+
+.prijs-kaarten {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
-  margin: 8px 0 16px;
+  max-width: 880px;
+}
+
+.prijs-kaarten[data-periode='maand'] .jaar,
+.prijs-kaarten[data-periode='jaar'] .maand {
+  display: none;
 }
 
 .prijskaart {
-  background: var(--vlak);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
   border: 1px solid var(--rand);
   border-radius: 24px;
-  padding: 28px;
-}
-
-.artikel .jaar {
-  margin: 0 0 20px;
-  color: var(--zacht);
-  font-size: 15px;
-}
-
-.jaar strong {
-  color: var(--tekst);
-}
-
-.prijskaart .wat {
-  margin: 0;
-}
-
-.beide {
   background: var(--vlak);
-  border: 1px solid var(--rand);
-  border-radius: 24px;
-  padding: 28px;
-  margin: 0 0 48px;
 }
 
-.artikel .beide h2 {
-  font-size: 19px;
-  margin: 0 0 4px;
+/* Huishouden valt op: samen ben je per persoon goedkoper uit dan alleen. */
+.prijskaart.uitgelicht {
+  border: 1.5px solid #2ecc71;
+  box-shadow: 0 0 0 4px #2ecc711a, 0 18px 40px -20px #13744a59;
 }
 
-.beide .wat {
-  border-top: 0;
-  padding-top: 12px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 24px;
-}
-
-@media (max-width: 640px) {
-  .prijzen,
-  .beide .wat {
-    grid-template-columns: 1fr;
-  }
+.per-persoon {
+  position: absolute;
+  top: -14px;
+  right: 24px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #2ecc71;
+  color: #000307;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .prijskop {
@@ -1435,17 +1469,18 @@ section.donker {
   border-radius: 22.5%;
 }
 
-.artikel .prijskop h2 {
+.prijskop h2 {
   margin: 0;
   font-size: 22px;
 }
 
-.artikel .prijskop p {
+.prijskop p {
   margin: 0;
+  color: var(--zacht);
   font-size: 15px;
 }
 
-.artikel .bedrag {
+.bedrag {
   margin: 24px 0 2px;
   color: var(--tekst);
   font-size: 17px;
@@ -1459,11 +1494,121 @@ section.donker {
   font-variant-numeric: proportional-nums;
 }
 
-.artikel .proef {
+.prijskaart .onder {
   margin: 0 0 20px;
-  color: var(--groen);
+  color: var(--zacht);
+  font-size: 15px;
+}
+
+.prijskaart .wat {
+  flex: 1;
+  align-content: start;
+}
+
+.prijskaart .knop {
+  align-self: flex-start;
+}
+
+.btw {
+  margin: 16px 0 0;
+  color: var(--zacht);
+  font-size: 13.5px;
+}
+
+section.prijs-beide {
+  padding: 72px 0 24px;
+}
+
+.lijstpunten.drie {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+section.prijs-vragen {
+  padding-top: 48px;
+}
+
+/* Inklapbare vragen: alleen de vraag, en het antwoord na een tik. */
+.vragen {
+  max-width: 760px;
+  border-top: 1px solid var(--rand);
+}
+
+.vragen details {
+  border-bottom: 1px solid var(--rand);
+}
+
+.vragen summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  font-size: 17px;
   font-weight: 650;
-  font-size: 15.5px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.vragen summary::-webkit-details-marker {
+  display: none;
+}
+
+.vragen summary::after {
+  content: '';
+  flex: none;
+  width: 9px;
+  height: 9px;
+  margin-right: 4px;
+  border-right: 2px solid var(--zacht);
+  border-bottom: 2px solid var(--zacht);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.vragen details[open] summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.vragen details p {
+  max-width: 44em;
+  margin: 0 0 20px;
+  color: var(--zacht);
+}
+
+/* Zolang Vinn niet in de App Store staat: "Binnenkort", groen maar niet klikbaar. */
+.knop.binnenkort {
+  cursor: default;
+}
+
+.knop.binnenkort:hover {
+  transform: none;
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .lijstpunten.drie {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .lijstpunten.drie {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .prijs-kaarten {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .periode .lang {
+    display: none;
+  }
+
+  .periode .kort {
+    display: inline;
+  }
 }
 
 .wat {
@@ -2241,37 +2386,37 @@ section.slot.donker {
 /* ---------- Pagina Privacy (27-10-2026) ---------- */
 
 /* Opening in het donker, met de gloeden van de afsluiting: midden in het vlak en zwervend. */
-.privacy-opening {
+.pagina-opening {
   padding: 72px 0 80px;
 }
 
-.privacy-opening h1 {
+.pagina-opening h1 {
   color: #fff;
   font-size: clamp(36px, 4.6vw, 56px);
   margin: 8px 0 16px;
 }
 
-.privacy-opening p {
+.pagina-opening p {
   max-width: 40em;
   font-size: 19px;
   margin: 0;
 }
 
-.privacy-opening .gloed.band-een,
-.privacy-opening .gloed.band-twee {
+.pagina-opening .gloed.band-een,
+.pagina-opening .gloed.band-twee {
   width: 420px;
   height: 420px;
   aspect-ratio: auto;
   top: calc(50% - 210px);
 }
 
-.privacy-opening .gloed.band-een {
+.pagina-opening .gloed.band-een {
   --d: 0.95;
   left: 4%;
   animation: slot-een 26s ease-in-out infinite alternate;
 }
 
-.privacy-opening .gloed.band-twee {
+.pagina-opening .gloed.band-twee {
   --d: 0.8;
   left: calc(96% - 420px);
   animation: slot-twee 34s ease-in-out infinite alternate;
@@ -2374,7 +2519,7 @@ section.privacy-verder {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .privacy-opening .gloed {
+  .pagina-opening .gloed {
     animation: none;
   }
 }
