@@ -44,6 +44,8 @@
   const open = (e) => {
     if (e) e.preventDefault();
     toonKeuze(e && e.currentTarget);
+    // Achter het venster terug naar boven, zodat je na het sluiten bij de keuze staat.
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (APPSTORE && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
       location.href = APPSTORE;
       return;
