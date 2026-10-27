@@ -1567,6 +1567,15 @@ section.prijs-keuze {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .gloed.kaart-een,
+  .gloed.kaart-twee,
+  .uitgelicht .gloed.kaart-een,
+  .uitgelicht .gloed.kaart-twee {
+    animation: none;
+  }
+}
+
 .prijs-kaarten[data-periode='jaar'] .kaart-gloeden {
   opacity: 1;
 }
@@ -1602,13 +1611,6 @@ section.prijs-keuze {
 .prijs-kaarten[data-periode='jaar'] .poppetjes {
   background: #2ecc7124;
   color: var(--groen-licht);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .gloed.kaart-een,
-  .gloed.kaart-twee {
-    animation: none;
-  }
 }
 
 /* Huishouden valt op: samen ben je per persoon goedkoper uit dan alleen. */
