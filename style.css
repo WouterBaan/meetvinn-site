@@ -1503,7 +1503,7 @@ section.prijs-keuze {
   height: 300px;
   left: -110px;
   top: -90px;
-  animation: kaart-een 16s ease-in-out infinite alternate;
+  animation: kaart-een 26s ease-in-out infinite alternate;
 }
 
 .gloed.kaart-twee {
@@ -1512,7 +1512,7 @@ section.prijs-keuze {
   height: 260px;
   right: -100px;
   bottom: -90px;
-  animation: kaart-twee 21s ease-in-out infinite alternate;
+  animation: kaart-twee 33s ease-in-out infinite alternate;
 }
 
 @keyframes kaart-een {
@@ -1539,14 +1539,14 @@ section.prijs-keuze {
   left: auto;
   right: -120px;
   top: -100px;
-  animation: kaart-drie 19s ease-in-out -6s infinite alternate;
+  animation: kaart-drie 30s ease-in-out -9s infinite alternate;
 }
 
 .uitgelicht .gloed.kaart-twee {
   right: auto;
   left: -90px;
   bottom: -110px;
-  animation: kaart-vier 24s ease-in-out -11s infinite alternate;
+  animation: kaart-vier 38s ease-in-out -17s infinite alternate;
 }
 
 @keyframes kaart-drie {
