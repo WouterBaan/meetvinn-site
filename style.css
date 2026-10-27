@@ -1389,8 +1389,7 @@ section.prijs-keuze {
 /* Prijzen in het midden (Wouter, 27-10-2026): de opening, de keuze, de kaarten, wat bij allebei
    zit en de vragen staan gecentreerd; de tekst in de kaarten en bij de punten blijft links. */
 .prijs-pagina .sectiekop,
-.prijs-keuze .binnen,
-.prijs-pagina .btw {
+.prijs-keuze .binnen {
   text-align: center;
 }
 
@@ -1477,6 +1476,107 @@ section.prijs-keuze {
   background: var(--vlak);
 }
 
+/* Per jaar worden de kaarten donker, met de groene gloeden van de app (Wouter, 27-10-2026).
+   De gloeden zitten in een eigen laag die de hoeken volgt, zodat het label "per persoon" boven
+   de kaart uit mag steken. */
+.prijskaart {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.prijskaart > * {
+  z-index: 1;
+}
+
+.kaart-gloeden {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gloed.kaart-een {
+  --d: 0.95;
+  width: 300px;
+  height: 300px;
+  left: -110px;
+  top: -90px;
+  animation: kaart-een 16s ease-in-out infinite alternate;
+}
+
+.gloed.kaart-twee {
+  --d: 0.8;
+  width: 260px;
+  height: 260px;
+  right: -100px;
+  bottom: -90px;
+  animation: kaart-twee 21s ease-in-out infinite alternate;
+}
+
+@keyframes kaart-een {
+  50% {
+    transform: translate(140px, 160px);
+  }
+  100% {
+    transform: translate(60px, 300px);
+  }
+}
+
+@keyframes kaart-twee {
+  50% {
+    transform: translate(-150px, -130px);
+  }
+  100% {
+    transform: translate(-50px, -280px);
+  }
+}
+
+.prijs-kaarten[data-periode='jaar'] .kaart-gloeden {
+  opacity: 1;
+}
+
+.prijs-kaarten[data-periode='jaar'] .prijskaart {
+  border-color: #ffffff1f;
+  background: var(--inkt);
+  color: #fff;
+}
+
+.prijs-kaarten[data-periode='jaar'] .prijskaart.uitgelicht {
+  border-color: #2ecc71;
+}
+
+.prijs-kaarten[data-periode='jaar'] .prijskop h2,
+.prijs-kaarten[data-periode='jaar'] .bedrag {
+  color: #fff;
+}
+
+.prijs-kaarten[data-periode='jaar'] .prijskop p,
+.prijs-kaarten[data-periode='jaar'] .onder {
+  color: #b7c2be;
+}
+
+.prijs-kaarten[data-periode='jaar'] .wat {
+  border-top-color: #ffffff1f;
+}
+
+.prijs-kaarten[data-periode='jaar'] .wat li {
+  color: #e6ece9;
+}
+
+.prijs-kaarten[data-periode='jaar'] .poppetjes {
+  background: #2ecc7124;
+  color: var(--groen-licht);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gloed.kaart-een,
+  .gloed.kaart-twee {
+    animation: none;
+  }
+}
+
 /* Huishouden valt op: samen ben je per persoon goedkoper uit dan alleen. */
 .prijskaart.uitgelicht {
   border: 1.5px solid #2ecc71;
@@ -1551,12 +1651,6 @@ section.prijs-keuze {
 
 .prijskaart .knop {
   align-self: flex-start;
-}
-
-.btw {
-  margin: 16px 0 0;
-  color: var(--zacht);
-  font-size: 13.5px;
 }
 
 section.prijs-beide {
