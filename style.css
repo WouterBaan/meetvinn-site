@@ -1644,6 +1644,124 @@ section.prijs-vragen {
   padding-top: 48px;
 }
 
+/* Contact (27-10-2026): in dezelfde stijl als Abonnement. Twee manieren om ons te bereiken, een
+   klein regeltje over wat je niet meestuurt, en de vragen inklapbaar in twee groepen. */
+section.contact-keuze {
+  padding: 64px 0 8px;
+  text-align: center;
+}
+
+.contact-intro {
+  max-width: 34em;
+  margin: -24px auto 40px;
+  color: var(--zacht);
+  font-size: 18px;
+}
+
+.contact-kaarten {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contactkaart {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px;
+  border: 1px solid var(--rand);
+  border-radius: 24px;
+  background: var(--vlak);
+}
+
+.contactkaart .icoon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #2ecc711f;
+  color: var(--groen);
+}
+
+.contactkaart h2 {
+  margin: 18px 0 8px;
+  font-size: 22px;
+}
+
+.contactkaart p {
+  margin: 0 0 6px;
+  font-size: 16.5px;
+}
+
+.contactkaart p.zacht {
+  margin-bottom: 20px;
+  color: var(--zacht);
+  font-size: 15px;
+}
+
+.contactkaart .knop {
+  margin-top: auto;
+}
+
+.contact-let-op {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  max-width: 880px;
+  margin: 20px auto 0;
+  color: var(--zacht);
+  font-size: 14px;
+  text-align: left;
+}
+
+.contact-let-op svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--groen);
+}
+
+section.contact-vragen {
+  padding-top: 64px;
+}
+
+.contact-pagina .sectiekop {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.contact-pagina .vragen {
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 0;
+}
+
+.vragen .vragengroep {
+  margin: 0;
+  padding: 28px 0 6px;
+  border-bottom: 1px solid var(--rand);
+  color: var(--groen);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vragen .vragengroep:first-child {
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  .contact-kaarten {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Inklapbare vragen: alleen de vraag, en het antwoord na een tik. */
 .vragen {
   max-width: 760px;
