@@ -181,9 +181,15 @@ button.knop {
 
 /* Alleen opzij afsnijden: naar beneden mag de schaduw van de telefoon doorlopen over
    "Zo werkt Vinn" heen, in plaats van recht afgekapt te worden. */
+/* Bovenaan de homepagina wit, met de menubalk erboven in hetzelfde wit (Wouter, 27-10-2026). */
+body:has(.opening) .kop {
+  background: color-mix(in srgb, #fff 96%, transparent);
+}
+
 .opening {
   position: relative;
   padding: 56px 0 48px;
+  background: #fff;
   overflow-x: clip;
   overflow-y: visible;
 }
