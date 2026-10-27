@@ -3223,3 +3223,37 @@ section.privacy-verder {
     animation: none;
   }
 }
+
+/* Privacyverklaring: inhoudsopgave bovenaan, in twee kolommen op een breed scherm. */
+.inhoud {
+  margin: 8px 0 40px;
+  padding: 20px 24px;
+  border: 1px solid var(--rand);
+  border-radius: 18px;
+  background: var(--vlak);
+}
+
+.inhoud ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 32px;
+}
+
+.inhoud li {
+  margin: 0;
+  padding: 4px 0;
+  break-inside: avoid;
+  font-size: 15.5px;
+}
+
+.artikel h2[id] {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 640px) {
+  .inhoud ul {
+    columns: 1;
+  }
+}
