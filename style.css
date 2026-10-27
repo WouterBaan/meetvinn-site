@@ -2392,7 +2392,6 @@ section.privacy-verder {
   border: 1px solid var(--rand);
   background:
     radial-gradient(circle at 1px 1px, #13744a14 1px, transparent 0) 0 0 / 18px 18px,
-    radial-gradient(120% 90% at 0% 50%, #2ecc7114, transparent 60%),
     var(--vlak-zacht);
 }
 
@@ -2413,7 +2412,7 @@ section.privacy-verder {
 .reis .knoop.jij {
   border-color: #2ecc7180;
   background: linear-gradient(160deg, #ffffff, #eefaf3);
-  box-shadow: 0 0 0 4px #2ecc711a, 0 14px 34px -14px #13744a59;
+  box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e;
 }
 
 .stap {
@@ -2428,8 +2427,12 @@ section.privacy-verder {
 }
 
 .stap .nr {
-  display: grid;
-  place-items: center;
+  /* Het cijfer optisch in het midden, net als bij de label-vlakjes op de homepagina. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
   flex: none;
   width: 24px;
   height: 24px;
@@ -2555,10 +2558,6 @@ section.privacy-verder {
       'tel s4 db   .  bank';
     max-width: none;
     padding: 40px;
-    background:
-      radial-gradient(circle at 1px 1px, #13744a14 1px, transparent 0) 0 0 / 18px 18px,
-      radial-gradient(60% 90% at 0% 50%, #2ecc7114, transparent 70%),
-      var(--vlak-zacht);
   }
 
   .k-tel,
