@@ -1369,8 +1369,21 @@ section.donker {
 
 /* Prijzen (27-10-2026): een keuze per maand of per jaar, twee kaarten waarvan Huishouden opvalt,
    wat bij allebei zit, en de vragen inklapbaar. */
+/* Op Prijzen een lichte opening, zonder het donkere vlak (Wouter, 27-10-2026). */
+.pagina-opening.licht {
+  padding-bottom: 0;
+}
+
+.pagina-opening.licht h1 {
+  color: var(--tekst);
+}
+
+.pagina-opening.licht p {
+  color: var(--zacht);
+}
+
 section.prijs-keuze {
-  padding: 56px 0 8px;
+  padding: 40px 0 8px;
 }
 
 .periode {
