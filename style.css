@@ -2349,7 +2349,11 @@ section.privacy-punten {
   align-items: center;
   gap: 12px;
   max-width: 740px;
-  margin-top: 28px;
+}
+
+.naast-kop {
+  margin: 48px 0 16px;
+  font-size: 22px;
 }
 
 .naast .mini {
@@ -2413,7 +2417,6 @@ section.privacy-verder {
 
   .naast {
     grid-template-columns: 1fr;
-    margin-top: 24px;
   }
 
   .pijl {
