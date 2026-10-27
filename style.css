@@ -1586,8 +1586,10 @@ section.prijs-keuze {
   color: #fff;
 }
 
+/* Per jaar zonder de groene rand om Huishouden (Wouter, 27-10-2026). */
 .prijs-kaarten[data-periode='jaar'] .prijskaart.uitgelicht {
-  border-color: #2ecc71;
+  border-color: #ffffff1f;
+  box-shadow: none;
 }
 
 .prijs-kaarten[data-periode='jaar'] .prijskop h2,
