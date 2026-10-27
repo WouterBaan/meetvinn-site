@@ -158,23 +158,23 @@
             <h2>Betalen en opzeggen</h2>
           </div>
           <div class="vragen">
-          <details>
+          <details name="vragen">
             <summary>Hoe betaal ik?</summary>
             <p>Via de App Store, met de betaalmethode van je Apple ID. Vinn ziet je betaalgegevens niet.</p>
           </details>
-          <details>
+          <details name="vragen">
             <summary>Hoe werkt de gratis maand?</summary>
             <p>Je gebruikt Vinn een maand helemaal, zonder te betalen. Zeg je in die maand op, dan betaal je niets. Anders gaat je abonnement daarna vanzelf in.</p>
           </details>
-          <details>
+          <details name="vragen">
             <summary>Wat is het verschil met Vinn Huishouden?</summary>
             <p>Met Vinn Huishouden gebruiken jij en je partner Vinn samen, ieder met een eigen account. Jullie zien samen de gezamenlijke rekening, de budgetten en de score van het huishouden. Je eigen rekeningen en potjes blijven van jou.</p>
           </details>
-          <details>
+          <details name="vragen">
             <summary>Kan ik later overstappen?</summary>
             <p>Ja. Van maand naar jaar, of van Vinn naar Vinn Huishouden, regel je in de App Store onder <strong>Abonnementen</strong>.</p>
           </details>
-          <details>
+          <details name="vragen">
             <summary>Hoe zeg ik op?</summary>
             <p>In de instellingen van je iPhone: tik op je naam en dan op <strong>Abonnementen</strong>. Je houdt Vinn tot het einde van de periode die je al betaald hebt.</p>
           </details>
@@ -229,6 +229,17 @@
       zet();
     </script>
     <script>
+      // Eén vraag tegelijk open. `name` op <details> doet dat zelf in nieuwe browsers; dit is
+      // voor de rest.
+      document.querySelectorAll('.vragen details').forEach((vraag) => {
+        vraag.addEventListener('toggle', () => {
+          if (!vraag.open) return;
+          document.querySelectorAll('.vragen details').forEach((ander) => {
+            if (ander !== vraag) ander.open = false;
+          });
+        });
+      });
+
       // Vinn of Vinn Huishouden: zet de kaarten om en houdt bij welke knop aan staat.
       const kaarten = document.querySelector('.prijs-kaarten');
       document.querySelectorAll('.periode button').forEach((knop) => {
