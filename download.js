@@ -54,13 +54,12 @@
 
   document.querySelectorAll('[data-download]').forEach((knop) => knop.addEventListener('click', open));
 
-  // Een Download-knop op deze pagina zelf (in de kop of de afsluiting): naar de kaarten schuiven
-  // in plaats van de pagina opnieuw te laden.
-  const keuze = document.querySelector('.prijs-keuze');
+  // Een Download-knop op deze pagina zelf (in de kop of de afsluiting): terug naar boven
+  // schuiven, naar de titel en de keuze, in plaats van de pagina opnieuw te laden.
   document.querySelectorAll('a[href="prijs.html"].knop').forEach((knop) =>
     knop.addEventListener('click', (e) => {
       e.preventDefault();
-      keuze.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }),
   );
 
