@@ -3273,14 +3273,15 @@ section.privacy-verder {
   counter-reset: kop;
 }
 
-/* De privacyverklaring wat breder dan een gewoon artikel, met de tabellen nog iets breder. */
+/* De privacyverklaring wat breder dan een gewoon artikel, met de tabellen even breed als de
+   tekst (Wouter, 27-10-2026). */
 .artikel.genummerd {
   max-width: 960px;
 }
 
 .artikel.genummerd .tabel {
-  width: max(100%, min(1100px, calc(100vw - 64px)));
-  margin-left: calc((100% - max(100%, min(1100px, calc(100vw - 64px)))) / 2);
+  width: auto;
+  margin-left: 0;
 }
 
 .genummerd h2 {
