@@ -39,9 +39,8 @@
               toekomst.
             </p>
             <div class="knoppen">
-              <!-- Opent een venster met de QR-code naar de App Store. Zodra de app erin staat:
-                   de link in data-appstore zetten en de QR-code in het venster vervangen. -->
-              <button class="knop groen" type="button" id="download" data-appstore="">
+              <!-- Opent het venster met de QR-code naar de App Store; zie download.js. -->
+              <button class="knop groen" type="button" id="download">
                 Download Vinn
               </button>
             </div>
@@ -496,43 +495,8 @@
       </div>
     </footer>
 
-    <dialog class="qrvenster" id="qrvenster" aria-labelledby="qrtitel">
-      <button class="sluit" type="button" aria-label="Sluiten">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
-      </button>
-      <img class="qrlogo" src="favicon-192.png" alt="" />
-      <h2 id="qrtitel">Download Vinn</h2>
-      <p>Scan de code met de camera van je iPhone. Je gaat dan naar Vinn in de App Store.</p>
-      <div class="qrcode" aria-label="QR-code naar de App Store">
-        <span>QR-code</span>
-      </div>
-    </dialog>
 
     <script>
-      // Download Vinn: op een iPhone straks rechtstreeks naar de App Store, verder het venster
-      // met de QR-code. Zolang data-appstore leeg is, opent altijd het venster.
-      const download = document.getElementById('download');
-      const venster = document.getElementById('qrvenster');
-      if (download && venster) {
-        const open = () => {
-          const winkel = download.dataset.appstore;
-          if (winkel && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            location.href = winkel;
-            return;
-          }
-          if (venster.showModal) venster.showModal();
-          else venster.setAttribute('open', '');
-        };
-        // De knop in de opening en die in de menubalk; van een andere pagina via #download.
-        download.addEventListener('click', open);
-        document.querySelectorAll('[data-download]').forEach((knop) => knop.addEventListener('click', open));
-        if (location.hash === '#download') open();
-        venster.querySelector('.sluit').addEventListener('click', () => venster.close());
-        venster.addEventListener('click', (e) => {
-          if (e.target === venster) venster.close();
-        });
-      }
-
       // De telefoon bovenaan gaat open zoals de app: de begroeting typt zich uit, en de twee
       // rondjes lopen vol. De snelheden van de app (TypedText: 30 ms per teken, de tweede regel
       // na de eerste plus 280 ms; ProgressRing: 900 ms, ease-out). De tweede regel staat in de
@@ -621,5 +585,6 @@
       addEventListener('scroll', zet, { passive: true });
       zet();
     </script>
+    <script src="download.js"></script>
   </body>
 </html>
