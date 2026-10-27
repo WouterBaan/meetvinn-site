@@ -2409,8 +2409,9 @@ section.privacy-verder {
   box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e;
 }
 
-/* Het vlak waar het lichtpuntje is aangekomen licht groen op, tot het bij het volgende vlak is:
-   zo zie je waar je gegevens op dat moment zijn. Het rondje duurt vijf tellen, net als de
+/* Het vlak waar het lichtpuntje is aangekomen krijgt een groene rand die geleidelijk oplicht
+   en rustig ademt, zoals het bolletje aan het eind van een grafiek in de app; hij dooft als het
+   volgende vlak het overneemt. Het vlak zelf blijft wit. Het rondje duurt vijf tellen, net als de
    lichtpuntjes: telefoon, server, bank, server, database. */
 .reis .knoop {
   animation: 5s ease-in-out infinite;
@@ -2422,25 +2423,50 @@ section.privacy-verder {
 .reis .k-db { animation-name: licht-db; }
 
 @keyframes licht-tel {
-  0%, 18% { background-color: #eefaf3; border-color: #2ecc7180; box-shadow: 0 0 0 4px #2ecc711a, 0 14px 34px -14px #13744a59; }
-  22%, 96% { background-color: #fff; border-color: transparent; box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
-  100% { background-color: #eefaf3; border-color: #2ecc7180; box-shadow: 0 0 0 4px #2ecc711a, 0 14px 34px -14px #13744a59; }
+  0% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  5% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  10% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  21% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  24% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  96% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  100% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
 }
 
 @keyframes licht-vinn {
-  0%, 18%, 42%, 58%, 82%, 100% { background-color: #fff; border-color: transparent; box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
-  21%, 38%, 61%, 78% { background-color: #eefaf3; border-color: #2ecc7180; box-shadow: 0 0 0 4px #2ecc711a, 0 14px 34px -14px #13744a59; }
+  0% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  19% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  23% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  28% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  33% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  41% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  44% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  59% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  63% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  68% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  73% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  81% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  84% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  100% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
 }
 
 @keyframes licht-bank {
-  0%, 38%, 62%, 100% { background-color: #fff; border-color: transparent; box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
-  41%, 58% { background-color: #eefaf3; border-color: #2ecc7180; box-shadow: 0 0 0 4px #2ecc711a, 0 14px 34px -14px #13744a59; }
+  0% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  39% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  43% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  48% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  53% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  61% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  64% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  100% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
 }
 
 @keyframes licht-db {
-  0%, 78% { background-color: #fff; border-color: transparent; box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
-  81%, 96% { background-color: #eefaf3; border-color: #2ecc7180; box-shadow: 0 0 0 4px #2ecc711a, 0 14px 34px -14px #13744a59; }
-  100% { background-color: #fff; border-color: transparent; box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  0% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  79% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  83% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  88% { border-color: #2ecc71a6; box-shadow: 0 0 0 2px #2ecc711f, 0 0 14px 1px #2ecc7133, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  93% { border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7133, 0 0 28px 4px #2ecc715c, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
+  100% { border-color: #2ecc7100; box-shadow: 0 0 0 0 #2ecc7100, 0 0 0 0 #2ecc7100, 0 1px 2px #06121008, 0 10px 28px -12px #0612102e; }
 }
 
 .reis-stap {
