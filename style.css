@@ -2293,8 +2293,8 @@ section.privacy-punten {
 /* Het schema: knopen met pijlen ertussen. */
 .schema {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr) 36px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr);
+  gap: 10px;
 }
 
 .knoop {
@@ -2302,7 +2302,7 @@ section.privacy-punten {
   background: var(--vlak);
   border: 1px solid var(--rand);
   border-radius: 20px;
-  padding: 22px;
+  padding: 20px;
 }
 
 .knoop {
@@ -2315,6 +2315,7 @@ section.privacy-punten {
 .knoop h3 {
   margin: 0;
   font-size: 17px;
+  white-space: nowrap;
 }
 
 .knoop p {
@@ -2342,17 +2343,17 @@ section.privacy-punten {
   color: #9aa5a1;
 }
 
-/* Onder het schema: dezelfde betaling in de app en in de database. */
+/* In het blok over de opslag: dezelfde betaling in de app en in de database. */
 .naast {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr);
   align-items: center;
-  gap: 12px;
-  max-width: 740px;
+  gap: 6px;
+  margin-top: 20px;
 }
 
-.naast-kop {
-  margin: 88px 0 40px;
+.naast .pijl svg {
+  width: 16px;
 }
 
 .naast .mini {
@@ -2360,7 +2361,7 @@ section.privacy-punten {
   height: auto;
   margin: 0;
   align-self: stretch;
-  padding: 16px;
+  padding: 12px;
 }
 
 .mini.database code {
@@ -2431,5 +2432,29 @@ section.privacy-verder {
 @media (prefers-reduced-motion: reduce) {
   .privacy-opening .gloed {
     animation: none;
+  }
+}
+
+/* Op een smalle laptop is het blok over de opslag te smal voor twee kaartjes naast elkaar. */
+@media (min-width: 901px) and (max-width: 1240px) {
+  .naast {
+    grid-template-columns: 1fr;
+  }
+
+  .naast .pijl {
+    transform: rotate(90deg);
+    height: 20px;
+  }
+}
+
+/* Vier stappen naast elkaar passen pas vanaf een brede laptop; daaronder twee aan twee. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .schema {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .schema .pijl {
+    display: none;
   }
 }
