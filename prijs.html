@@ -257,6 +257,11 @@
           document.querySelectorAll('.periode button').forEach((b) => b.setAttribute('aria-pressed', String(b === knop)));
         });
       });
+
+      // Een link als prijs.html?abonnement=huishouden opent meteen op Vinn Huishouden.
+      const gevraagd = new URLSearchParams(location.search).get('abonnement');
+      const knopVoor = document.querySelector('.periode button[data-product="' + gevraagd + '"]');
+      if (knopVoor) knopVoor.click();
     </script>
     <script src="download.js"></script>
   </body>
