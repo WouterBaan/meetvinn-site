@@ -29,61 +29,68 @@
       <section class="prijs-keuze">
         <div class="binnen">
           <h1 class="prijs-titel">Investeer in je financiële gezondheid</h1>
-          <!-- Per maand of per jaar: bij een jaar staat het bedrag omgerekend per maand. -->
-          <div class="periode" role="group" aria-label="Betalen">
-            <button type="button" data-periode="maand" aria-pressed="true">Per maand</button>
-            <button type="button" data-periode="jaar" aria-pressed="false">Per jaar <span class="bespaar"><span class="lang">tot 30% voordeliger</span><span class="kort">−30%</span></span></button>
+          <!-- Kies het abonnement; per maand en per jaar staan altijd naast elkaar, zodat je ziet
+               wat een jaar scheelt (Wouter, 27-10-2026). -->
+          <div class="periode" role="group" aria-label="Abonnement">
+            <button type="button" data-product="vinn" aria-pressed="true"><span class="poppetje" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4" /><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" /></svg></span>Vinn</button>
+            <button type="button" data-product="huishouden" aria-pressed="false"><span class="poppetje" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5" /><path d="M2 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1" /><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 15a5 5 0 0 1 4 5v1" /></svg></span>Vinn Huishouden</button>
           </div>
 
-          <div class="prijs-kaarten" data-periode="maand">
+          <div class="prijs-kaarten" data-product="vinn">
             <div class="prijskaart">
-              <span class="kaart-gloeden" aria-hidden="true"><span class="gloed kaart-een"></span><span class="gloed kaart-twee"></span></span>
               <div class="prijskop">
-                <span class="poppetjes" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4" /><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" /></svg></span>
-                <div>
-                  <h2>Vinn</h2>
-                  <p>Voor jezelf</p>
-                </div>
+                <h2>Maandelijks</h2>
+                <p>Flexibel, maandelijks opzegbaar</p>
               </div>
               <p class="bedrag">
-                <span class="maand"><b>€ 6,99</b> per maand</span>
-                <span class="jaar"><b>€ 5,00</b> per maand</span>
+                <span class="vinn"><b>€ 6,99</b> per maand</span>
+                <span class="huishouden"><b>€ 11,99</b> per maand</span>
               </p>
               <p class="onder">
-                <span class="maand">Maandelijks opzegbaar</span>
-                <span class="jaar">€ 59,99 per jaar, bespaar 28%</span>
+                <span class="vinn">Voor jezelf</span>
+                <span class="huishouden">Voor jou en je partner, € 6,00 per persoon</span>
               </p>
-              <ul class="wat">
+              <ul class="wat vinn">
                 <li>Eén account, alleen voor jou</li>
                 <li>Al je eigen rekeningen in één overzicht</li>
                 <li>Budgetten en potjes op jouw maat</li>
                 <li>Een score voor jouw financiële gezondheid</li>
               </ul>
+              <ul class="wat huishouden">
+                <li>Twee accounts, ieder met een eigen inlog</li>
+                <li>Jullie gezamenlijke rekening, samen in beeld</li>
+                <li>Eigen rekening en potjes blijven privé</li>
+                <li>Gedeelde betalingen eerlijk verdelen</li>
+                <li>Eén score voor jullie samen</li>
+              </ul>
               <a class="knop groen" href="index.html#download">Probeer een maand gratis</a>
             </div>
 
-            <div class="prijskaart uitgelicht">
+            <div class="prijskaart jaarkaart">
               <span class="kaart-gloeden" aria-hidden="true"><span class="gloed kaart-een"></span><span class="gloed kaart-twee"></span></span>
               <span class="per-persoon">
-                <span class="maand">€ 6,00 per persoon</span>
-                <span class="jaar">€ 4,17 per persoon</span>
+                <span class="vinn">Bespaar 28%</span>
+                <span class="huishouden">Bespaar 30%</span>
               </span>
               <div class="prijskop">
-                <span class="poppetjes" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5" /><path d="M2 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1" /><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 15a5 5 0 0 1 4 5v1" /></svg></span>
-                <div>
-                  <h2>Vinn Huishouden</h2>
-                  <p>Voor jou en je partner</p>
-                </div>
+                <h2>Jaarlijks</h2>
+                <p>Het voordeligst</p>
               </div>
               <p class="bedrag">
-                <span class="maand"><b>€ 11,99</b> per maand</span>
-                <span class="jaar"><b>€ 8,33</b> per maand</span>
+                <span class="vinn"><b>€ 5,00</b> per maand</span>
+                <span class="huishouden"><b>€ 8,33</b> per maand</span>
               </p>
               <p class="onder">
-                <span class="maand">Maandelijks opzegbaar</span>
-                <span class="jaar">€ 99,99 per jaar, bespaar 30%</span>
+                <span class="vinn">€ 59,99 per jaar, je bespaart € 23,89</span>
+                <span class="huishouden">€ 99,99 per jaar, je bespaart € 43,89</span>
               </p>
-              <ul class="wat">
+              <ul class="wat vinn">
+                <li>Eén account, alleen voor jou</li>
+                <li>Al je eigen rekeningen in één overzicht</li>
+                <li>Budgetten en potjes op jouw maat</li>
+                <li>Een score voor jouw financiële gezondheid</li>
+              </ul>
+              <ul class="wat huishouden">
                 <li>Twee accounts, ieder met een eigen inlog</li>
                 <li>Jullie gezamenlijke rekening, samen in beeld</li>
                 <li>Eigen rekening en potjes blijven privé</li>
@@ -222,11 +229,11 @@
       zet();
     </script>
     <script>
-      // Per maand of per jaar: zet de kaarten om en houdt bij welke knop aan staat.
+      // Vinn of Vinn Huishouden: zet de kaarten om en houdt bij welke knop aan staat.
       const kaarten = document.querySelector('.prijs-kaarten');
       document.querySelectorAll('.periode button').forEach((knop) => {
         knop.addEventListener('click', () => {
-          kaarten.dataset.periode = knop.dataset.periode;
+          kaarten.dataset.product = knop.dataset.product;
           document.querySelectorAll('.periode button').forEach((b) => b.setAttribute('aria-pressed', String(b === knop)));
         });
       });

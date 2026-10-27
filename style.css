@@ -1435,16 +1435,9 @@ section.prijs-keuze {
   box-shadow: 0 1px 2px #06121014, 0 4px 12px -6px #0612102e;
 }
 
-.periode .kort {
-  display: none;
-}
-
-.periode .bespaar {
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: #2ecc711f;
+.periode .poppetje {
+  display: inline-grid;
   color: var(--groen);
-  font-size: 12.5px;
 }
 
 .prijs-kaarten {
@@ -1454,8 +1447,8 @@ section.prijs-keuze {
   max-width: 880px;
 }
 
-.prijs-kaarten[data-periode='maand'] .jaar,
-.prijs-kaarten[data-periode='jaar'] .maand {
+.prijs-kaarten[data-product='vinn'] .huishouden,
+.prijs-kaarten[data-product='huishouden'] .vinn {
   display: none;
 }
 
@@ -1526,92 +1519,40 @@ section.prijs-keuze {
   }
 }
 
-/* Bij Huishouden lopen de gloeden een eigen baan, met een andere snelheid en een ander
-   beginpunt, zodat de twee kaarten niet in de pas bewegen. */
-.uitgelicht .gloed.kaart-een {
-  left: auto;
-  right: -120px;
-  top: -100px;
-  animation: kaart-drie 30s ease-in-out -9s infinite alternate;
-}
-
-.uitgelicht .gloed.kaart-twee {
-  right: auto;
-  left: -90px;
-  bottom: -110px;
-  animation: kaart-vier 38s ease-in-out -17s infinite alternate;
-}
-
-@keyframes kaart-drie {
-  40% {
-    transform: translate(-170px, 120px);
-  }
-  100% {
-    transform: translate(-60px, 320px);
-  }
-}
-
-@keyframes kaart-vier {
-  45% {
-    transform: translate(160px, -170px);
-  }
-  100% {
-    transform: translate(40px, -300px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .gloed.kaart-een,
-  .gloed.kaart-twee,
-  .uitgelicht .gloed.kaart-een,
-  .uitgelicht .gloed.kaart-twee {
+  .gloed.kaart-twee {
     animation: none;
   }
 }
 
-.prijs-kaarten[data-periode='jaar'] .kaart-gloeden {
+/* Jaarlijks: altijd donker, met de groene gloeden van de app, en zonder groene rand. */
+.jaarkaart .kaart-gloeden {
   opacity: 1;
 }
 
-.prijs-kaarten[data-periode='jaar'] .prijskaart {
+.prijskaart.jaarkaart {
   border-color: #ffffff1f;
   background: var(--inkt);
   color: #fff;
 }
 
-/* Per jaar zonder de groene rand om Huishouden (Wouter, 27-10-2026). */
-.prijs-kaarten[data-periode='jaar'] .prijskaart.uitgelicht {
-  border-color: #ffffff1f;
-  box-shadow: none;
-}
-
-.prijs-kaarten[data-periode='jaar'] .prijskop h2,
-.prijs-kaarten[data-periode='jaar'] .bedrag {
+.prijskaart.jaarkaart .prijskop h2,
+.prijskaart.jaarkaart .bedrag {
   color: #fff;
 }
 
-.prijs-kaarten[data-periode='jaar'] .prijskop p,
-.prijs-kaarten[data-periode='jaar'] .onder {
+.prijskaart.jaarkaart .prijskop p,
+.prijskaart.jaarkaart .onder {
   color: #b7c2be;
 }
 
-.prijs-kaarten[data-periode='jaar'] .wat {
+.prijskaart.jaarkaart .wat {
   border-top-color: #ffffff1f;
 }
 
-.prijs-kaarten[data-periode='jaar'] .wat li {
+.prijskaart.jaarkaart .wat li {
   color: #e6ece9;
-}
-
-.prijs-kaarten[data-periode='jaar'] .poppetjes {
-  background: #2ecc7124;
-  color: var(--groen-licht);
-}
-
-/* Huishouden valt op: samen ben je per persoon goedkoper uit dan alleen. */
-.prijskaart.uitgelicht {
-  border: 1.5px solid #2ecc71;
-  box-shadow: 0 0 0 4px #2ecc711a, 0 18px 40px -20px #13744a59;
 }
 
 .per-persoon {
@@ -1624,24 +1565,6 @@ section.prijs-keuze {
   color: #000307;
   font-size: 13px;
   font-weight: 700;
-}
-
-.prijskop {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-/* Eén poppetje bij Vinn, twee bij Huishouden (Wouter, 27-10-2026). */
-.poppetjes {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: #2ecc711f;
-  color: var(--groen);
 }
 
 .prijskop h2 {
@@ -1760,14 +1683,6 @@ section.prijs-vragen {
   .prijs-kaarten {
     grid-template-columns: 1fr;
     gap: 28px;
-  }
-
-  .periode .lang {
-    display: none;
-  }
-
-  .periode .kort {
-    display: inline;
   }
 }
 
