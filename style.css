@@ -2458,8 +2458,6 @@ section.privacy-verder {
   width: 240px;
   height: 240px;
   margin: -120px 0 0 -120px;
-  --zwerf-x: 42%;
-  --zwerf-y: 62%;
   left: var(--rust-x);
   top: var(--rust-y);
   animation-name: gegevens-uit;
@@ -2472,29 +2470,71 @@ section.privacy-verder {
   width: 200px;
   height: 200px;
   margin: -100px 0 0 -100px;
-  --zwerf-x: 58%;
-  --zwerf-y: 30%;
   left: var(--rust-x);
   top: var(--rust-y);
   animation-name: gegevens-in;
 }
 
-/* De eerste gloed brengt je verzoek naar pijl 1 en zwerft daarna weer rond. */
+/* De eerste gloed brengt je verzoek naar pijl 1 en zwerft daarna in een rustige boog over je
+   telefoon. Op het pad gaat hij met gelijke snelheid, zodat hij nergens stilvalt. */
 @keyframes gegevens-uit {
-  0%, 8% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); }
-  30% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
-  58% { left: var(--zwerf-x); top: var(--zwerf-y); transform: scale(1); }
-  86% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
-  100% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); }
+  0% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); animation-timing-function: linear; }
+  8% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); animation-timing-function: ease-in-out; }
+  22% { left: 48%; top: 50%; transform: scale(1); animation-timing-function: linear; }
+  25.05% { left: 47.4%; top: 57.4%; transform: scale(1); animation-timing-function: linear; }
+  28.1% { left: 45.7%; top: 64.4%; transform: scale(1); animation-timing-function: linear; }
+  31.14% { left: 43.1%; top: 70.2%; transform: scale(1); animation-timing-function: linear; }
+  34.19% { left: 39.6%; top: 74.7%; transform: scale(1); animation-timing-function: linear; }
+  37.24% { left: 35.6%; top: 77.3%; transform: scale(1); animation-timing-function: linear; }
+  40.29% { left: 31.3%; top: 78%; transform: scale(1); animation-timing-function: linear; }
+  43.33% { left: 27.1%; top: 76.6%; transform: scale(1); animation-timing-function: linear; }
+  46.38% { left: 23.2%; top: 73.4%; transform: scale(1); animation-timing-function: linear; }
+  49.43% { left: 20%; top: 68.4%; transform: scale(1); animation-timing-function: linear; }
+  52.48% { left: 17.6%; top: 62.1%; transform: scale(1); animation-timing-function: linear; }
+  55.52% { left: 16.3%; top: 55%; transform: scale(1); animation-timing-function: linear; }
+  58.57% { left: 16.1%; top: 47.5%; transform: scale(1); animation-timing-function: linear; }
+  61.62% { left: 17%; top: 40.2%; transform: scale(1); animation-timing-function: linear; }
+  64.67% { left: 19.1%; top: 33.5%; transform: scale(1); animation-timing-function: linear; }
+  67.71% { left: 22%; top: 28.1%; transform: scale(1); animation-timing-function: linear; }
+  70.76% { left: 25.7%; top: 24.3%; transform: scale(1); animation-timing-function: linear; }
+  73.81% { left: 29.9%; top: 22.3%; transform: scale(1); animation-timing-function: linear; }
+  76.86% { left: 34.1%; top: 22.3%; transform: scale(1); animation-timing-function: linear; }
+  79.9% { left: 38.3%; top: 24.3%; transform: scale(1); animation-timing-function: linear; }
+  82.95% { left: 42%; top: 28.1%; transform: scale(1); animation-timing-function: linear; }
+  86% { left: 44.9%; top: 33.5%; transform: scale(1); animation-timing-function: ease-in-out; }
+  100% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); animation-timing-function: linear; }
 }
 
-/* De tweede zwerft rond, haalt bij pijl 4 je gegevens op als het lichtpuntje terug is, en
-   neemt ze mee je telefoon in. */
+/* De tweede zwerft in een boog, haalt bij pijl 4 je gegevens op als het lichtpuntje terug is,
+   en neemt ze mee je telefoon in. */
 @keyframes gegevens-in {
-  0% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
-  30% { left: var(--zwerf-x); top: var(--zwerf-y); transform: scale(1); }
-  60%, 67% { left: var(--in-x); top: var(--in-y); transform: scale(0.6); }
-  84%, 100% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
+  0% { left: 50%; top: 50%; transform: scale(1); animation-timing-function: linear; }
+  3.06% { left: 50.7%; top: 41.8%; transform: scale(1); animation-timing-function: linear; }
+  6.12% { left: 52.7%; top: 34.4%; transform: scale(1); animation-timing-function: linear; }
+  9.18% { left: 55.9%; top: 28.3%; transform: scale(1); animation-timing-function: linear; }
+  12.24% { left: 59.9%; top: 24.1%; transform: scale(1); animation-timing-function: linear; }
+  15.29% { left: 64.5%; top: 22.1%; transform: scale(1); animation-timing-function: linear; }
+  18.35% { left: 69.2%; top: 22.6%; transform: scale(1); animation-timing-function: linear; }
+  21.41% { left: 73.7%; top: 25.4%; transform: scale(1); animation-timing-function: linear; }
+  24.47% { left: 77.4%; top: 30.4%; transform: scale(1); animation-timing-function: linear; }
+  27.53% { left: 80.2%; top: 37.1%; transform: scale(1); animation-timing-function: linear; }
+  30.59% { left: 81.7%; top: 44.9%; transform: scale(1); animation-timing-function: linear; }
+  33.65% { left: 81.9%; top: 53.1%; transform: scale(1); animation-timing-function: linear; }
+  36.71% { left: 80.7%; top: 61.1%; transform: scale(1); animation-timing-function: linear; }
+  39.76% { left: 78.2%; top: 68.1%; transform: scale(1); animation-timing-function: linear; }
+  42.82% { left: 74.7%; top: 73.5%; transform: scale(1); animation-timing-function: linear; }
+  45.88% { left: 70.4%; top: 76.9%; transform: scale(1); animation-timing-function: linear; }
+  48.94% { left: 65.7%; top: 78%; transform: scale(1); animation-timing-function: linear; }
+  52% { left: 61.1%; top: 76.6%; transform: scale(1); animation-timing-function: ease-in-out; }
+  60% { left: var(--in-x); top: var(--in-y); transform: scale(0.6); animation-timing-function: linear; }
+  67% { left: var(--in-x); top: var(--in-y); transform: scale(0.6); animation-timing-function: ease-in-out; }
+  80% { left: 71.7%; top: 76.2%; transform: scale(1); animation-timing-function: linear; }
+  83.33% { left: 66.6%; top: 78%; transform: scale(1); animation-timing-function: linear; }
+  86.67% { left: 61.5%; top: 76.9%; transform: scale(1); animation-timing-function: linear; }
+  90% { left: 56.9%; top: 73%; transform: scale(1); animation-timing-function: linear; }
+  93.33% { left: 53.2%; top: 66.8%; transform: scale(1); animation-timing-function: linear; }
+  96.67% { left: 50.8%; top: 58.9%; transform: scale(1); animation-timing-function: linear; }
+  100% { left: 50%; top: 50%; transform: scale(1); animation-timing-function: linear; }
 }
 
 /* Het vlak waar het lichtpuntje is aangekomen krijgt een groene rand die één keer geleidelijk
