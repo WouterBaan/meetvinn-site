@@ -23,7 +23,7 @@
           <a href="veiligheid.html">Privacy</a>
           <a href="prijs.html">Prijzen</a>
           <a href="support.html">Contact</a>
-          <span class="knop groen binnenkort" aria-disabled="true">Binnenkort<span class="breed"> in de App Store</span></span>
+          <button class="knop groen" type="button" data-download>Download<span class="breed"> Vinn</span></button>
         </nav>
       </div>
     </header>
@@ -39,11 +39,11 @@
               toekomst.
             </p>
             <div class="knoppen">
-              <!-- Zolang Vinn niet in de App Store staat: "Binnenkort", niet klikbaar. Daarna weer
-                   <button class="knop groen" type="button" id="download" data-appstore="…">Download
-                   Vinn</button>, met de link in data-appstore en de QR-code in het venster hieronder;
-                   de knoppen in de kop en de afsluiting krijgen data-download. Het script staat er nog. -->
-              <span class="knop groen binnenkort" aria-disabled="true">Binnenkort in de App Store</span>
+              <!-- Opent een venster met de QR-code naar de App Store. Zodra de app erin staat:
+                   de link in data-appstore zetten en de QR-code in het venster vervangen. -->
+              <button class="knop groen" type="button" id="download" data-appstore="">
+                Download Vinn
+              </button>
             </div>
           </div>
 
@@ -461,7 +461,7 @@
         <div class="binnen">
           <h2>Meer rust in je financiën begint hier</h2>
           <p>Probeer Vinn nu een maand gratis.</p>
-          <span class="knop groen binnenkort" aria-disabled="true">Binnenkort in de App Store</span>
+          <button class="knop groen" type="button" data-download>Download Vinn</button>
         </div>
       </section>
 
