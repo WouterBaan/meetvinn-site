@@ -2409,6 +2409,69 @@ section.privacy-verder {
   box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e;
 }
 
+/* Je telefoon in het donker, met de groene gloeden die ook in de app bewegen: dit is waar de
+   sleutel zit. */
+.reis .k-tel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--inkt);
+}
+
+.k-tel > :not(.gloed) {
+  position: relative;
+  z-index: 1;
+}
+
+.k-tel h3 {
+  color: #fff;
+}
+
+.k-tel p {
+  color: #b7c2be;
+}
+
+.k-tel .icoon {
+  background: #2ecc7124;
+  color: var(--groen-licht);
+}
+
+.gloed.tel-een {
+  --d: 0.95;
+  width: 240px;
+  height: 240px;
+  left: -90px;
+  top: -60px;
+  animation: tel-een 14s ease-in-out infinite alternate;
+}
+
+.gloed.tel-twee {
+  --d: 0.8;
+  width: 200px;
+  height: 200px;
+  right: -80px;
+  bottom: -70px;
+  animation: tel-twee 18s ease-in-out infinite alternate;
+}
+
+@keyframes tel-een {
+  50% {
+    transform: translate(110px, 120px);
+  }
+  100% {
+    transform: translate(40px, 220px);
+  }
+}
+
+@keyframes tel-twee {
+  50% {
+    transform: translate(-100px, -140px);
+  }
+  100% {
+    transform: translate(-30px, -230px);
+  }
+}
+
 /* Het vlak waar het lichtpuntje is aangekomen krijgt een groene rand die één keer geleidelijk
    oplicht, zoals het bolletje aan het eind van een grafiek in de app, en na een kleine tel
    weer dooft. Het vlak zelf blijft wit. Het rondje duurt zes en een halve tel, net als de
