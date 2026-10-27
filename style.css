@@ -2305,13 +2305,21 @@ section.privacy-punten {
   padding: 22px;
 }
 
+.knoop {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 12px;
+}
+
 .knoop h3 {
-  margin: 12px 0 4px;
+  margin: 0;
   font-size: 17px;
 }
 
 .knoop p {
-  margin: 0;
+  grid-column: 1 / -1;
+  margin: 12px 0 0;
   color: var(--zacht);
   font-size: 15.5px;
 }
