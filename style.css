@@ -2410,11 +2410,11 @@ section.privacy-verder {
 }
 
 /* Het vlak waar het lichtpuntje is aangekomen krijgt een groene rand die één keer geleidelijk
-   oplicht, zoals het bolletje aan het eind van een grafiek in de app, en na ruim een halve tel
-   weer dooft. Het vlak zelf blijft wit. Het rondje duurt vijf tellen, net als de
+   oplicht, zoals het bolletje aan het eind van een grafiek in de app, en na een kleine tel
+   weer dooft. Het vlak zelf blijft wit. Het rondje duurt zes en een halve tel, net als de
    lichtpuntjes: telefoon, server, bank, server, database. */
 .reis .knoop {
-  animation: 5s ease-in-out infinite;
+  animation: 6.5s ease-in-out infinite;
 }
 
 .reis .k-tel { animation-name: licht-tel; }
@@ -2523,17 +2523,17 @@ section.privacy-verder {
   background: var(--groen-licht);
   box-shadow: 0 0 10px 3px #2ecc7199;
   opacity: 0;
-  animation: vonk-omlaag 5s ease-in-out infinite;
+  animation: vonk-omlaag 6.5s ease-in-out infinite;
 }
 
 /* Stap 2 duurt twee tellen: naar je bank, en met je betalingen terug naar Vinn. */
 .s2 .vonk {
   animation-name: vonk-op-neer;
-  animation-delay: 1s;
+  animation-delay: 1.3s;
 }
 
-.s3 .vonk { animation-delay: 3s; }
-.s4 .vonk { animation-delay: 4s; }
+.s3 .vonk { animation-delay: 3.9s; }
+.s4 .vonk { animation-delay: 5.2s; }
 
 /* Op een telefoon staat je bank boven Vinn: de pijl gaat heen en terug. */
 .s2 .lijn::before {
