@@ -3268,11 +3268,6 @@ section.privacy-verder {
   font-variant-numeric: tabular-nums;
 }
 
-/* Genummerde koppen, met dezelfde nummers als de inhoudsopgave (Wouter, 27-10-2026). */
-.genummerd {
-  counter-reset: kop;
-}
-
 /* De privacyverklaring wat breder dan een gewoon artikel, met de tabellen even breed als de
    tekst (Wouter, 27-10-2026). */
 .artikel.genummerd {
@@ -3284,14 +3279,43 @@ section.privacy-verder {
   margin-left: 0;
 }
 
-.genummerd h2 {
-  counter-increment: kop;
+/* Privacyverklaring in artikelen (27-10-2026): de nummers staan in de tekst, zodat een artikel of
+   lid ook buiten de pagina klopt ("zie artikel 6.3"). */
+.genummerd h2 .nr {
+  margin-right: 0.3em;
+  color: var(--groen);
 }
 
-.genummerd h2::before {
-  content: counter(kop) '.';
-  margin-right: 0.4em;
-  color: var(--groen);
+.genummerd .lid {
+  display: grid;
+  grid-template-columns: 2.8em minmax(0, 1fr);
+  gap: 0 4px;
+  margin: 0 0 12px;
+}
+
+.genummerd .lid .nr {
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
+}
+
+.genummerd .samenvatting {
+  margin: 8px 0 24px;
+  padding: 20px 24px 6px;
+  border-radius: 18px;
+  background: #2ecc7114;
+}
+
+.genummerd .samenvatting h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.genummerd .begrippen {
+  padding-left: 1.2em;
+}
+
+.genummerd .begrippen li {
+  margin-bottom: 6px;
 }
 
 .artikel h2[id] {
