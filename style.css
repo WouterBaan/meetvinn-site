@@ -2436,10 +2436,9 @@ section.privacy-verder {
   color: var(--groen-licht);
 }
 
-/* De gloeden zijn je gegevens. Aan het begin trekken ze samen naar waar pijl 1 vertrekt, dan
-   schuiven ze naar waar pijl 4 binnenkomt en wachten daar op het lichtpuntje; daarna verspreiden
-   ze zich weer over je telefoon. Ze verdwijnen nooit. Daarna is het even rustig. Waar ze vertrekken en binnenkomen, hangt af van waar
-   de pijlen staan: op een telefoon onder de kaart, op een brede laptop rechts ervan. */
+/* De gloeden zijn je gegevens. De eerste brengt je verzoek naar waar pijl 1 vertrekt; de tweede
+   haalt bij pijl 4 op wat terugkomt. Waar dat is, hangt af van waar de pijlen staan: op een
+   telefoon onder de kaart, op een brede laptop rechts ervan. */
 .k-tel {
   --uit-x: 12%;
   --uit-y: 100%;
@@ -2459,9 +2458,11 @@ section.privacy-verder {
   width: 240px;
   height: 240px;
   margin: -120px 0 0 -120px;
+  --zwerf-x: 42%;
+  --zwerf-y: 62%;
   left: var(--rust-x);
   top: var(--rust-y);
-  animation-name: gegevens;
+  animation-name: gegevens-uit;
 }
 
 .gloed.tel-twee {
@@ -2471,17 +2472,29 @@ section.privacy-verder {
   width: 200px;
   height: 200px;
   margin: -100px 0 0 -100px;
+  --zwerf-x: 58%;
+  --zwerf-y: 30%;
   left: var(--rust-x);
   top: var(--rust-y);
-  animation-name: gegevens;
-  animation-delay: -0.3s;
+  animation-name: gegevens-in;
 }
 
-@keyframes gegevens {
-  0%, 10% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); }
-  55%, 66% { left: var(--in-x); top: var(--in-y); transform: scale(0.6); }
-  80%, 88% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
+/* De eerste gloed brengt je verzoek naar pijl 1 en zwerft daarna weer rond. */
+@keyframes gegevens-uit {
+  0%, 8% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); }
+  30% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
+  58% { left: var(--zwerf-x); top: var(--zwerf-y); transform: scale(1); }
+  86% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
   100% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); }
+}
+
+/* De tweede zwerft rond, haalt bij pijl 4 je gegevens op als het lichtpuntje terug is, en
+   neemt ze mee je telefoon in. */
+@keyframes gegevens-in {
+  0% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
+  30% { left: var(--zwerf-x); top: var(--zwerf-y); transform: scale(1); }
+  60%, 67% { left: var(--in-x); top: var(--in-y); transform: scale(0.6); }
+  84%, 100% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
 }
 
 /* Het vlak waar het lichtpuntje is aangekomen krijgt een groene rand die één keer geleidelijk
