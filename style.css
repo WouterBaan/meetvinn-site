@@ -1386,6 +1386,33 @@ section.prijs-keuze {
   padding: 40px 0 8px;
 }
 
+/* Prijzen in het midden (Wouter, 27-10-2026): de opening, de keuze, de kaarten, wat bij allebei
+   zit en de vragen staan gecentreerd; de tekst in de kaarten en bij de punten blijft links. */
+.prijs-pagina .pagina-opening .binnen,
+.prijs-pagina .sectiekop,
+.prijs-keuze .binnen,
+.prijs-pagina .btw {
+  text-align: center;
+}
+
+.prijs-pagina .pagina-opening p,
+.prijs-pagina .sectiekop {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prijs-kaarten,
+.prijs-pagina .lijstpunten,
+.vragen {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.prijs-pagina .lijstpunten {
+  max-width: 1000px;
+}
+
 .periode {
   display: inline-flex;
   gap: 4px;
