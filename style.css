@@ -3233,19 +3233,46 @@ section.privacy-verder {
   background: var(--vlak);
 }
 
-.inhoud ul {
+.inhoud ol {
   margin: 0;
   padding: 0;
   list-style: none;
   columns: 2;
   column-gap: 32px;
+  counter-reset: inhoud;
 }
 
 .inhoud li {
+  display: flex;
+  gap: 4px;
   margin: 0;
   padding: 4px 0;
   break-inside: avoid;
   font-size: 15.5px;
+  counter-increment: inhoud;
+}
+
+.inhoud li::before {
+  content: counter(inhoud) '.';
+  flex: none;
+  min-width: 1.9em;
+  color: var(--zacht);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Genummerde koppen, met dezelfde nummers als de inhoudsopgave (Wouter, 27-10-2026). */
+.genummerd {
+  counter-reset: kop;
+}
+
+.genummerd h2 {
+  counter-increment: kop;
+}
+
+.genummerd h2::before {
+  content: counter(kop) '.';
+  margin-right: 0.4em;
+  color: var(--groen);
 }
 
 .artikel h2[id] {
@@ -3253,7 +3280,7 @@ section.privacy-verder {
 }
 
 @media (max-width: 640px) {
-  .inhoud ul {
+  .inhoud ol {
     columns: 1;
   }
 }
