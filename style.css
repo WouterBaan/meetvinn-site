@@ -1922,6 +1922,14 @@ section.contact-vragen {
   border-radius: 16px;
 }
 
+/* In de privacyverklaring en de voorwaarden steken de tabellen buiten de tekst uit, tot 1000
+   pixels, in het midden onder de tekst (Wouter, 27-10-2026). Op een smal scherm even breed als
+   de tekst. */
+.artikel .tabel {
+  width: max(100%, min(1000px, calc(100vw - 64px)));
+  margin-left: calc((100% - max(100%, min(1000px, calc(100vw - 64px)))) / 2);
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
