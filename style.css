@@ -3284,3 +3284,12 @@ section.privacy-verder {
     columns: 1;
   }
 }
+
+/* Nog in te vullen vóór de livegang: valt op, zodat hij niet blijft staan. */
+.invullen {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: #f5b84133;
+  color: var(--tekst);
+  font-weight: 650;
+}
