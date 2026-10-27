@@ -2297,10 +2297,6 @@ section.privacy-punten {
   gap: 12px;
 }
 
-.schema + .schema {
-  margin-top: 20px;
-}
-
 .knoop {
   flex: 1;
   background: var(--vlak);
@@ -2338,16 +2334,13 @@ section.privacy-punten {
   color: #9aa5a1;
 }
 
-/* Wat jij ziet en wat wij zien: twee kaartjes naast elkaar. */
-section.privacy-voorbeeld {
-  padding-top: 24px;
-}
-
+/* Onder het schema: dezelfde betaling in de app en in de database. */
 .naast {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr);
   align-items: center;
-  gap: 16px;
-  max-width: 860px;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 .naast .mini {
@@ -2409,12 +2402,9 @@ section.privacy-verder {
     grid-template-columns: 1fr;
   }
 
-  .schema + .schema {
-    margin-top: 32px;
-  }
-
   .naast {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    margin-top: 24px;
   }
 
   .pijl {
