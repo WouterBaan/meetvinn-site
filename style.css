@@ -2343,35 +2343,6 @@ section.privacy-punten {
   color: #9aa5a1;
 }
 
-/* In het blok over de opslag: dezelfde betaling in de app en in de database. */
-.naast {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr);
-  align-items: center;
-  gap: 6px;
-  margin-top: 20px;
-}
-
-.naast .pijl svg {
-  width: 16px;
-}
-
-.naast .mini {
-  flex: 1;
-  height: auto;
-  margin: 0;
-  align-self: stretch;
-  padding: 12px;
-}
-
-.mini.database code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #44d6a5;
-  word-break: break-all;
-}
-
 /* En verder: de overige punten als rustige lijst, zonder kaders. */
 section.privacy-verder {
   padding-top: 24px;
@@ -2415,10 +2386,6 @@ section.privacy-verder {
     grid-template-columns: 1fr;
   }
 
-  .naast {
-    grid-template-columns: 1fr;
-  }
-
   .pijl {
     transform: rotate(90deg);
     height: 28px;
@@ -2432,18 +2399,6 @@ section.privacy-verder {
 @media (prefers-reduced-motion: reduce) {
   .privacy-opening .gloed {
     animation: none;
-  }
-}
-
-/* Op een smalle laptop is het blok over de opslag te smal voor twee kaartjes naast elkaar. */
-@media (min-width: 901px) and (max-width: 1240px) {
-  .naast {
-    grid-template-columns: 1fr;
-  }
-
-  .naast .pijl {
-    transform: rotate(90deg);
-    height: 20px;
   }
 }
 
