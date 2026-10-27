@@ -695,7 +695,9 @@ h2 {
 }
 
 /* Direct onder de opening: minder lucht tussen de intro en dit blok. */
+/* Wit, net als de opening erboven (Wouter, 27-10-2026). */
 section#hoe {
+  background: #fff;
   padding-top: 8px;
 }
 
