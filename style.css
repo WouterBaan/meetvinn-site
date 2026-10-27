@@ -2479,34 +2479,70 @@ section.privacy-verder {
   background: var(--groen-licht);
   box-shadow: 0 0 10px 3px #2ecc7199;
   opacity: 0;
-  animation: vonk-omlaag 4s ease-in-out infinite;
+  animation: vonk-omlaag 5s ease-in-out infinite;
 }
 
-.s2 .vonk { animation-delay: 1s; }
-.s3 .vonk { animation-delay: 2s; }
-.s4 .vonk { animation-delay: 3s; }
+/* Stap 2 duurt twee tellen: naar je bank, en met je betalingen terug naar Vinn. */
+.s2 .vonk {
+  animation-name: vonk-op-neer;
+  animation-delay: 1s;
+}
+
+.s3 .vonk { animation-delay: 3s; }
+.s4 .vonk { animation-delay: 4s; }
+
+/* Op een telefoon staat je bank boven Vinn: de pijl gaat heen en terug. */
+.s2 .lijn::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid;
+  border-top: 2px solid;
+  transform: translateX(-50%) rotate(45deg);
+}
 
 @keyframes vonk-omlaag {
   0% { top: 0; opacity: 0; }
-  4% { opacity: 1; }
-  21% { opacity: 1; }
-  25% { top: 100%; opacity: 0; }
+  3% { opacity: 1; }
+  17% { opacity: 1; }
+  20% { top: 100%; opacity: 0; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes vonk-op-neer {
+  0% { top: 100%; opacity: 0; }
+  3% { opacity: 1; }
+  20% { top: 0; }
+  37% { opacity: 1; }
+  40% { top: 100%; opacity: 0; }
   100% { top: 100%; opacity: 0; }
 }
 
 @keyframes vonk-rechts {
   0% { left: 0; opacity: 0; }
-  4% { opacity: 1; }
-  21% { opacity: 1; }
-  25% { left: 100%; opacity: 0; }
+  3% { opacity: 1; }
+  17% { opacity: 1; }
+  20% { left: 100%; opacity: 0; }
   100% { left: 100%; opacity: 0; }
+}
+
+@keyframes vonk-heen-terug {
+  0% { left: 0; opacity: 0; }
+  3% { opacity: 1; }
+  20% { left: 100%; }
+  37% { opacity: 1; }
+  40% { left: 0; opacity: 0; }
+  100% { left: 0; opacity: 0; }
 }
 
 @keyframes vonk-links {
   0% { left: 100%; opacity: 0; }
-  4% { opacity: 1; }
-  21% { opacity: 1; }
-  25% { left: 0; opacity: 0; }
+  3% { opacity: 1; }
+  17% { opacity: 1; }
+  20% { left: 0; opacity: 0; }
   100% { left: 0; opacity: 0; }
 }
 
@@ -2592,6 +2628,10 @@ section.privacy-verder {
     left: 0;
     margin: -4px 0 0 -4px;
     animation-name: vonk-rechts;
+  }
+
+  .s2 .vonk {
+    animation-name: vonk-heen-terug;
   }
 
   .s4 .vonk {
