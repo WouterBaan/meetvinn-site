@@ -1533,6 +1533,40 @@ section.prijs-keuze {
   }
 }
 
+/* Bij Huishouden lopen de gloeden een eigen baan, met een andere snelheid en een ander
+   beginpunt, zodat de twee kaarten niet in de pas bewegen. */
+.uitgelicht .gloed.kaart-een {
+  left: auto;
+  right: -120px;
+  top: -100px;
+  animation: kaart-drie 19s ease-in-out -6s infinite alternate;
+}
+
+.uitgelicht .gloed.kaart-twee {
+  right: auto;
+  left: -90px;
+  bottom: -110px;
+  animation: kaart-vier 24s ease-in-out -11s infinite alternate;
+}
+
+@keyframes kaart-drie {
+  40% {
+    transform: translate(-170px, 120px);
+  }
+  100% {
+    transform: translate(-60px, 320px);
+  }
+}
+
+@keyframes kaart-vier {
+  45% {
+    transform: translate(160px, -170px);
+  }
+  100% {
+    transform: translate(40px, -300px);
+  }
+}
+
 .prijs-kaarten[data-periode='jaar'] .kaart-gloeden {
   opacity: 1;
 }
