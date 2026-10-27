@@ -2237,3 +2237,198 @@ section.slot.donker {
 .artikel.breed + .voet {
   border-top: 0;
 }
+
+/* ---------- Pagina Privacy (27-10-2026) ---------- */
+
+/* Opening in het donker, met de gloeden van de afsluiting: midden in het vlak en zwervend. */
+.privacy-opening {
+  padding: 72px 0 80px;
+}
+
+.privacy-opening h1 {
+  color: #fff;
+  font-size: clamp(36px, 4.6vw, 56px);
+  margin: 8px 0 16px;
+}
+
+.privacy-opening p {
+  max-width: 40em;
+  font-size: 19px;
+  margin: 0;
+}
+
+.privacy-opening .gloed.band-een,
+.privacy-opening .gloed.band-twee {
+  width: 420px;
+  height: 420px;
+  aspect-ratio: auto;
+  top: calc(50% - 210px);
+}
+
+.privacy-opening .gloed.band-een {
+  --d: 0.95;
+  left: 4%;
+  animation: slot-een 26s ease-in-out infinite alternate;
+}
+
+.privacy-opening .gloed.band-twee {
+  --d: 0.8;
+  left: calc(96% - 420px);
+  animation: slot-twee 34s ease-in-out infinite alternate;
+}
+
+/* De vier hoofdpunten: dezelfde kaarten, iets ruimer. */
+section.privacy-punten {
+  padding: 56px 0 24px;
+}
+
+.privacy-punten .blokken {
+  margin: 0;
+}
+
+.privacy-punten .blok {
+  padding: 28px;
+}
+
+/* Het schema: knopen met pijlen ertussen. */
+.schema {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr) 36px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.schema + .schema {
+  margin-top: 20px;
+}
+
+.knoop {
+  flex: 1;
+  background: var(--vlak);
+  border: 1px solid var(--rand);
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.knoop h3 {
+  margin: 12px 0 4px;
+  font-size: 17px;
+}
+
+.knoop p {
+  margin: 0;
+  color: var(--zacht);
+  font-size: 15.5px;
+}
+
+.knoop .icoon,
+.lijstpunt .icoon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #2ecc711f;
+  color: var(--groen);
+}
+
+.pijl {
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: #9aa5a1;
+}
+
+/* Wat jij ziet en wat wij zien: twee kaartjes naast elkaar. */
+section.privacy-voorbeeld {
+  padding-top: 24px;
+}
+
+.naast {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 860px;
+}
+
+.naast .mini {
+  flex: 1;
+  height: auto;
+  margin: 0;
+  align-self: stretch;
+  padding: 16px;
+}
+
+.mini.database code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #44d6a5;
+  word-break: break-all;
+}
+
+/* En verder: de overige punten als rustige lijst, zonder kaders. */
+section.privacy-verder {
+  padding-top: 24px;
+}
+
+.lijstpunten {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 56px;
+}
+
+.lijstpunt {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+}
+
+.lijstpunt h3 {
+  margin: 6px 0 4px;
+  font-size: 17px;
+}
+
+.lijstpunt p {
+  margin: 0;
+  color: var(--zacht);
+  font-size: 15.5px;
+}
+
+.privacy-verder .verder {
+  margin-top: 48px;
+  max-width: 46em;
+  color: var(--zacht);
+}
+
+.privacy-pagina + .voet {
+  border-top: 0;
+}
+
+@media (max-width: 900px) {
+  .schema {
+    grid-template-columns: 1fr;
+  }
+
+  .schema + .schema {
+    margin-top: 32px;
+  }
+
+  .naast {
+    flex-direction: column;
+  }
+
+  .pijl {
+    transform: rotate(90deg);
+    height: 28px;
+  }
+
+  .lijstpunten {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .privacy-opening .gloed {
+    animation: none;
+  }
+}
