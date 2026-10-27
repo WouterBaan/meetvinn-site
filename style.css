@@ -2379,13 +2379,21 @@ section.privacy-verder {
   }
 }
 
-/* Zo reizen je gegevens: een rondje dat bij je telefoon begint en eindigt. Op een
-   telefoon en een smalle laptop onder elkaar, met de stappen als pijlen ertussen. */
+/* Zo reizen je gegevens: een rondje dat bij je telefoon begint en eindigt, op een zacht
+   paneel. Een lichtpuntje reist stap voor stap mee, 1 tot en met 4. Op een telefoon en een
+   smalle laptop onder elkaar, met de stappen als pijlen ertussen. */
 .reis {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas: 'tel' 's1' 'bank' 's2' 'vinn' 's3' 'db' 's4';
-  max-width: 520px;
+  max-width: 560px;
+  padding: 24px;
+  border-radius: 28px;
+  border: 1px solid var(--rand);
+  background:
+    radial-gradient(circle at 1px 1px, #13744a14 1px, transparent 0) 0 0 / 18px 18px,
+    radial-gradient(120% 90% at 0% 50%, #2ecc7114, transparent 60%),
+    var(--vlak-zacht);
 }
 
 .k-tel { grid-area: tel; }
@@ -2397,9 +2405,15 @@ section.privacy-verder {
 .s3 { grid-area: s3; }
 .s4 { grid-area: s4; }
 
-.knoop.jij {
-  border-color: #2ecc7166;
-  background: #2ecc710d;
+.reis .knoop {
+  border-color: transparent;
+  box-shadow: 0 1px 2px #06121008, 0 10px 28px -12px #0612102e;
+}
+
+.reis .knoop.jij {
+  border-color: #2ecc7180;
+  background: linear-gradient(160deg, #ffffff, #eefaf3);
+  box-shadow: 0 0 0 4px #2ecc711a, 0 14px 34px -14px #13744a59;
 }
 
 .stap {
@@ -2409,6 +2423,7 @@ section.privacy-verder {
   padding: 10px 0 10px 38px;
   color: var(--zacht);
   font-size: 14.5px;
+  font-weight: 500;
   line-height: 1.35;
 }
 
@@ -2420,9 +2435,14 @@ section.privacy-verder {
   height: 24px;
   border-radius: 50%;
   background: var(--groen);
+  box-shadow: 0 0 0 4px #13744a1f;
   color: #fff;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
+}
+
+.stap .breed {
+  display: none;
 }
 
 /* De pijl: een lijn met een punt, getekend met randen zodat hij elke kant op kan. */
@@ -2431,9 +2451,9 @@ section.privacy-verder {
   order: -1;
   flex: none;
   width: 2px;
-  height: 36px;
-  color: #9aa5a1;
-  background: currentColor;
+  height: 40px;
+  color: #13744a8c;
+  background: linear-gradient(currentColor 50%, transparent 0) 0 0 / 2px 8px repeat-y;
 }
 
 .lijn::after {
@@ -2448,21 +2468,65 @@ section.privacy-verder {
   transform: translateX(-50%) rotate(45deg);
 }
 
-.stap .breed {
-  display: none;
+.vonk {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--groen-licht);
+  box-shadow: 0 0 10px 3px #2ecc7199;
+  opacity: 0;
+  animation: vonk-omlaag 4s ease-in-out infinite;
+}
+
+.s2 .vonk { animation-delay: 1s; }
+.s3 .vonk { animation-delay: 2s; }
+.s4 .vonk { animation-delay: 3s; }
+
+@keyframes vonk-omlaag {
+  0% { top: 0; opacity: 0; }
+  4% { opacity: 1; }
+  21% { opacity: 1; }
+  25% { top: 100%; opacity: 0; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes vonk-rechts {
+  0% { left: 0; opacity: 0; }
+  4% { opacity: 1; }
+  21% { opacity: 1; }
+  25% { left: 100%; opacity: 0; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes vonk-links {
+  0% { left: 100%; opacity: 0; }
+  4% { opacity: 1; }
+  21% { opacity: 1; }
+  25% { left: 0; opacity: 0; }
+  100% { left: 0; opacity: 0; }
 }
 
 @media (min-width: 1181px) {
   .reis {
-    grid-template-columns: minmax(0, 1fr) 160px minmax(0, 1fr) 150px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr) 150px minmax(0, 1fr);
     grid-template-areas:
       'tel s1 vinn s2 bank'
-      'tel .  s3   .  .'
-      'tel s4 db   .  .';
+      'tel .  s3   .  bank'
+      'tel s4 db   .  bank';
     max-width: none;
+    padding: 40px;
+    background:
+      radial-gradient(circle at 1px 1px, #13744a14 1px, transparent 0) 0 0 / 18px 18px,
+      radial-gradient(60% 90% at 0% 50%, #2ecc7114, transparent 70%),
+      var(--vlak-zacht);
   }
 
-  .k-tel {
+  .k-tel,
+  .k-bank {
     align-content: center;
   }
 
@@ -2490,6 +2554,7 @@ section.privacy-verder {
     order: 0;
     width: 100%;
     height: 2px;
+    background: linear-gradient(90deg, currentColor 50%, transparent 0) 0 0 / 8px 2px repeat-x;
   }
 
   .s1 .lijn::after,
@@ -2520,12 +2585,31 @@ section.privacy-verder {
     transform: translateY(-50%) rotate(135deg);
   }
 
+  .s1 .vonk,
+  .s2 .vonk,
+  .s4 .vonk {
+    top: 50%;
+    left: 0;
+    margin: -4px 0 0 -4px;
+    animation-name: vonk-rechts;
+  }
+
+  .s4 .vonk {
+    animation-name: vonk-links;
+  }
+
   .s3 {
     justify-content: center;
-    padding: 6px 0;
+    padding: 8px 0;
   }
 
   .s3 .lijn {
-    height: 40px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vonk {
+    display: none;
   }
 }
