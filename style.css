@@ -2341,13 +2341,29 @@ section.slot.donker {
 }
 
 /* 320 pixels: net iets compacter, zodat de knop niet tegen de rand komt. */
-@media (max-width: 340px) {
+/* "Abonnement" is langer dan "Prijzen" was (27-10-2026): op de smalste telefoons nog iets
+   krapper, zodat de knop er niet af valt. */
+@media (max-width: 360px) {
   .kop nav {
     gap: 7px;
+    font-size: 13px;
   }
 
   .kop .knop {
     padding: 7px 9px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 340px) {
+  .kop nav {
+    gap: 6px;
+    font-size: 12.5px;
+  }
+
+  .kop .knop {
+    padding: 6px 8px;
+    font-size: 12.5px;
   }
 }
 

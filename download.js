@@ -1,5 +1,6 @@
-// Download Vinn: op een iPhone straks rechtstreeks naar de App Store, verder een venster met de
-// QR-code. Op elke pagina, zodat een knop je niet naar de homepagina stuurt (Wouter, 27-10-2026).
+// Download Vinn, op de pagina Abonnement. Elke Download-knop op de site gaat hierheen, zodat je
+// eerst een abonnement kiest (Wouter, 27-10-2026). De knop in een prijskaart opent dan een
+// venster met de QR-code, of op een iPhone straks rechtstreeks de App Store.
 (() => {
   // Zodra Vinn in de App Store staat: de link hier, en de QR-code in het venster vervangen.
   const APPSTORE = '';
@@ -51,11 +52,17 @@
     else venster.setAttribute('open', '');
   };
 
-  // De knoppen in de kop, de opening, de kaarten en de afsluiting; en een oude link naar #download.
-  document
-    .querySelectorAll('#download, [data-download], a[href$="#download"]')
-    .forEach((knop) => knop.addEventListener('click', open));
-  if (location.hash === '#download') open();
+  document.querySelectorAll('[data-download]').forEach((knop) => knop.addEventListener('click', open));
+
+  // Een Download-knop op deze pagina zelf (in de kop of de afsluiting): naar de kaarten schuiven
+  // in plaats van de pagina opnieuw te laden.
+  const keuze = document.querySelector('.prijs-keuze');
+  document.querySelectorAll('a[href="prijs.html"].knop').forEach((knop) =>
+    knop.addEventListener('click', (e) => {
+      e.preventDefault();
+      keuze.scrollIntoView({ behavior: 'smooth' });
+    }),
+  );
 
   venster.querySelector('.sluit').addEventListener('click', () => venster.close());
   venster.addEventListener('click', (e) => {
