@@ -2436,9 +2436,9 @@ section.privacy-verder {
   color: var(--groen-licht);
 }
 
-/* De gloeden zijn je gegevens. Aan het begin trekken ze samen naar waar pijl 1 vertrekt en
-   gaan ze mee met het lichtpuntje; bij pijl 4 stromen ze weer binnen en verspreiden ze zich over
-   je telefoon. Daarna is het even rustig. Waar ze vertrekken en binnenkomen, hangt af van waar
+/* De gloeden zijn je gegevens. Aan het begin trekken ze samen naar waar pijl 1 vertrekt, dan
+   schuiven ze naar waar pijl 4 binnenkomt en wachten daar op het lichtpuntje; daarna verspreiden
+   ze zich weer over je telefoon. Ze verdwijnen nooit. Daarna is het even rustig. Waar ze vertrekken en binnenkomen, hangt af van waar
    de pijlen staan: op een telefoon onder de kaart, op een brede laptop rechts ervan. */
 .k-tel {
   --uit-x: 12%;
@@ -2478,12 +2478,10 @@ section.privacy-verder {
 }
 
 @keyframes gegevens {
-  0% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.35); opacity: 0.9; }
-  4% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.15); opacity: 0; }
-  64% { left: var(--in-x); top: var(--in-y); transform: scale(0.15); opacity: 0; }
-  67% { left: var(--in-x); top: var(--in-y); transform: scale(0.35); opacity: 0.9; }
-  80%, 88% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); opacity: 1; }
-  100% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.35); opacity: 0.9; }
+  0%, 10% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); }
+  55%, 66% { left: var(--in-x); top: var(--in-y); transform: scale(0.6); }
+  80%, 88% { left: var(--rust-x); top: var(--rust-y); transform: scale(1); }
+  100% { left: var(--uit-x); top: var(--uit-y); transform: scale(0.6); }
 }
 
 /* Het vlak waar het lichtpuntje is aangekomen krijgt een groene rand die één keer geleidelijk
