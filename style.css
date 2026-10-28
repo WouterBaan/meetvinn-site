@@ -3370,55 +3370,10 @@ section.privacy-verder {
   font-size: 13.5px;
 }
 
-/* Accepteren: donker, met een groene gloed die langzaam door de knop beweegt, zoals in de
-   donkere vlakken van Vinn. */
+/* Accepteren: donker, zoals de donkere vlakken van Vinn. */
 .knop.donker-stip {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
   background: var(--inkt);
   color: #fff;
-}
-
-.knopgloed {
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 0;
-  width: 56px;
-  height: 56px;
-  margin: -28px 0 0 -28px;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, #2ecc7199, #2ecc7133 55%, transparent);
-  animation: knopgloed 16s ease-in-out infinite;
-}
-
-/* Een rustig rondje door de knop, op en neer en heen en weer. */
-@keyframes knopgloed {
-  0%,
-  100% {
-    left: 12%;
-    top: 70%;
-  }
-  25% {
-    left: 45%;
-    top: 20%;
-  }
-  50% {
-    left: 88%;
-    top: 60%;
-  }
-  75% {
-    left: 55%;
-    top: 90%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .knopgloed {
-    animation: none;
-    left: 20%;
-  }
 }
 
 @media (max-width: 640px) {
