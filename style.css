@@ -3387,3 +3387,50 @@ section.privacy-verder {
     justify-content: center;
   }
 }
+
+/* Wachtlijst in het downloadvenster, zolang Vinn nog niet in de App Store staat (28-10-2026). */
+.wachtlijst {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0 10px;
+}
+
+.wachtlijst input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  background: var(--vlak);
+  color: var(--tekst);
+  font: inherit;
+  font-size: 15px;
+}
+
+.wachtlijst input:focus {
+  outline: 2px solid var(--groen-licht);
+  outline-offset: 1px;
+}
+
+.wachtlijst .knop {
+  flex: none;
+  padding: 10px 16px;
+  font-size: 14.5px;
+}
+
+.qrvenster .wachtlijst-uitleg {
+  margin: 0;
+  font-size: 13px;
+}
+
+.qrvenster .wachtlijst-klaar {
+  margin: 8px 0 0;
+  color: var(--groen);
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .wachtlijst {
+    flex-direction: column;
+  }
+}
