@@ -3369,6 +3369,20 @@ section.privacy-verder {
   font-size: 14.5px;
 }
 
+/* Accepteren: donker met een groen stipje, zoals de donkere vlakken van Vinn. */
+.knop.donker-stip {
+  background: var(--inkt);
+  color: #fff;
+}
+
+.knop.donker-stip .stip {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--groen-licht);
+  box-shadow: 0 0 8px 2px #2ecc7180;
+}
+
 @media (max-width: 640px) {
   .cookiemelding {
     flex-direction: column;
