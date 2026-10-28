@@ -3,332 +3,594 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vinn</title>
-    <meta name="description" content="Grip op je financiële gezondheid." />
-    <meta name="robots" content="noindex, nofollow" />
+    <title>Vinn – Financiële gezondheid</title>
+    <meta
+      name="description"
+      content="Vinn leest je betalingen in, helpt je ze in te delen en geeft je huishouden een score van 0 tot 100."
+    />
     <meta name="theme-color" content="#f6f6f2" />
     <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
     <link rel="apple-touch-icon" href="icon.png" />
-    <style>
-      :root {
-        --bg: #f6f6f2;
-        --tekst: #0c1613;
-        color-scheme: light;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        min-height: 100%;
-        margin: 0;
-      }
-
-      body {
-        background:
-          radial-gradient(50% 45% at 72% 50%, #44d6a522, transparent 70%),
-          var(--bg);
-        color: var(--tekst);
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-          sans-serif;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-
-      main {
-        min-height: 100vh;
-        max-width: 1160px;
-        margin: 0 auto;
-        padding: 48px 24px;
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-        align-items: center;
-        gap: 48px;
-      }
-
-      .kop {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        max-width: 1160px;
-        margin: 0 auto;
-        padding: 24px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 21px;
-        font-weight: 750;
-        letter-spacing: -0.4px;
-        z-index: 1;
-      }
-
-      .kop img {
-        width: 34px;
-        height: 34px;
-        border-radius: 22.5%;
-      }
-
-      h1 {
-        font-size: clamp(40px, 5.6vw, 68px);
-        line-height: 1.02;
-        letter-spacing: -0.035em;
-        font-weight: 780;
-        margin: 0;
-        text-wrap: balance;
-      }
-
-      .toneel {
-        display: flex;
-        justify-content: center;
-      }
-
-      /* Een iPhone met het openingsscherm van Vinn. Op het scherm de twee groene gloeden die in de app langzaam over de onderkant bewegen
-         (Achtergrond.tsx): dezelfde plekken en banen, hier iets sneller. */
-      .telefoon {
-        position: relative;
-        zoom: 0.78;
-        width: 404px;
-        height: 880px;
-      }
-
-      .voorkant {
-        position: absolute;
-        inset: 0;
-        border-radius: 66px;
-        box-shadow:
-          0 50px 100px -30px #06121066,
-          0 20px 40px -20px #06121066;
-      }
-
-      .voorkant {
-        padding: 3px;
-        background: linear-gradient(
-          140deg,
-          #eef0ed 0%,
-          #9ca19e 24%,
-          #f6f7f5 48%,
-          #858a87 72%,
-          #d9dcd8 100%
-        );
-      }
-
-      .knop {
-        position: absolute;
-        width: 4px;
-        border-radius: 2px;
-        background: linear-gradient(90deg, #8a8f8c, #eceeeb 55%, #7d827f);
-      }
-
-      .knop.actie {
-        left: -3px;
-        top: 150px;
-        height: 34px;
-      }
-
-      .knop.hoger {
-        left: -3px;
-        top: 205px;
-        height: 62px;
-      }
-
-      .knop.lager {
-        left: -3px;
-        top: 280px;
-        height: 62px;
-      }
-
-      .knop.aan {
-        right: -3px;
-        top: 230px;
-        height: 96px;
-      }
-
-      .knop.camera {
-        right: -3px;
-        top: 520px;
-        height: 54px;
-      }
-
-      .rand {
-        height: 100%;
-        padding: 7px;
-        border-radius: 63px;
-        background: #050606;
-      }
-
-      .glans {
-        position: absolute;
-        inset: 0;
-        z-index: 3;
-        border-radius: inherit;
-        background: linear-gradient(
-          118deg,
-          rgb(255 255 255 / 0.13) 0%,
-          rgb(255 255 255 / 0.04) 28%,
-          transparent 42%
-        );
-        pointer-events: none;
-      }
-
-      .scherm {
-        position: relative;
-        height: 100%;
-        border-radius: 56px;
-        overflow: hidden;
-        background: #000307;
-        color: #fff;
-      }
-
-      .gloed {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(
-          closest-side,
-          rgb(27 91 80 / var(--d)),
-          rgb(27 91 80 / calc(var(--d) * 0.45)) 45%,
-          rgb(27 91 80 / 0)
-        );
-        will-change: transform;
-      }
-
-      .gloed.een {
-        --d: 0.8;
-        width: 585px;
-        height: 585px;
-        left: -234px;
-        top: 265px;
-        animation: een 14s ease-in-out infinite alternate;
-      }
-
-      .gloed.twee {
-        --d: 0.6;
-        width: 450px;
-        height: 450px;
-        left: 145px;
-        top: 568px;
-        animation: twee 19s ease-in-out infinite alternate;
-      }
-
-      @keyframes een {
-        to {
-          transform: translate(293px, 152px);
-        }
-      }
-
-      @keyframes twee {
-        to {
-          transform: translate(-332px, -186px);
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .gloed {
-          animation: none;
-        }
-      }
-
-      .eiland {
-        position: absolute;
-        top: 12px;
-        left: 50%;
-        width: 108px;
-        height: 32px;
-        margin-left: -54px;
-        border-radius: 18px;
-        background: #000;
-        z-index: 4;
-      }
-
-      .statusbalk {
-        position: relative;
-        z-index: 4;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 54px;
-        padding: 6px 36px 0 48px;
-        font-weight: 650;
-        font-size: 16px;
-      }
-
-      .statusbalk svg {
-        height: 13px;
-        margin-left: 6px;
-      }
-
-      .logo {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        z-index: 1;
-      }
-
-      .logo img {
-        width: 132px;
-        height: 132px;
-        border-radius: 22.5%;
-        box-shadow: 0 24px 60px -20px #000;
-      }
-
-      @media (max-width: 860px) {
-        main {
-          grid-template-columns: minmax(0, 1fr);
-          text-align: center;
-          gap: 40px;
-          padding: 96px 16px 56px;
-        }
-
-        .kop {
-          padding: 20px 16px;
-        }
-
-        .telefoon {
-          zoom: 0.62;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="kop"><img src="favicon-192.png" alt="" />Vinn</header>
+    <header class="kop">
+      <div class="binnen">
+        <a class="merk" href="index.html"><img src="favicon-192.png" alt="" />Vinn</a>
+        <nav>
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="veiligheid.html">Privacy</a>
+          <a href="prijs.html">Abonnement</a>
+          <a href="support.html">Contact</a>
+          <a class="knop groen" href="prijs.html">Download<span class="breed"> Vinn</span></a>
+        </nav>
+      </div>
+    </header>
 
     <main>
-      <div>
-        <h1>Grip op je financiële gezondheid</h1>
-      </div>
-
-      <div class="toneel">
-        <div class="telefoon" role="img" aria-label="Een iPhone met het logo van Vinn">
-          <span class="knop actie"></span>
-          <span class="knop hoger"></span>
-          <span class="knop lager"></span>
-          <span class="knop aan"></span>
-          <span class="knop camera"></span>
-          <div class="voorkant">
-          <div class="rand">
-          <div class="scherm" aria-hidden="true">
-            <span class="gloed een"></span>
-            <span class="gloed twee"></span>
-            <div class="eiland"></div>
-            <div class="statusbalk">
-              <span>9:41</span>
-              <span>
-                <svg viewBox="0 0 18 12"><g fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></g></svg>
-                <svg viewBox="0 0 16 12"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .7 10.4 10.4 0 0 0 .8 3.6L2 4.9a8.6 8.6 0 0 1 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.7 6.7 0 0 0 8 4.3a6.7 6.7 0 0 0-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5c-.6 0-1.2.2-1.6.6L8 11.8l1.6-1.6c-.4-.4-1-.6-1.6-.6Z" fill="#fff"/></svg>
-                <svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="23" height="11" rx="3" fill="none" stroke="#ffffff73"/><rect x="2" y="2" width="17" height="8" rx="1.6" fill="#fff"/><path d="M25 4v4c.8-.3 1.3-1.1 1.3-2S25.8 4.3 25 4Z" fill="#ffffff73"/></svg>
-              </span>
+      <div class="opening">
+        <div class="binnen">
+          <div>
+            <h1>Grip op je financiële gezondheid</h1>
+            <p class="inleiding">
+              Vinn laat zien waar je geld naartoe gaat, hoe financieel gezond je bent en wat je
+              kunt verbeteren. Zo houd je de regie, en kijk je met rust en vertrouwen naar de
+              toekomst.
+            </p>
+            <div class="knoppen">
+              <!-- Naar Abonnement: daar kies je eerst, en opent de knop in de kaart het venster. -->
+              <a class="knop groen" href="prijs.html">Download Vinn</a>
             </div>
-            <div class="logo"><img src="icon.png" alt="" /></div>
-            <span class="glans"></span>
           </div>
-          </div>
+
+          <div class="toneel">
+            <!-- Het startscherm van Vinn, nagemaakt met een verzonnen account. -->
+            <div class="telefoon" role="img" aria-label="Het startscherm van Vinn, met voorbeeldbedragen">
+              <div class="scherm" aria-hidden="true">
+                <span class="gloed een"></span>
+                <span class="gloed twee"></span>
+                <div class="eiland"></div>
+                <div class="statusbalk">
+                  <span>9:41</span>
+                  <span>
+                    <svg viewBox="0 0 18 12"><g fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></g></svg>
+                    <svg viewBox="0 0 16 12"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .7 10.4 10.4 0 0 0 .8 3.6L2 4.9a8.6 8.6 0 0 1 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.7 6.7 0 0 0 8 4.3a6.7 6.7 0 0 0-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5c-.6 0-1.2.2-1.6.6L8 11.8l1.6-1.6c-.4-.4-1-.6-1.6-.6Z" fill="#fff"/></svg>
+                    <svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="23" height="11" rx="3" fill="none" stroke="#ffffff73"/><rect x="2" y="2" width="17" height="8" rx="1.6" fill="#fff"/><path d="M25 4v4c.8-.3 1.3-1.1 1.3-2S25.8 4.3 25 4Z" fill="#ffffff73"/></svg>
+                  </span>
+                </div>
+
+                <div class="app">
+                  <div class="groet">
+                    <h2>Welkom terug Sophie</h2>
+                    <div class="rondknop">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                    </div>
+                    <div class="rondknop">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                  </div>
+                  <p class="groet-sub">
+                    Je hebt deze maand nog €412 over van je vrij besteedbaar inkomen. Met 12 dagen
+                    tot je nieuwe salaris is dat €34 per dag.
+                  </p>
+
+                  <div class="ringen">
+                    <div class="ringvak">
+                      <span class="kap">Rest. budget</span>
+                      <div class="ring">
+                        <svg width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="51.5" fill="none" stroke="#ffffff24" stroke-width="9"/><circle cx="56" cy="56" r="51.5" fill="none" stroke="#2ECC71" stroke-width="9" stroke-linecap="butt" stroke-dasharray="118.4 400" transform="rotate(-90 56 56)"/><circle class="tip" cx="56" cy="56" r="51.5" fill="none" stroke="#2ECC71" stroke-width="9" stroke-linecap="round" stroke-dasharray="0 400" stroke-dashoffset="-118.4" transform="rotate(-90 56 56)"/></svg>
+                        <span>€412</span>
+                      </div>
+                      <span class="pil">v.d. €650</span>
+                    </div>
+                    <div class="ringvak">
+                      <span class="kap">Gezondheid</span>
+                      <div class="ring">
+                        <svg width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="51.5" fill="none" stroke="#ffffff24" stroke-width="9"/><circle cx="56" cy="56" r="51.5" fill="none" stroke="#F5B841" stroke-width="9" stroke-linecap="butt" stroke-dasharray="239.5 400" transform="rotate(-90 56 56)"/><circle class="tip" cx="56" cy="56" r="51.5" fill="none" stroke="#F5B841" stroke-width="9" stroke-linecap="round" stroke-dasharray="0 400" stroke-dashoffset="-239.5" transform="rotate(-90 56 56)"/></svg>
+                        <span>74%</span>
+                      </div>
+                      <span class="pil">Gezond</span>
+                    </div>
+                  </div>
+
+                  <div class="blokkop">
+                    Transacties te beoordelen <span class="teller">0</span>
+                    <span class="vul"></span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#919191" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+                  </div>
+                  <div class="appkaart zin">
+                    18 transacties beoordeeld deze maand
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
+
+                  <div class="blokkop">Mijn rekeningen</div>
+                  <div class="appkaart">
+                    <div class="rekening">
+                      <span class="ico" style="background: #5b92ff24">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B92FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/></svg>
+                      </span>
+                      <span class="naam">Betaalrekening<small>Alleen jij · ••2817</small></span>
+                      <b>€ 1.284,56</b>
+                    </div>
+                    <div class="rekening">
+                      <span class="ico" style="background: #9d7bf024">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9D7BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20z"/><path d="M9.5 21.5v-8h5v8"/></svg>
+                      </span>
+                      <span class="naam">Gezamenlijk<small>Samen · ••5530</small></span>
+                      <b>€ 3.684,20</b>
+                    </div>
+                    <div class="rekening">
+                      <span class="ico" style="background: #2ecc7124">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/><path d="M2 9v1c0 1.1.9 2 2 2h1"/></svg>
+                      </span>
+                      <span class="naam">Spaarrekening<small>Samen · ••9041</small></span>
+                      <b>€ 8.940,00</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tabbalk">
+                  <span class="tab aan">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20z"/><path d="M9.5 21.5v-8h5v8"/></svg>
+                    Home
+                  </span>
+                  <span class="tab">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4v15.5a1 1 0 0 0 1 1h17"/><path d="m6.5 15 4.5-5 3.5 3 5-6.5"/><circle cx="19.5" cy="6.5" r="1.8"/></svg>
+                    Inzichten
+                  </span>
+                  <span class="tab">
+                    <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="#919191" stroke-opacity=".35" stroke-width="2.4"/><circle cx="12" cy="12" r="9.5" fill="none" stroke="#F5B841" stroke-width="2.4" stroke-linecap="butt" stroke-dasharray="44.2 100" transform="rotate(-90 12 12)"/><circle class="tip" cx="12" cy="12" r="9.5" fill="none" stroke="#F5B841" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0 100" stroke-dashoffset="-44.2" transform="rotate(-90 12 12)"/></svg>
+                    Score
+                  </span>
+                  <span class="tab">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/><path d="M2 9v1c0 1.1.9 2 2 2h1"/><path d="M16 11h.01"/></svg>
+                    Sparen
+                  </span>
+                  <span class="tab">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13.2A9 9 0 1 1 10.8 3"/><path d="M21.5 10.5A9.5 9.5 0 0 0 13.5 2.5v8z"/></svg>
+                    Budgetten
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <section id="hoe">
+        <div class="binnen">
+          <div class="sectiekop">
+            <h2>Zo werkt Vinn</h2>
+          </div>
+          <div class="stappen">
+            <div class="stap">
+              <h3><span class="nr">01</span>Koppel je bank</h3>
+              <p>
+                Je logt in bij je eigen bank en koppelt veilig via PSD2, de Europese regels voor
+                bankgegevens.
+              </p>
+              <!-- Nagemaakt stukje van het koppelen: twee rekeningen die binnenkomen. -->
+              <div class="mini" aria-hidden="true">
+                <span class="mini-kop">Je bank</span>
+                <div class="mini-betaling">
+                  <span class="mini-ico" style="background: #5b92ff24"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B92FF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5" /><path d="M2 9.5h20M6 14.5h4" /></svg></span>
+                  <span class="mini-naam">Betaalrekening<small>••2817</small></span>
+                  <span class="mini-status" title="Gekoppeld"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
+                </div>
+                <div class="mini-betaling">
+                  <span class="mini-ico" style="background: #2ecc7124"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z" /><path d="M2 9v1c0 1.1.9 2 2 2h1M16 11h.01" /></svg></span>
+                  <span class="mini-naam">Spaarrekening<small>••9041</small></span>
+                  <span class="mini-status" title="Gekoppeld"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
+                </div>
+              </div>
+            </div>
+            <div class="stap">
+              <h3><span class="nr">02</span>Deel betalingen in</h3>
+              <p>
+                Vinn stelt bij elke betaling een potje voor en leert van je keuzes. Zo gaat indelen
+                steeds sneller.
+              </p>
+              <!-- Nagemaakt stukje van het beoordelen: een betaling met het voorgestelde potje. -->
+              <div class="mini" aria-hidden="true">
+                <span class="mini-kop">Te beoordelen</span>
+                <div class="mini-betaling">
+                  <span class="mini-ico" style="background: #f5b84124">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B841" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><path d="M3 6h18M16 10a4 4 0 0 1-8 0" /></svg>
+                  </span>
+                  <span class="mini-naam">Jumbo<small>Vandaag</small></span>
+                  <b>−€42,15</b>
+                </div>
+                <div class="mini-potjes">
+                  <span>Vrije tijd &amp; sociaal</span>
+                  <span class="gekozen">Boodschappen</span>
+                </div>
+              </div>
+            </div>
+            <div class="stap">
+              <h3><span class="nr">03</span>Zie wat er over is</h3>
+              <p>
+                Je ziet meteen hoeveel je tot je volgende salaris nog vrij kunt besteden.
+              </p>
+              <!-- Nagemaakt stukje van Home: het rondje met wat er deze maand over is. -->
+              <div class="mini mini-midden" aria-hidden="true">
+                <span class="mini-kop">Rest. budget</span>
+                <div class="mini-ring">
+                  <svg width="96" height="96" viewBox="0 0 112 112"><circle cx="56" cy="56" r="51.5" fill="none" stroke="#ffffff24" stroke-width="9" /><circle cx="56" cy="56" r="51.5" fill="none" stroke="#2ECC71" stroke-width="9" stroke-linecap="butt" stroke-dasharray="118.4 400" transform="rotate(-90 56 56)" /><circle class="tip" cx="56" cy="56" r="51.5" fill="none" stroke="#2ECC71" stroke-width="9" stroke-linecap="round" stroke-dasharray="0 400" stroke-dashoffset="-118.4" transform="rotate(-90 56 56)" /></svg>
+                  <span>€412</span>
+                </div>
+                <span class="mini-pil">v.d. €650</span>
+              </div>
+            </div>
+            <div class="stap">
+              <h3><span class="nr">04</span>Ken je gezondheid</h3>
+              <p>
+                Vinn geeft je één score voor je financiële gezondheid, die laat zien hoe je ervoor
+                staat en wat je verder brengt.
+              </p>
+              <!-- Nagemaakt stukje van Home: het rondje met de gezondheidsscore. -->
+              <div class="mini mini-midden" aria-hidden="true">
+                <span class="mini-kop">Gezondheid</span>
+                <div class="mini-ring">
+                  <svg width="96" height="96" viewBox="0 0 112 112"><circle cx="56" cy="56" r="51.5" fill="none" stroke="#ffffff24" stroke-width="9" /><circle cx="56" cy="56" r="51.5" fill="none" stroke="#F5B841" stroke-width="9" stroke-linecap="butt" stroke-dasharray="239.5 400" transform="rotate(-90 56 56)" /><circle class="tip" cx="56" cy="56" r="51.5" fill="none" stroke="#F5B841" stroke-width="9" stroke-linecap="round" stroke-dasharray="0 400" stroke-dashoffset="-239.5" transform="rotate(-90 56 56)" /></svg>
+                  <span>74%</span>
+                </div>
+                <span class="mini-pil">Gezond</span>
+              </div>
+            </div>
+            <div class="stap">
+              <h3><span class="nr">05</span>Volg de trend</h3>
+              <p>
+                Krijg inzicht in hoe je gezondheidsscore en je financiën zich ontwikkelen.
+              </p>
+              <!-- Nagemaakt stukje van Inzichten: de score die maand na maand stijgt. -->
+              <div class="mini" aria-hidden="true">
+                <span class="mini-kop">Gezondheidsscore</span>
+                <svg class="mini-lijn" viewBox="0 0 200 100" aria-hidden="true">
+                  <!-- Rood (onder de 40) in juni en juli, vanaf augustus geel, zoals de kleuren van de score in de app. -->
+                  <defs>
+                    <linearGradient id="scorelijn" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="0">
+                      <stop offset="0" stop-color="#FF6369" />
+                      <stop offset="0.3" stop-color="#FF6369" />
+                      <stop offset="0.42" stop-color="#F5B841" />
+                      <stop offset="1" stop-color="#F5B841" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 25H200M0 50H200M0 75H200" stroke="#ffffff14" stroke-width="1" />
+                  <path d="M6 86 L43 74 L80 69 L117 51 L154 40 L193 24" fill="none" stroke="url(#scorelijn)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle class="knipper" cx="193" cy="24" r="5" fill="#F5B841" />
+                </svg>
+                <div class="mini-maanden"><span>jun</span><span>jul</span><span>aug</span><span>sep</span><span>okt</span><span>nov</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="donker" id="privacy">
+        <span class="gloed band-een" aria-hidden="true"></span>
+        <span class="gloed band-twee" aria-hidden="true"></span>
+        <div class="binnen">
+          <div class="sectiekop">
+            <span class="label">Privacy</span>
+            <h2>Gebouwd om je gegevens te beschermen.</h2>
+            <p>Je financiën zijn persoonlijk, en dat blijven ze.</p>
+          </div>
+          <div class="beloftes">
+            <div>
+              <span class="icoon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /><path d="M12 15v2" /></svg></span>
+              <h3>Alleen jij hebt de sleutel</h3>
+              <p>
+                Je bedragen en betalingen staan in een kluis, op slot met een sleutel die je
+                telefoon maakt. Die sleutel blijft op je telefoon, dus ook Vinn kan er niet bij.
+              </p>
+            </div>
+            <div>
+              <span class="icoon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-6 9 6" /><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9" /><path d="M3 21h18M3 18h18" /></svg></span>
+              <h3>Veilig koppelen met je bank</h3>
+              <p>
+                Je logt in bij je eigen bank en geeft daar via PSD2 zelf toestemming om mee te lezen.
+                Je inloggegevens zien we nooit, en geld overmaken of verplaatsen kan Vinn niet.
+              </p>
+            </div>
+            <div>
+              <span class="icoon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.9 4.24A9 9 0 0 1 12 4c7 0 10 8 10 8a13 13 0 0 1-1.67 2.68M6.61 6.61A13.5 13.5 0 0 0 2 12s3 8 10 8a9.7 9.7 0 0 0 5.39-1.61" /><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24M2 2l20 20" /></svg></span>
+              <h3>Geen reclame in de app</h3>
+              <p>
+                Je ziet in de app geen advertenties. We verkopen je gegevens niet, maken geen
+                profielen voor adverteerders en volgen in de app niet wat je doet.
+              </p>
+            </div>
+            <div>
+              <span class="icoon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" /><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" /></svg></span>
+              <h3>Beschermd opgeslagen in Europa</h3>
+              <p>
+                Je gegevens liggen in een goed beveiligde database binnen de Europese Unie, achter
+                meerdere sloten tegelijk. Ook onderweg van je telefoon naar de database is alles
+                versleuteld.
+              </p>
+            </div>
+          </div>
+          <p style="margin: 40px 0 0">
+            <a href="privacy.html">Lees de privacyverklaring →</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="score" id="score">
+        <div class="binnen tweeluik">
+          <div class="sectiekop">
+            <span class="label">De gezondheidsscore</span>
+            <h2>Inzicht in waar je staat</h2>
+            <p>
+              Je gezondheidsscore laat zien hoe je huishouden er financieel voor staat. Vinn
+              beoordeelt vier belangrijke pijlers binnen je financiën en geeft je per pijler een
+              beoordeling, van risico tot uitstekend. Zo zie je meteen wat goed gaat en wat beter
+              kan.
+            </p>
+            <p>
+              Geef je veel uit aan boodschappen of je hypotheek? Spaar je genoeg van je inkomen?
+              En hoe groot hoort je noodbuffer te zijn? Vinn beantwoordt het voor je met een beoordeling
+              van je huidige situatie.
+            </p>
+            <!-- Nagemaakt stukje van de app: twee uitgavenposten met hun eigen beoordeling. -->
+            <div class="mini beoordeelkaart" aria-hidden="true">
+              <div class="beoordeling">
+                <span class="beoordeling-naam">Boodschappen</span>
+                <span class="beoordeling-balk"><em style="width: 52%; background: #F5B841"></em></span>
+                <span class="beoordeling-cijfer"><b>52%</b><small style="color: #F5B841">Kan beter</small></span>
+              </div>
+              <div class="beoordeling">
+                <span class="beoordeling-naam">Wonen</span>
+                <span class="beoordeling-balk"><em style="width: 86%; background: #2ECC71"></em></span>
+                <span class="beoordeling-cijfer"><b>86%</b><small style="color: #2ECC71">Uitstekend</small></span>
+              </div>
+            </div>
+            <p class="kanttekening">
+              De score en de beoordelingen geven inzicht in je eigen situatie. Ze zijn informatief
+              en geen persoonlijk financieel advies.
+            </p>
+          </div>
+          <div class="schaal" role="img" aria-label="Een score van 74 van de 100: gezond">
+            <div class="scorering">
+              <svg viewBox="0 0 240 240" aria-hidden="true">
+                <circle class="spoor" cx="120" cy="120" r="105" />
+                <circle class="boog" cx="120" cy="120" r="105" transform="rotate(-90 120 120)" />
+                <circle class="boog tip" cx="120" cy="120" r="105" transform="rotate(-90 120 120)" />
+              </svg>
+              <span class="ringgetal"><b>74</b>%</span>
+            </div>
+            <span class="ringlabel">Gezond</span>
+            <ul class="banden" aria-label="Wat de score betekent">
+              <li><i style="background: var(--rood)"></i>Risico <span>0–39</span></li>
+              <li><i style="background: var(--amber)"></i>Kan beter <span>40–59</span></li>
+              <li><i style="background: var(--amber)"></i>Gezond <span>60–79</span></li>
+              <li><i style="background: var(--groen-licht)"></i>Uitstekend <span>80–100</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="samen">
+        <div class="binnen">
+          <div class="sectiekop">
+            <span class="label">Huishouden</span>
+            <h2>Samen grip op je financiën</h2>
+            <p>
+              Met Vinn Huishouden hebben jullie één abonnement, ieder met een eigen account. Wat
+              jullie delen, zien jullie samen. Wat van jou is, blijft van jou.
+            </p>
+          </div>
+          <div class="samen-raster">
+            <div class="zij met-mini">
+              <!-- Nagemaakt: een betaling die je deels voor je partner deed. -->
+              <div class="mini" aria-hidden="true">
+                <span class="mini-kop">Te beoordelen</span>
+                  <div class="mini-betaling">
+                    <span class="mini-ico" style="background: #f5b84124"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B841" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><path d="M3 6h18M16 10a4 4 0 0 1-8 0" /></svg></span>
+                    <span class="mini-naam">Albert Heijn<small>Jij betaalde</small></span>
+                    <b>−€ 84,20</b>
+                  </div>
+                <div class="verdeling">
+                  <span><i>Jij</i><b>€ 42,10</b></span>
+                  <span class="ander"><i>Tom</i><b>€ 42,10</b><small>Naar Toms stapel</small></span>
+                </div>
+              </div>
+              <h3>Samen betalen</h3>
+              <p>
+                Betaal je iets samen? Verdeel het, en het deel van je partner komt op diens stapel.
+              </p>
+            </div>
+            <div class="zij met-mini">
+              <!-- Nagemaakt: de score van het huishouden, met de maanden en het inkomen van allebei. -->
+              <div class="mini samenscore" aria-hidden="true">
+                <span class="mini-kop">Jullie huishouden</span>
+                <div class="samenscore-rij">
+                  <div class="mini-ring">
+                    <svg width="96" height="96" viewBox="0 0 96 96"><circle cx="48" cy="48" r="40" fill="none" stroke="#ffffff24" stroke-width="8" /><circle cx="48" cy="48" r="40" fill="none" stroke="#F5B841" stroke-width="8" stroke-linecap="butt" stroke-dasharray="186.0 251.3" transform="rotate(-90 48 48)" /><circle cx="48" cy="48" r="40" fill="none" stroke="#F5B841" stroke-width="8" stroke-linecap="round" stroke-dasharray="0 251.3" stroke-dashoffset="-186.0" transform="rotate(-90 48 48)" /></svg>
+                    <span>74%</span>
+                  </div>
+                  <div class="samenscore-rechts">
+                    <div class="avatars"><span>S</span><span>T</span></div>
+                    <span class="mini-pil">Gezond</span>
+                  </div>
+                </div>
+              </div>
+              <h3>Eén score samen</h3>
+              <p>
+                De score rekent met jullie uitgaven en jullie inkomen samen. Zo zie je hoe het
+                huishouden ervoor staat.
+              </p>
+            </div>
+            <div class="zij met-mini">
+              <!-- Nagemaakt: wat gedeeld is en wat van jou alleen. -->
+              <div class="mini" aria-hidden="true">
+                <span class="mini-kop">Mijn rekeningen</span>
+                  <div class="mini-betaling">
+                    <span class="mini-ico" style="background: #9d7bf024"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9D7BF0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20z" /><path d="M9.5 21.5v-8h5v8" /></svg></span>
+                    <span class="mini-naam">Gezamenlijk<small>••5530</small></span>
+                    <span class="deeltag samen">Samen</span>
+                  </div>
+                  <div class="mini-betaling">
+                    <span class="mini-ico" style="background: #f5b84124"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B841" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5" /></svg></span>
+                    <span class="mini-naam">Cadeau voor Tom<small>Spaardoel</small></span>
+                    <span class="deeltag alleen">Alleen jij</span>
+                  </div>
+              </div>
+              <h3>Privé waar het moet</h3>
+              <p>
+                Wat jullie delen, zie je samen. Je eigen rekening en potjes blijven van jou en zijn
+                niet zichtbaar voor je partner.
+              </p>
+            </div>
+          </div>
+          <p class="verder">
+            Woon je samen? Met <a href="prijs.html?abonnement=huishouden">Vinn Huishouden</a> doen jullie allebei mee,
+            voor € 11,99 per maand.
+          </p>
+        </div>
+      </section>
+
+      <!-- Afsluiting: wie tot hier las, kan meteen beginnen. -->
+      <section class="slot donker">
+        <span class="gloed band-een" aria-hidden="true"></span>
+        <span class="gloed band-twee" aria-hidden="true"></span>
+        <div class="binnen">
+          <h2>Meer rust in je financiën begint hier</h2>
+          <p>Probeer Vinn nu een maand gratis.</p>
+          <a class="knop groen" href="prijs.html">Download Vinn</a>
+        </div>
+      </section>
+
     </main>
+
+    <footer class="voet">
+      <div class="binnen voet-boven">
+        <div class="voet-merk">
+          <span class="merk"><img src="favicon-192.png" alt="" />Vinn</span>
+          <span>Grip op je financiële gezondheid</span>
+          <!-- Zodra de app in de App Store staat: hier de officiële knop "Download in de App
+               Store" van Apple, met de link naar Vinn. -->
+        </div>
+        <nav aria-label="Voet">
+          <a href="veiligheid.html">Privacy</a>
+          <a href="prijs.html">Abonnement</a>
+          <a href="support.html">Contact</a>
+        </nav>
+      </div>
+      <div class="binnen voet-onder">
+        <div class="voet-gegevens">
+          <span>© 2026 Vinn</span>
+          <!-- Wettelijk verplicht zodra Vinn bij de KvK staat ingeschreven: de bedrijfsnaam, het
+               KvK-nummer en de vestigingsplaats (en het btw-nummer). Vervangen vóór de livegang. -->
+          <a href="privacy.html">Privacyverklaring</a>
+          <a href="voorwaarden.html">Algemene voorwaarden</a>
+          <a href="#" data-cookie-instellingen>Cookie-instellingen</a>
+        </div>
+        <p class="voetnoot">
+          Vinn geeft inzicht in je eigen geld, geen financieel advies. De score en de inzichten
+          zijn informatief en geen advies over leningen, sparen, beleggen of verzekeren.
+        </p>
+      </div>
+    </footer>
+
+
+    <script>
+      // De telefoon bovenaan gaat open zoals de app: de begroeting typt zich uit, en de twee
+      // rondjes lopen vol. De snelheden van de app (TypedText: 30 ms per teken, de tweede regel
+      // na de eerste plus 280 ms; ProgressRing: 900 ms, ease-out). De tweede regel staat in de
+      // app op 17 ms, maar op een telefoon kost elke stap meer dan dat; 30 ms ziet er hetzelfde
+      // uit (Wouter, 26-10-2026: "minder snel, zelfde snelheid als de app"). De rest van
+      // de regel staat er al onzichtbaar, zodat er niets verspringt terwijl hij typt.
+      const app = document.querySelector('.telefoon .app');
+      if (app && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const typ = (el, snelheid, wacht) => {
+          const tekst = el.textContent.replace(/\s+/g, ' ').trim();
+          el.innerHTML = '<span></span><span class="cursor">|</span><span class="nog"></span>';
+          const [klaar, cursor, nog] = el.children;
+          nog.textContent = tekst;
+          cursor.hidden = true;
+          let n = 0;
+          const stap = () => {
+            n += 1;
+            klaar.textContent = tekst.slice(0, n);
+            nog.textContent = tekst.slice(n);
+            cursor.hidden = n >= tekst.length;
+            if (n < tekst.length) setTimeout(stap, snelheid);
+          };
+          setTimeout(stap, wacht);
+        };
+        const kop = app.querySelector('.groet h2');
+        const sub = app.querySelector('.groet-sub');
+        const begin = 450;
+        if (kop) typ(kop, 30, begin);
+        if (sub && kop) typ(sub, 30, begin + kop.textContent.trim().length * 30 + 280);
+
+        const bogen = [...app.querySelectorAll('.ring circle[stroke-dasharray]:not(.tip)')];
+        const tips = bogen.map((boog) => boog.nextElementSibling);
+        const doelen = bogen.map((boog) => parseFloat(boog.getAttribute('stroke-dasharray')));
+        [...bogen, ...tips].forEach((boog) => (boog.style.opacity = '0'));
+        setTimeout(() => {
+          const start = performance.now();
+          const teken = (nu) => {
+            // Het tijdstempel van het eerste beeld kan net vóór \`start\` liggen; een negatieve
+            // waarde gaf een ongeldige streep, en dan tekent de browser een vol rondje.
+            const t = Math.min(Math.max((nu - start) / 900, 0), 1);
+            const v = 1 - Math.pow(1 - t, 3);
+            bogen.forEach((boog, i) => {
+              const lengte = (doelen[i] * v).toFixed(1);
+              boog.style.opacity = '1';
+              boog.setAttribute('stroke-dasharray', `${lengte} 400`);
+              tips[i].style.opacity = '1';
+              tips[i].setAttribute('stroke-dashoffset', `-${lengte}`);
+            });
+            if (t < 1) requestAnimationFrame(teken);
+          };
+          requestAnimationFrame(teken);
+        }, begin);
+      }
+
+      // De scorering draait van 0 naar 74% zodra hij in beeld komt. Zonder script, of met
+      // "beweging verminderen", staat hij meteen op 74%.
+      const schaal = document.querySelector('.schaal');
+      const getal = schaal && schaal.querySelector('.ringgetal b');
+      const rustig = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (schaal && getal && 'IntersectionObserver' in window && !rustig) {
+        const doel = 74;
+        const duur = 1600;
+        schaal.classList.add('wacht');
+        getal.textContent = '0';
+        const kijker = new IntersectionObserver(
+          (items) => {
+            if (!items.some((item) => item.isIntersecting)) return;
+            kijker.disconnect();
+            requestAnimationFrame(() => schaal.classList.remove('wacht'));
+            const start = performance.now();
+            const stap = (nu) => {
+              const t = Math.min(1, (nu - start) / duur);
+              const zacht = 1 - Math.pow(1 - t, 3);
+              getal.textContent = String(Math.round(doel * zacht));
+              if (t < 1) requestAnimationFrame(stap);
+            };
+            requestAnimationFrame(stap);
+          },
+          { threshold: 0.5 },
+        );
+        kijker.observe(schaal);
+      }
+
+      const kop = document.querySelector('.kop');
+      const zet = () => kop.classList.toggle('gescrold', window.scrollY > 8);
+      addEventListener('scroll', zet, { passive: true });
+      zet();
+
+      // Elke pagina begint bovenaan, ook als de browser of het voorbeeld de vorige plek onthoudt
+      // (Wouter, 27-10-2026). scrollIntoView schuift ook een omringend venster mee.
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      addEventListener('pageshow', () => {
+        if (!location.hash) document.documentElement.scrollIntoView({ block: 'start', behavior: 'instant' });
+      });
+    </script>
+    <script src="cookies.js"></script>
   </body>
 </html>
