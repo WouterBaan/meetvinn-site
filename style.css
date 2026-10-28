@@ -3342,12 +3342,12 @@ section.privacy-verder {
   z-index: 50;
   display: flex;
   align-items: center;
-  gap: 16px 24px;
-  max-width: 760px;
+  gap: 12px 16px;
+  max-width: 560px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: 12px 14px 12px 18px;
   border: 1px solid var(--rand);
-  border-radius: 18px;
+  border-radius: 16px;
   background: var(--vlak);
   box-shadow: 0 12px 40px -12px #0612104d;
 }
@@ -3355,7 +3355,8 @@ section.privacy-verder {
 .cookiemelding p {
   margin: 0;
   color: var(--zacht);
-  font-size: 14.5px;
+  font-size: 13.5px;
+  line-height: 1.45;
 }
 
 .cookieknoppen {
@@ -3365,8 +3366,8 @@ section.privacy-verder {
 }
 
 .cookieknoppen .knop {
-  padding: 9px 16px;
-  font-size: 14.5px;
+  padding: 7px 13px;
+  font-size: 13.5px;
 }
 
 /* Accepteren: donker, met een groene gloed die langzaam door de knop beweegt, zoals in de
