@@ -3389,12 +3389,27 @@ section.privacy-verder {
   margin: -28px 0 0 -28px;
   border-radius: 50%;
   background: radial-gradient(closest-side, #2ecc7199, #2ecc7133 55%, transparent);
-  animation: knopgloed 5s ease-in-out infinite alternate;
+  animation: knopgloed 16s ease-in-out infinite;
 }
 
+/* Een rustig rondje door de knop, op en neer en heen en weer. */
 @keyframes knopgloed {
-  to {
-    left: 100%;
+  0%,
+  100% {
+    left: 12%;
+    top: 70%;
+  }
+  25% {
+    left: 45%;
+    top: 20%;
+  }
+  50% {
+    left: 88%;
+    top: 60%;
+  }
+  75% {
+    left: 55%;
+    top: 90%;
   }
 }
 
