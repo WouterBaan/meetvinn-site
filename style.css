@@ -2758,7 +2758,8 @@ section.privacy-verder {
   color: var(--zacht);
 }
 
-.privacy-pagina + .voet {
+.privacy-pagina + .voet,
+.artikel.genummerd + .voet {
   border-top: 0;
 }
 
