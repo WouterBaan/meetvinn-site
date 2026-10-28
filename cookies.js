@@ -63,7 +63,7 @@
         <p>Mogen we cookies gebruiken voor marketing? Meer in de <a href="privacy.html#cookies">privacyverklaring</a>.</p>
         <div class="cookieknoppen">
           <button type="button" class="knop licht" data-keuze="nee">Weigeren</button>
-          <button type="button" class="knop donker-stip" data-keuze="ja"><span class="stip" aria-hidden="true"></span>Accepteren</button>
+          <button type="button" class="knop donker-stip" data-keuze="ja"><span class="knopgloed" aria-hidden="true"></span>Accepteren</button>
         </div>
       </div>`,
     );
