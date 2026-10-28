@@ -171,6 +171,12 @@
             <td>Toestemming</td>
             <td>Ja</td>
           </tr>
+          <tr>
+            <td>Websitebezoek, alleen met je toestemming: cookie-ID, IP-adres en bezochte pagina's</td>
+            <td>Advertenties over Vinn tonen aan eerdere bezoekers</td>
+            <td>Toestemming</td>
+            <td>Nee, alleen Meta en Google</td>
+          </tr>
         </table>
       </div>
 
@@ -250,6 +256,12 @@
             </td>
           </tr>
           <tr>
+            <td><strong>Meta</strong> en <strong>Google</strong></td>
+            <td>Ierland en Verenigde Staten</td>
+            <td>Advertenties over Vinn tonen, alleen na je toestemming op de Website</td>
+            <td>Je bezoek aan de Website, je IP-adres en een cookie-ID. Geen gegevens uit de App.</td>
+          </tr>
+          <tr>
             <td><strong>Apple</strong></td>
             <td>Verenigde Staten</td>
             <td>App Store, en TestFlight voor testversies</td>
@@ -261,12 +273,13 @@
           </tr>
         </table>
       </div>
-      <p class="lid"><span class="nr">6.4</span><span>hCaptcha, Expo en Apple zijn gevestigd in de Verenigde Staten, en Supabase is een Amerikaanse onderneming, al worden je gegevens in Ierland opgeslagen. Voor de doorgifte aan hCaptcha en Expo geldt het EU-VS Data Privacy Framework; met Supabase gelden de standaardcontractbepalingen van de Europese Commissie. Je financiële gegevens worden uitsluitend Versleuteld bij Supabase in Ierland opgeslagen.</span></p>
+      <p class="lid"><span class="nr">6.4</span><span>hCaptcha, Expo, Apple, Meta en Google zijn (mede) gevestigd in de Verenigde Staten, en Supabase is een Amerikaanse onderneming, al worden je gegevens in Ierland opgeslagen. Voor de doorgifte aan hCaptcha, Expo, Meta en Google geldt het EU-VS Data Privacy Framework; met Supabase gelden de standaardcontractbepalingen van de Europese Commissie. Je financiële gegevens worden uitsluitend Versleuteld bij Supabase in Ierland opgeslagen.</span></p>
 
       <h2 id="cookies"><span class="nr">7.</span> Cookies en vergelijkbare technieken</h2>
-      <p class="lid"><span class="nr">7.1</span><span>De Website plaatst geen cookies.</span></p>
-      <p class="lid"><span class="nr">7.2</span><span>De App toont geen advertenties en maakt geen gebruik van analysediensten, crashrapportage van derden of andere technieken die je gedrag volgen.</span></p>
-      <p class="lid"><span class="nr">7.3</span><span>Bij het inloggen wordt de controle van hCaptcha gebruikt om geautomatiseerde inlogpogingen te herkennen. Deze controle verwerkt signalen van je toestel en je IP-adres, zoals vermeld in artikel 6.</span></p>
+      <p class="lid"><span class="nr">7.1</span><span>Met je toestemming plaatst de Website cookies van Meta en Google. Daarmee kan Vinn je later op hun platforms advertenties over Vinn tonen. Zonder toestemming worden deze cookies niet geplaatst.</span></p>
+      <p class="lid"><span class="nr">7.2</span><span>Je kunt je toestemming op elk moment intrekken via Cookie-instellingen onderaan elke pagina van de Website.</span></p>
+      <p class="lid"><span class="nr">7.3</span><span>De App toont geen advertenties en maakt geen gebruik van analysediensten, crashrapportage van derden of andere technieken die je gedrag volgen.</span></p>
+      <p class="lid"><span class="nr">7.4</span><span>Bij het inloggen wordt de controle van hCaptcha gebruikt om geautomatiseerde inlogpogingen te herkennen. Deze controle verwerkt signalen van je toestel en je IP-adres, zoals vermeld in artikel 6.</span></p>
 
       <h2 id="je-huisgenoot"><span class="nr">8.</span> Het Huishouden</h2>
       <p class="lid"><span class="nr">8.1</span><span>Start je een Huishouden, of sluit je je met een uitnodigingscode aan bij een Huishouden, dan worden de gegevens die in de tabel hieronder in de linkerkolom staan, gedeeld met je Huisgenoot. Dit is inherent aan het gezamenlijk gebruiken van de App. Welke gegevens worden gedeeld, wordt afgedwongen in de database en niet uitsluitend in de App.</span></p>
@@ -340,6 +353,10 @@
           <tr>
             <td>E-mail aan support@ of privacy@meetvinn.nl</td>
             <td>Zolang nodig voor de afhandeling</td>
+          </tr>
+          <tr>
+            <td>Advertentiecookies op de Website</td>
+            <td>Ten hoogste 13 maanden, of tot je je toestemming intrekt</td>
           </tr>
           <tr>
             <td>Back-ups</td>
@@ -435,6 +452,7 @@
                KvK-nummer en de vestigingsplaats (en het btw-nummer). Vervangen vóór de livegang. -->
           <a href="privacy.html">Privacyverklaring</a>
           <a href="voorwaarden.html">Algemene voorwaarden</a>
+          <a href="#" data-cookie-instellingen>Cookie-instellingen</a>
         </div>
         <p class="voetnoot">
           Vinn geeft inzicht in je eigen geld, geen financieel advies. De score en de inzichten
@@ -456,5 +474,6 @@
         if (!location.hash) document.documentElement.scrollIntoView({ block: 'start', behavior: 'instant' });
       });
     </script>
+    <script src="cookies.js"></script>
   </body>
 </html>
