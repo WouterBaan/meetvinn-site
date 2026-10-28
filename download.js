@@ -8,7 +8,8 @@
   // Het inschrijfformulier van Brevo voor de wachtlijst (met dubbele bevestiging per mail).
   // Invullen: het adres uit Brevo, Contacten → Formulieren → het formulier → Delen → "HTML-code",
   // de waarde van action="…" (begint met https://…sibforms.com/serve/…).
-  const WACHTLIJST = '';
+  const WACHTLIJST =
+    'https://96a0451a.sibforms.com/serve/MUIFAFDOkMKnhuyxsvs-MtvBlun9fbWA0GWcKO_2O52eD5R3LNOGEzU_ACBx8_ZYUAkUBItvGqQqbfErUaJ0jspNIVW3oXCGwlSzxUBeMhfCdyqjGAtNGCsLZYDvhzK0-Nriy2XpUxwNF7r3UbaDQspt9rQ2zVlFFOVUKV7vMiSfyymGB-Cm0myTHeP0i9byXlbjHDRd9tLk086RUQ==';
 
   let venster = document.getElementById('qrvenster');
   if (!venster) {
