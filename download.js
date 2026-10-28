@@ -16,12 +16,16 @@
         <img class="qrlogo" src="favicon-192.png" alt="" />
         <h2 id="qrtitel">Download Vinn</h2>
         <p class="qrkeuze" hidden><strong></strong><span></span></p>
-        <p>Scan de code met de camera van je iPhone. Je gaat dan naar Vinn in de App Store.</p>
-        <div class="qrcode" aria-label="QR-code naar de App Store"><span>QR-code</span></div>
+        <p class="met-winkel">Scan de code met de camera van je iPhone. Je gaat dan naar Vinn in de App Store.</p>
+        <div class="qrcode met-winkel" aria-label="QR-code naar de App Store"><span>QR-code</span></div>
+        <p class="zonder-winkel">Vinn komt binnenkort in de App Store.</p>
       </dialog>`,
     );
     venster = document.getElementById('qrvenster');
   }
+
+  // Zonder App Store-link geen QR-code, maar een eerlijke zin.
+  venster.querySelectorAll(APPSTORE ? '.zonder-winkel' : '.met-winkel').forEach((el) => el.remove());
 
   // Kwam je via een prijskaart, dan staat in het venster wat je koos: welk abonnement, per maand
   // of per jaar, en wat het kost. De prijs staat op de kaart zelf (data-vinn, data-huishouden).

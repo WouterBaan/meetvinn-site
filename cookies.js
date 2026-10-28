@@ -94,6 +94,12 @@
     }),
   );
 
+  // Zonder pixels is er niets om toestemming voor te vragen: geen melding en geen link.
+  if (!META_PIXEL_ID && !GOOGLE_TAG_ID) {
+    document.querySelectorAll('[data-cookie-instellingen]').forEach((link) => link.remove());
+    return;
+  }
+
   const keuze = lees();
   if (keuze === 'ja') laadPixels();
   else if (keuze !== 'nee') melding();
