@@ -60,7 +60,7 @@
     document.body.insertAdjacentHTML(
       'beforeend',
       `<div class="cookiemelding" id="cookiemelding" role="dialog" aria-label="Cookies">
-        <p>We gebruiken op deze website cookies om je later advertenties van Vinn te kunnen tonen, alleen als je daarmee instemt. Meer in de <a href="privacy.html#cookies">privacyverklaring</a>.</p>
+        <p>Mogen we cookies gebruiken voor marketing? Meer in de <a href="privacy.html#cookies">privacyverklaring</a>.</p>
         <div class="cookieknoppen">
           <button type="button" class="knop licht" data-keuze="nee">Weigeren</button>
           <button type="button" class="knop licht" data-keuze="ja">Accepteren</button>
