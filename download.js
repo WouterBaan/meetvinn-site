@@ -41,6 +41,13 @@
   // Zonder App Store-link geen QR-code, maar een eerlijke zin en de wachtlijst.
   venster.querySelectorAll(APPSTORE ? '.zonder-winkel' : '.met-winkel').forEach((el) => el.remove());
 
+  // Zonder Brevo-adres geen formulier: anders zou het "bijna klaar" zeggen zonder iets te versturen.
+  if (!WACHTLIJST) {
+    venster.querySelectorAll('.wachtlijst, .wachtlijst-uitleg, .wachtlijst-klaar').forEach((el) => el.remove());
+    const zin = venster.querySelector('.zonder-winkel p');
+    if (zin) zin.textContent = 'Vinn komt binnenkort in de App Store.';
+  }
+
   const formulier = venster.querySelector('.wachtlijst');
   if (formulier) {
     formulier.addEventListener('submit', async (e) => {
@@ -55,13 +62,11 @@
       try {
         // Brevo stuurt geen leesbaar antwoord terug naar een andere website (no-cors); het
         // bevestigen gebeurt in de mail.
-        if (WACHTLIJST) {
-          const data = new FormData();
-          data.append('EMAIL', veld.value);
-          data.append('email_address_check', '');
-          data.append('locale', 'nl');
-          await fetch(WACHTLIJST, { method: 'POST', body: data, mode: 'no-cors' });
-        }
+        const data = new FormData();
+        data.append('EMAIL', veld.value);
+        data.append('email_address_check', '');
+        data.append('locale', 'nl');
+        await fetch(WACHTLIJST, { method: 'POST', body: data, mode: 'no-cors' });
         formulier.hidden = true;
         venster.querySelector('.wachtlijst-uitleg').hidden = true;
         venster.querySelector('.wachtlijst-klaar').hidden = false;
