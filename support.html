@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Vóór de opmaak, zodat de kopbalk op de telefoon meteen goed staat (31-10-2026). -->
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="style.css?v=20261031zf" />
+    <link rel="stylesheet" href="style.css?v=20261031zg" />
   </head>
   <body>
     <header class="kop">
@@ -45,7 +45,8 @@
             <div class="contactkaart">
               <div class="contactkop"><span class="icoon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /><path d="M12 8v3M12 14h.01" /></svg></span><h2>Meld het in de app</h2></div>
               <p>Ga naar <strong>Account → Iets melden</strong>.</p>
-              <p class="zacht">Vinn zet er zelf het scherm en de versie bij, zodat we sneller zien wat er speelt. Stuur je een schermafbeelding mee, dan maakt Vinn je bedragen en winkelnamen eerst onzichtbaar.</p>
+              <p class="zacht kort">Vinn stuurt het scherm en de versie mee, en maakt je bedragen en winkelnamen onzichtbaar.</p>
+              <p class="zacht lang">Vinn zet er zelf het scherm en de versie bij, zodat we sneller zien wat er speelt. Stuur je een schermafbeelding mee, dan maakt Vinn je bedragen en winkelnamen eerst onzichtbaar.</p>
             </div>
           </div>
 
@@ -59,7 +60,7 @@
             <h2>Veelgestelde vragen</h2>
           </div>
           <div class="vragen">
-            <h3 class="vragengroep">Bank koppelen</h3>
+            <h3 class="vragengroep" data-kort="Bank">Bank koppelen</h3>
             <details name="vragen">
               <summary>Welke banken werken met Vinn?</summary>
               <p>De grote Nederlandse banken, waaronder ABN AMRO, ING, Rabobank, SNS, ASN Bank, RegioBank, Triodos en bunq. Biedt je bank je spaarrekening niet aan om te koppelen, dan kun je hem bij <strong>Bank → Spaarrekening toevoegen</strong> zelf bijhouden.</p>
@@ -84,7 +85,7 @@
               <summary>Hoe ontkoppel ik een rekening?</summary>
               <p>Ga naar <strong>Bank</strong> en tik bij de rekening op <strong>Rekening ontkoppelen</strong>. De betalingen van die rekening worden uit Vinn verwijderd; je andere rekeningen blijven zoals ze zijn. Is het je laatste rekening bij die bank, dan trekt Vinn ook je toestemming bij de bank in.</p>
             </details>
-            <h3 class="vragengroep">Vinn gebruiken</h3>
+            <h3 class="vragengroep" data-kort="Vinn gebruiken">Vinn gebruiken</h3>
             <details name="vragen">
               <summary>Hoe werkt het indelen van betalingen?</summary>
               <p>Bij elke nieuwe betaling stelt Vinn een potje voor, zoals Boodschappen of Wonen. Jij bevestigt of kiest een ander, en Vinn leert van je keuzes. Zo gaat indelen steeds sneller.</p>
@@ -101,7 +102,7 @@
               <summary>Is Vinn er ook voor Android?</summary>
               <p>Nog niet. Vinn is er nu alleen voor iPhone.</p>
             </details>
-            <h3 class="vragengroep">Samen en je account</h3>
+            <h3 class="vragengroep" data-kort="Account">Samen en je account</h3>
             <details name="vragen">
               <summary>Kan mijn partner meedoen?</summary>
               <p>Ja, met Vinn Huishouden. Ga naar <strong>Huishouden</strong> en geef je partner de code die daar staat. Jullie zien dan samen de gezamenlijke rekening, de budgetten en de score van het huishouden. Je eigen rekeningen en potjes blijven van jou.</p>
@@ -184,6 +185,38 @@
           });
         });
       });
+
+      // Op de telefoon staan de drie groepen vragen als tabjes: je ziet één groep tegelijk
+      // (31-10-2026, Wouter akkoord). Op de laptop zijn de tabjes verborgen en staat alles onder
+      // elkaar (zie .vraagtabs in style.css).
+      const vragen = document.querySelector('.contact-pagina .vragen');
+      if (vragen) {
+        let groep = -1;
+        const koppen = [...vragen.querySelectorAll('.vragengroep')];
+        [...vragen.children].forEach((el) => {
+          if (el.classList.contains('vragengroep')) groep += 1;
+          el.dataset.groep = String(groep);
+        });
+        const tabs = document.createElement('div');
+        tabs.className = 'periode vraagtabs';
+        tabs.setAttribute('role', 'group');
+        tabs.setAttribute('aria-label', 'Onderwerp');
+        const knoppen = koppen.map((kop, i) => {
+          const knop = document.createElement('button');
+          knop.type = 'button';
+          knop.textContent = kop.dataset.kort || kop.textContent;
+          knop.addEventListener('click', () => kies(i));
+          tabs.appendChild(knop);
+          return knop;
+        });
+        const kies = (i) => {
+          vragen.dataset.groep = String(i);
+          knoppen.forEach((k, j) => k.setAttribute('aria-pressed', String(j === i)));
+          vragen.querySelectorAll('details[open]').forEach((d) => (d.open = false));
+        };
+        vragen.before(tabs);
+        kies(0);
+      }
 
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       addEventListener('pageshow', () => {
