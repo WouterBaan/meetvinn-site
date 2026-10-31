@@ -3766,20 +3766,33 @@ section.privacy-verder {
     gap: 10px;
   }
 
+  /* Icoon en titel naast elkaar, zoals op de laptop; de zin eronder over de volle breedte. */
   .beloftes > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 16px 14px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    align-content: start;
+    gap: 10px 9px;
+    padding: 14px 12px;
     border: 1px solid #ffffff1a;
     border-radius: 16px;
     background: #ffffff0a;
   }
 
+  .beloftes .icoon {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+  }
+
+  .beloftes .icoon svg {
+    width: 16px;
+    height: 16px;
+  }
+
   .beloftes h3 {
-    font-size: 15.5px;
-    line-height: 1.25;
+    font-size: 14.5px;
+    line-height: 1.2;
   }
 
   .beloftes > div > p {
@@ -3788,6 +3801,7 @@ section.privacy-verder {
 
   .beloftes > div > p.kort {
     display: block;
+    grid-column: 1 / -1;
     margin: 0;
     font-size: 14px;
     line-height: 1.4;
