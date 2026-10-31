@@ -3448,6 +3448,11 @@ section.privacy-verder {
    Eén blok voor de telefoon, onderaan zodat het de regels hierboven overschrijft. Op de laptop
    verandert hier niets. */
 
+/* De bolletjes onder de veegkaarten van Zo werkt Vinn bestaan alleen op de telefoon. */
+.stippen {
+  display: none;
+}
+
 /* De menuknop bestaat alleen als menu.js heeft gelopen (`menu-klaar`). */
 .menuknop {
   display: none;
@@ -3487,6 +3492,83 @@ section.privacy-verder {
 
   .opening .telefoon {
     zoom: 0.62;
+  }
+
+  /* Zo werkt Vinn als veegkaarten (31-10-2026, Wouter: optie A). Eén stap tegelijk, met een
+     stukje van de volgende aan de rand, en bolletjes eronder (zie het script in index.html).
+     Was onder elkaar zo'n 2,5 schermen scrollen. */
+  #hoe .stappen {
+    display: flex;
+    gap: 12px;
+    margin: 0 -16px;
+    padding: 4px 16px 8px;
+    border-top: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #hoe .stappen::-webkit-scrollbar {
+    display: none;
+  }
+
+  #hoe .stap,
+  #hoe .stap + .stap {
+    flex: 0 0 84%;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+    padding: 18px 18px 18px;
+    border: 1px solid var(--rand);
+    border-radius: 22px;
+    background: var(--vlak);
+  }
+
+  /* De tekst rekt mee, zodat de kaartjes in alle stappen op dezelfde hoogte staan. */
+  #hoe .stap p {
+    flex: 1;
+  }
+
+  #hoe .stap h3 {
+    margin-top: 0;
+  }
+
+  /* Het kaartje uit de app over de volle breedte van de kaart, en niet rechts in een hoek. */
+  #hoe .stap .mini {
+    align-self: stretch;
+    width: auto;
+    max-width: none;
+    margin-top: 16px;
+  }
+
+  #hoe .sectiekop {
+    margin-bottom: 20px;
+  }
+
+  .stippen {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .stippen button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--rand);
+    cursor: pointer;
+    transition: background 0.2s ease, width 0.2s ease;
+  }
+
+  .stippen button[aria-current='true'] {
+    width: 22px;
+    border-radius: 4px;
+    background: var(--groen);
   }
 
   /* 1. Menu: logo, Download en ☰. De tabjes staan in het uitklapmenu. */
@@ -3634,11 +3716,6 @@ section.privacy-verder {
   /* 4. Minder lucht tussen de blokken, zodat je minder hoeft te scrollen. */
   #hoe {
     padding-bottom: 48px;
-  }
-
-  .stap {
-    padding-top: 20px;
-    padding-bottom: 20px;
   }
 
   section.donker:not(.slot) {
