@@ -4077,12 +4077,19 @@ section.privacy-verder {
     display: none;
   }
 
-  /* Telefoon en bank even groot, in het midden van de hoogte: hoog genoeg dat de pijlen van
-     Vinn (boven) en de database (onder) ze nog raken. */
+  /* Telefoon en bank even hoog als Vinn en de database samen, zoals op de laptop (31-10-2026,
+     Wouter). In de telefoon alleen "Vinn". */
   .reis .k-tel,
   .reis .k-bank {
-    align-self: center;
-    height: 150px;
+    align-self: stretch;
+  }
+
+  .reis .niet-mobiel {
+    display: none;
+  }
+
+  .privacy-schema .sectiekop {
+    margin-bottom: 20px;
   }
 
   .reis .k-tel {
