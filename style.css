@@ -3861,6 +3861,12 @@ section.privacy-verder {
     display: none;
   }
 
+  /* "Beschermd in Europa" op de telefoon, zodat elke titel op hoogstens twee regels staat
+     (31-10-2026, Wouter). Op de laptop blijft "Beschermd opgeslagen in Europa". */
+  .beloftes .niet-mobiel {
+    display: none;
+  }
+
   .beloftes > div > p.kort {
     display: block;
     grid-column: 1 / -1;
