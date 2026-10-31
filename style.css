@@ -3944,8 +3944,52 @@ section.privacy-verder {
     padding-bottom: 48px;
   }
 
+  /* 4b. Huishouden als veegkaarten met bolletjes, zoals Zo werkt Vinn (31-10-2026, Wouter
+     akkoord). De inleiding zonder de zin die de derde kaart al zegt. */
+  #samen .niet-mobiel {
+    display: none;
+  }
+
+  #samen .sectiekop {
+    margin-bottom: 20px;
+  }
+
   .samen-raster {
-    gap: 16px;
+    display: flex;
+    gap: 12px;
+    margin: 0 -16px;
+    padding: 4px 16px 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .samen-raster::-webkit-scrollbar {
+    display: none;
+  }
+
+  .samen-raster .zij {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+    padding: 10px 10px 20px;
+  }
+
+  /* Iets compacter, zodat "Cadeau voor Tom" ook op een smalle telefoon past. */
+  .samen-raster .zij.met-mini .mini {
+    margin-bottom: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .samen-raster .mini-betaling {
+    gap: 6px;
+  }
+
+  .samen-raster .zij.met-mini h3,
+  .samen-raster .zij.met-mini p {
+    padding: 0 8px;
   }
 
   #samen .verder {

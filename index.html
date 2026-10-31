@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-rond-192.png" />
     <link rel="apple-touch-icon" href="icon.png" />
-    <link rel="stylesheet" href="style.css?v=20261031j" />
+    <link rel="stylesheet" href="style.css?v=20261031k" />
   </head>
   <body>
     <header class="kop">
@@ -389,8 +389,8 @@
             <span class="label">Huishouden</span>
             <h2>Samen grip op je financiën</h2>
             <p>
-              Met Vinn Huishouden hebben jullie één abonnement, ieder met een eigen account. Wat
-              jullie delen, zien jullie samen. Wat van jou is, blijft van jou.
+              Met Vinn Huishouden hebben jullie één abonnement, ieder met een eigen account.<span class="niet-mobiel"> Wat
+              jullie delen, zien jullie samen. Wat van jou is, blijft van jou.</span>
             </p>
           </div>
           <div class="samen-raster">
@@ -572,18 +572,19 @@
         }, begin);
       }
 
-      // Zo werkt Vinn op de telefoon: veegkaarten met bolletjes eronder (31-10-2026). De
-      // bolletjes zeggen waar je bent en springen bij een tik naar die stap. Op de laptop staan
-      // de stappen naast elkaar en zijn de bolletjes verborgen (zie .stippen in style.css).
-      const rij = document.querySelector('#hoe .stappen');
-      if (rij) {
-        const kaarten = [...rij.querySelectorAll('.stap')];
+      // Zo werkt Vinn en Huishouden op de telefoon: veegkaarten met bolletjes eronder
+      // (31-10-2026). De bolletjes zeggen waar je bent en springen bij een tik naar die kaart.
+      // Op de laptop staan de kaarten naast elkaar en zijn de bolletjes verborgen (zie
+      // .stippen in style.css).
+      const veegkaarten = (rij, kaartje, naam) => {
+        if (!rij) return;
+        const kaarten = [...rij.querySelectorAll(kaartje)];
         const stippen = document.createElement('div');
         stippen.className = 'stippen';
         const knoppen = kaarten.map((kaart, i) => {
           const knop = document.createElement('button');
           knop.type = 'button';
-          knop.setAttribute('aria-label', `Stap ${i + 1}`);
+          knop.setAttribute('aria-label', `${naam} ${i + 1}`);
           knop.addEventListener('click', () =>
             rij.scrollTo({ left: kaart.offsetLeft - kaarten[0].offsetLeft, behavior: "smooth" }),
           );
@@ -598,7 +599,9 @@
         };
         rij.addEventListener('scroll', () => requestAnimationFrame(zet), { passive: true });
         zet();
-      }
+      };
+      veegkaarten(document.querySelector('#hoe .stappen'), '.stap', 'Stap');
+      veegkaarten(document.querySelector('#samen .samen-raster'), '.zij', 'Kaart');
 
       // De scorering draait van 0 naar 74% zodra hij in beeld komt. Zonder script, of met
       // "beweging verminderen", staat hij meteen op 74%.
