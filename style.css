@@ -1702,8 +1702,8 @@ section.prijs-beide {
 }
 
 /* Onder de twee kaarten: wat je bij Vinn of Vinn Huishouden krijgt, één keer, in twee kolommen
-   (31-10-2026, Wouter). De knop erin, het kopje boven de zes punten en hun korte zinnen zijn
-   alleen voor de telefoon (zie het telefoonblok). */
+   (31-10-2026, Wouter). Het kopje boven de zes punten en hun korte zinnen zijn alleen voor de
+   telefoon (zie het telefoonblok). */
 .prijs-samen {
   grid-column: 1 / -1;
   padding: 24px 28px;
@@ -1731,7 +1731,6 @@ section.prijs-beide {
   }
 }
 
-.prijs-samen .knop,
 .prijs-pagina .alleen-mobiel,
 .prijs-beide .lijstpunt p.kort,
 .prijs-beide .lijstpunt h3 .kort {
@@ -4347,9 +4346,8 @@ section.privacy-verder {
     display: block;
   }
 
-  /* 6. Abonnement (31-10-2026, Wouter akkoord): Maandelijks en Jaarlijks als twee keuzetegels
-     naast elkaar, met wat je krijgt één keer eronder en één knop; de zes punten als tegels met
-     een kopje; de vragen links en met minder ruimte. */
+  /* 6. Abonnement (31-10-2026, Wouter akkoord): de kaarten zoals op de laptop; de zes punten
+     als tegels met een kopje; de vragen links en met minder ruimte. */
   section.prijs-keuze {
     padding-top: 36px;
   }
@@ -4362,93 +4360,37 @@ section.privacy-verder {
     margin-bottom: 20px;
   }
 
+  /* De kaarten zoals op de laptop, onder elkaar: elk met hun eigen punten en knop, en daaronder
+     het vlak met wat je bij Vinn of Vinn Huishouden krijgt (31-10-2026, Wouter). */
   .prijs-kaarten {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    gap: 22px;
   }
 
   .prijskaart {
-    padding: 16px 14px 14px;
-    border-radius: 18px;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .prijskaart.gekozen {
-    border-color: var(--groen);
-    box-shadow: 0 0 0 2px var(--groen);
-  }
-
-  /* Jaarlijks zonder groene rand, ook als hij gekozen is (31-10-2026, Wouter): het donkere
-     vlak valt al op. */
-  .prijskaart.jaarkaart.gekozen {
-    border-color: #ffffff1f;
-    box-shadow: none;
-  }
-
-  .prijskaart .wat,
-  .prijskaart .knop {
-    display: none;
-  }
-
-  .prijskop h2 {
-    font-size: 16px;
+    padding: 22px 20px;
+    border-radius: 20px;
   }
 
   .bedrag {
-    margin: 12px 0 2px;
-    font-size: 13.5px;
+    margin-top: 16px;
   }
 
   .bedrag b {
-    display: block;
-    font-size: 30px;
-    line-height: 1.1;
-  }
-
-  .prijskaart .onder {
-    margin: 0;
-    font-size: 13px;
-  }
-
-  .per-persoon {
-    top: -11px;
-    right: 12px;
-    padding: 4px 10px;
-    font-size: 12px;
-  }
-
-  .prijs-samen .samen-kop {
-    display: none;
-  }
-
-  .prijs-samen .knop {
-    display: inline-flex;
+    font-size: 38px;
   }
 
   .prijs-samen {
-    grid-column: 1 / -1;
-    margin-top: 10px;
-    padding: 20px 18px;
-    border: 1px solid var(--rand);
-    border-radius: 18px;
-    background: var(--vlak);
+    margin-top: -6px;
+    padding: 20px;
+    border-radius: 20px;
   }
 
-  .prijs-samen .wat {
-    padding-top: 0;
-    border-top: 0;
-    margin-bottom: 20px;
+  .samen-kop {
+    font-size: 17px;
   }
 
   .prijs-samen .wat li {
     font-size: 15px;
-  }
-
-  .prijs-samen .knop {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
   }
 
   section.prijs-beide {
