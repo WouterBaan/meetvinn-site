@@ -2846,8 +2846,9 @@ section.privacy-verder {
   cursor: default;
 }
 
-/* De korte openingstekst van de Privacy-pagina is er alleen voor de telefoon. */
-.privacy-pagina .pagina-opening p.kort {
+/* De korte openingstekst en slotzin van de Privacy-pagina zijn er alleen voor de telefoon. */
+.privacy-pagina .pagina-opening p.kort,
+.privacy-verder .verder.kort {
   display: none;
 }
 
@@ -4299,6 +4300,14 @@ section.privacy-verder {
 
   .privacy-verder .verder {
     margin-top: 28px;
+  }
+
+  .privacy-verder .verder.lang {
+    display: none;
+  }
+
+  .privacy-verder .verder.kort {
+    display: block;
   }
 
   /* 4b. Huishouden als veegkaarten met bolletjes, zoals Zo werkt Vinn (31-10-2026, Wouter
