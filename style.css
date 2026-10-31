@@ -1705,7 +1705,8 @@ section.prijs-beide {
    punten en hun korte zinnen (zie het telefoonblok). */
 .prijs-samen,
 .prijs-pagina .alleen-mobiel,
-.prijs-beide .lijstpunt p.kort {
+.prijs-beide .lijstpunt p.kort,
+.prijs-beide .lijstpunt h3 .kort {
   display: none;
 }
 
@@ -4455,6 +4456,14 @@ section.privacy-verder {
 
   .prijs-beide .lijstpunt p.lang {
     display: none;
+  }
+
+  .prijs-beide .lijstpunt h3 .lang {
+    display: none;
+  }
+
+  .prijs-beide .lijstpunt h3 .kort {
+    display: inline;
   }
 
   .prijs-beide .lijstpunt p.kort {
