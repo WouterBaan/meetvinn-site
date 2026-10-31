@@ -266,7 +266,9 @@ h1 {
   position: relative;
   z-index: 1;
   zoom: 0.82;
-  width: 410px;
+  /* iPhone 18 Pro (31-10-2026): een scherm van 402 × 874 punten, plus de rand van 10. Was
+     390 × 844, de maat van een oudere iPhone. */
+  width: 422px;
   padding: 10px;
   border-radius: 62px;
   background: #1a1d1c;
@@ -278,11 +280,11 @@ h1 {
 
 .scherm {
   position: relative;
-  height: 844px;
+  height: 874px;
   border-radius: 52px;
   overflow: hidden;
   color: #fff;
-  background: #000307;
+  background: #0a0e14;
   font-size: 15px;
   line-height: 1.35;
 }
@@ -343,16 +345,32 @@ h1 {
   z-index: 1;
 }
 
+/* Het Dynamic Island, zoals op de iPhone 18 Pro: ongeveer twee derde zo breed als eerder
+   (volgens uitgelekte maten 13,5 in plaats van 20,8 mm), met de cameralens rechts. Was zwart op
+   een bijna zwart scherm en daardoor op een telefoon niet te zien (Wouter, 31-10-2026); het
+   scherm heeft nu de achtergrond van de app (#0A0E14), waar het eiland zichtbaar tegen afsteekt. */
 .eiland {
   position: absolute;
   z-index: 3;
   top: 11px;
   left: 50%;
-  width: 124px;
-  height: 36px;
-  margin-left: -62px;
-  border-radius: 20px;
+  width: 84px;
+  height: 32px;
+  margin-left: -42px;
+  border-radius: 16px;
   background: #000;
+}
+
+.eiland::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  width: 11px;
+  height: 11px;
+  margin-top: -5.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #2b3a55 0, #121a28 45%, #05070b 75%);
 }
 
 .statusbalk {
