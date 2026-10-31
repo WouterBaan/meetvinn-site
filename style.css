@@ -3622,6 +3622,12 @@ section.privacy-verder {
     border-radius: 10px;
     background: transparent;
     cursor: pointer;
+    /* Geen grijze flits van Safari bij het tikken; alleen het kruisje verandert. */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .menuknop:focus:not(:focus-visible) {
+    outline: none;
   }
 
   .menuknop span {
