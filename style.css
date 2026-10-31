@@ -3635,6 +3635,17 @@ section.privacy-verder {
     outline: none;
   }
 
+  /* Het logo en de downloadknop in de balk ook zonder grijze flits bij het tikken. */
+  .kop .merk,
+  .kop .knop {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .kop .merk:focus:not(:focus-visible),
+  .kop .knop:focus:not(:focus-visible) {
+    outline: none;
+  }
+
   .menuknop span {
     display: block;
     height: 2px;
