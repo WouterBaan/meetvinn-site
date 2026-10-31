@@ -4379,6 +4379,15 @@ section.privacy-verder {
     font-size: 38px;
   }
 
+  /* Onder elkaar hoeven de kaarten niet gelijk te lopen: de lege regel weg, wel lucht. */
+  .prijskaart .onder.leeg {
+    display: none;
+  }
+
+  .prijskaart:not(.jaarkaart) .bedrag {
+    margin-bottom: 18px;
+  }
+
   .prijs-samen {
     margin-top: -6px;
     padding: 20px;
