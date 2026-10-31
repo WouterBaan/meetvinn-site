@@ -4092,11 +4092,13 @@ section.privacy-verder {
     margin-bottom: 20px;
   }
 
+  /* Gemeten: pijl 1 vertrekt op 27% van de hoogte van de telefoon, pijl 4 komt binnen op 85%.
+     Daar haalt de gloed zijn lichtpuntje op en geeft hij het af. */
   .reis .k-tel {
     --uit-x: 100%;
-    --uit-y: 22%;
+    --uit-y: 27%;
     --in-x: 100%;
-    --in-y: 78%;
+    --in-y: 85%;
   }
 
   .gloed.tel-een {
