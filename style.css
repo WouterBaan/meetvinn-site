@@ -3471,8 +3471,9 @@ section.privacy-verder {
     padding-top: 20px;
   }
 
+  /* Wat lucht tussen de tekst en de telefoon (Wouter, 31-10-2026: 12 was te krap). */
   .opening .binnen {
-    gap: 12px;
+    gap: 28px;
   }
 
   .opening h1 {
