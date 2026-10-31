@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Vóór de opmaak, zodat de kopbalk op de telefoon meteen goed staat (31-10-2026). -->
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="style.css?v=20261031zb" />
+    <link rel="stylesheet" href="style.css?v=20261031zd" />
   </head>
   <body>
     <header class="kop">
@@ -63,7 +63,7 @@
               <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
             </div>
 
-            <div class="prijskaart jaarkaart gekozen" data-periode="jaarlijks" data-vinn="€ 59,99 per jaar" data-huishouden="€ 99,99 per jaar">
+            <div class="prijskaart jaarkaart" data-periode="jaarlijks" data-vinn="€ 59,99 per jaar" data-huishouden="€ 99,99 per jaar">
               <span class="kaart-gloeden" aria-hidden="true"><span class="gloed kaart-een"></span><span class="gloed kaart-twee"></span></span>
               <span class="per-persoon">
                 <span class="vinn">Bespaar 28%</span>
@@ -88,8 +88,8 @@
               <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
             </div>
 
-            <!-- Wat je bij Vinn of Vinn Huishouden krijgt, één keer onder de kaarten. Op de
-                 telefoon zijn de kaarten keuzetegels en staat hier de knop (31-10-2026, Wouter). -->
+            <!-- Wat je bij Vinn of Vinn Huishouden krijgt, één keer onder de kaarten
+                 (31-10-2026, Wouter). -->
             <div class="prijs-samen">
               <h3 class="samen-kop"><span class="vinn">Met Vinn</span><span class="huishouden">Met Vinn Huishouden</span></h3>
               <ul class="wat vinn">
@@ -105,7 +105,6 @@
                 <li>Gedeelde betalingen eerlijk verdelen</li>
                 <li>Eén score voor jullie samen</li>
               </ul>
-              <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
             </div>
           </div>
         </div>
@@ -274,21 +273,12 @@
         });
       });
 
-      // Op de telefoon zijn Maandelijks en Jaarlijks keuzetegels: tikken kiest er een, en de
-      // knop eronder neemt die keuze mee naar het venster. Op de laptop doet dit niets zichtbaars.
-      const tegels = document.querySelectorAll('.prijs-kaarten .prijskaart');
-      tegels.forEach((tegel) => {
-        tegel.addEventListener('click', () => {
-          tegels.forEach((t) => t.classList.toggle('gekozen', t === tegel));
-        });
-      });
-
       // Een link als prijs.html?abonnement=huishouden opent meteen op Vinn Huishouden.
       const gevraagd = new URLSearchParams(location.search).get('abonnement');
       const knopVoor = document.querySelector('.periode button[data-product="' + gevraagd + '"]');
       if (knopVoor) knopVoor.click();
     </script>
-    <script src="download.js?v=20261031zc"></script>
+    <script src="download.js?v=20261031zd"></script>
     <script src="menu.js?v=20261031o"></script>
     <script src="cookies.js"></script>
     <!-- Bezoekers tellen zonder cookies en zonder IP-adressen (GoatCounter, 28-10-2026). -->
