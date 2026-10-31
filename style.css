@@ -2825,6 +2825,25 @@ section.privacy-verder {
   font-size: 15.5px;
 }
 
+/* De titel is een knop voor de uitklaplijst op de telefoon; op de laptop ziet hij eruit als
+   gewone tekst en staat de uitleg altijd open. */
+.lijstpunt .uitklap {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+/* De korte openingstekst van de Privacy-pagina is er alleen voor de telefoon. */
+.privacy-pagina .pagina-opening p.kort {
+  display: none;
+}
+
 .privacy-verder .verder {
   margin-top: 48px;
   max-width: 46em;
@@ -3946,6 +3965,145 @@ section.privacy-verder {
   #samen {
     padding-top: 48px;
     padding-bottom: 48px;
+  }
+
+  /* 5. De Privacy-pagina (31-10-2026, Wouter akkoord): een kortere opening, de vier blokken
+     als veegkaarten, de reis compacter en En verder als uitklaplijst. */
+  .privacy-pagina .pagina-opening {
+    padding: 40px 0 44px;
+  }
+
+  .privacy-pagina .pagina-opening p.lang {
+    display: none;
+  }
+
+  .privacy-pagina .pagina-opening p.kort {
+    display: block;
+    font-size: 17px;
+  }
+
+  section.privacy-punten {
+    padding: 32px 0 16px;
+  }
+
+  .privacy-punten .blokken {
+    display: flex;
+    gap: 12px;
+    margin: 0 -16px;
+    padding: 4px 16px 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .privacy-punten .blokken::-webkit-scrollbar {
+    display: none;
+  }
+
+  .privacy-punten .blok {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+    padding: 20px 18px;
+  }
+
+  .privacy-punten .blok p {
+    font-size: 15px;
+  }
+
+  section.privacy-schema {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .reis {
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .reis .knoop {
+    padding: 16px;
+  }
+
+  .reis .knoop p {
+    margin-top: 8px;
+    font-size: 14.5px;
+  }
+
+  .reis-stap {
+    padding: 6px 0 6px 30px;
+    font-size: 13.5px;
+  }
+
+  section.privacy-verder {
+    padding-top: 16px;
+  }
+
+  .lijstpunten {
+    gap: 0;
+  }
+
+  .lijstpunt {
+    align-items: start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rand);
+  }
+
+  .lijstpunt:first-child {
+    border-top: 1px solid var(--rand);
+  }
+
+  .lijstpunt .icoon {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+  }
+
+  .lijstpunt h3 {
+    margin: 0;
+  }
+
+  .lijstpunt .uitklap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 36px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Een pijltje dat omdraait als het punt open is. */
+  .lijstpunt .uitklap::after {
+    content: '';
+    flex: none;
+    width: 8px;
+    height: 8px;
+    margin-right: 4px;
+    border-right: 2px solid var(--zacht);
+    border-bottom: 2px solid var(--zacht);
+    transform: translateY(-3px) rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+
+  .lijstpunt.open .uitklap::after {
+    transform: translateY(2px) rotate(-135deg);
+  }
+
+  .lijstpunt p {
+    display: none;
+    margin: 4px 0 6px;
+    font-size: 15px;
+  }
+
+  .lijstpunt.open p {
+    display: block;
+  }
+
+  .privacy-verder .verder {
+    margin-top: 28px;
   }
 
   /* 4b. Huishouden als veegkaarten met bolletjes, zoals Zo werkt Vinn (31-10-2026, Wouter
