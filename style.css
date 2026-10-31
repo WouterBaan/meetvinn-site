@@ -1534,7 +1534,9 @@ section.prijs-keuze {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
-  max-width: 880px;
+  /* Smaller dan eerst (880px): de kaarten hebben sinds 31-10-2026 drie korte punten, en de
+     rest was lege ruimte (Wouter). */
+  max-width: 720px;
 }
 
 .prijs-kaarten[data-product='vinn'] .huishouden,
@@ -1672,6 +1674,9 @@ section.prijs-keuze {
   margin: 24px 0 2px;
   color: var(--tekst);
   font-size: 17px;
+  /* Het jaarbedrag dicht onder het maandbedrag (31-10-2026, Wouter): de regelhoogte van het grote
+     cijfer zette er anders een gat tussen. */
+  line-height: 1.05;
 }
 
 /* Gewone, niet even brede cijfers: met tabelcijfers kreeg elke 1 de breedte van een 8, en
