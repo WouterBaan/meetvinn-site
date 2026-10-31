@@ -740,6 +740,47 @@ section#hoe {
 }
 
 /* Kleine nagemaakte stukjes van de app boven de stappen, in de kleuren van de app. */
+
+/* Elk kaartje precies zo breed als zijn kolom, niet breder: zonder `min-width: 0` duwde een
+   lange winkelnaam het kaartje van stap 2 over de scheidslijn (31-10-2026). */
+.stap .mini {
+  min-width: 0;
+}
+
+/* De eerste stap van een rij heeft links geen ruimte, de rest wel; met dezelfde ruimte
+   rechts worden alle kaartjes even breed (31-10-2026, Wouter). */
+@media (min-width: 1181px) {
+  .stap:first-child .mini {
+    margin-right: 16px;
+  }
+}
+
+/* In een smalle kolom iets compacter, zodat "Albert Heijn" en "Betaalrekening" er helemaal
+   in passen in plaats van met puntjes. */
+@media (min-width: 901px) {
+  .stap .mini {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .stap .mini-betaling {
+    gap: 5px;
+    padding: 7px 5px;
+  }
+
+  .stap .mini-ico {
+    width: 24px;
+    height: 24px;
+  }
+
+  .stap .mini-naam {
+    font-size: 12px;
+  }
+
+  .stap .mini b {
+    font-size: 11.5px;
+  }
+}
 .mini {
   display: flex;
   flex-direction: column;
@@ -1992,6 +2033,10 @@ th {
   .stap:nth-child(n + 4) {
     border-top: 1px solid var(--rand);
     margin-top: 24px;
+  }
+
+  .stap:nth-child(3n + 1) .mini {
+    margin-right: 16px;
   }
 }
 
