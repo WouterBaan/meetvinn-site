@@ -3814,6 +3814,12 @@ section.privacy-verder {
     margin-bottom: 32px;
   }
 
+  /* 3a. "Je financiën zijn persoonlijk, en dat blijven ze." op één regel: de letter schaalt
+     mee met de breedte van de telefoon (31-10-2026, Wouter). */
+  #privacy .sectiekop p {
+    font-size: clamp(15px, 4.25vw, 17.5px);
+  }
+
   /* 3b. De vier beloftes als 2×2 tegels met één korte zin (31-10-2026, Wouter: optie A).
      De lange tekst blijft op de laptop en op de Privacy-pagina. */
   .beloftes {
