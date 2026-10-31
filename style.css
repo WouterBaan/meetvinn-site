@@ -1870,6 +1870,13 @@ section.contact-vragen {
   padding-top: 0;
 }
 
+/* De tabjes boven de vragen en de korte uitleg in de meldkaart zijn er alleen voor de telefoon
+   (zie het telefoonblok). */
+.vraagtabs,
+.contactkaart p.kort {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .contact-kaarten {
     grid-template-columns: 1fr;
@@ -4349,6 +4356,52 @@ section.privacy-verder {
 
   .privacy-verder .verder.kort {
     display: block;
+  }
+
+  /* 7. Contact (31-10-2026, Wouter akkoord): kortere uitleg in de meldkaart, de vragen per groep
+     achter tabjes, en de kop links met minder ruimte. */
+  .contactkaart p.lang {
+    display: none;
+  }
+
+  .contactkaart p.kort {
+    display: block;
+  }
+
+  section.contact-vragen {
+    padding-top: 32px;
+  }
+
+  .contact-vragen .sectiekop {
+    margin: 0 0 16px;
+    text-align: left;
+  }
+
+  .vraagtabs {
+    display: flex;
+    width: 100%;
+    margin: 0 0 12px;
+  }
+
+  .vraagtabs button {
+    flex: 1;
+    justify-content: center;
+    padding: 9px 8px;
+    font-size: 14.5px;
+  }
+
+  .contact-pagina .vragen {
+    border-top: 0;
+  }
+
+  .contact-pagina .vragen .vragengroep {
+    display: none;
+  }
+
+  .contact-pagina .vragen[data-groep='0'] details:not([data-groep='0']),
+  .contact-pagina .vragen[data-groep='1'] details:not([data-groep='1']),
+  .contact-pagina .vragen[data-groep='2'] details:not([data-groep='2']) {
+    display: none;
   }
 
   /* 6. Abonnement (31-10-2026, Wouter akkoord): de kaarten zoals op de laptop; de zes punten
