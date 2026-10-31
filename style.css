@@ -3458,6 +3458,37 @@ section.privacy-verder {
 }
 
 @media (max-width: 600px) {
+  /* 0. De opening compacter, zodat je bij het openen het grootste deel van de telefoon ziet
+     (31-10-2026, Wouter: optie A). Kop en tekst iets kleiner, de knop Download Vinn eronder weg
+     (Download staat bovenaan in de balk), minder ruimte boven de telefoon, en de telefoon iets
+     kleiner. Gemeten op 390 × 750: van 44% naar ruim 80% van de telefoon in beeld. */
+  .opening {
+    padding-top: 20px;
+  }
+
+  .opening .binnen {
+    gap: 12px;
+  }
+
+  .opening h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+  }
+
+  .opening .inleiding {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .opening .knoppen {
+    display: none;
+  }
+
+  .opening .telefoon {
+    zoom: 0.62;
+  }
+
   /* 1. Menu: logo, Download en ☰. De tabjes staan in het uitklapmenu. */
   .kop.menu-klaar nav a:not(.knop) {
     display: none;
