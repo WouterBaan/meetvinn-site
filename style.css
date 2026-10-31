@@ -3851,11 +3851,15 @@ section.privacy-verder {
     right: 16px;
   }
 
+  /* Het copyright op een eigen regel, de juridische links daaronder naast elkaar
+     (31-10-2026, Wouter). */
   .voet-gegevens {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    gap: 8px 20px;
     margin-bottom: 16px;
+  }
+
+  .voet-gegevens > span:first-child {
+    flex-basis: 100%;
   }
 
   /* 4. Minder lucht tussen de blokken, zodat je minder hoeft te scrollen. */
