@@ -505,21 +505,31 @@
       // de regel staat er al onzichtbaar, zodat er niets verspringt terwijl hij typt.
       const app = document.querySelector('.telefoon .app');
       if (app && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Op het ritme van het scherm (requestAnimationFrame) en niet met een timer per teken
+        // (31-10-2026, Wouter: "niet helemaal soepel"). Een rij timers loopt op een telefoon uit:
+        // gemeten met een vertraagde processor gemiddeld 38 in plaats van 30 ms per teken, en
+        // soms een gat van bijna 300 ms. Nu rekent elk beeld uit hoeveel tekens er op dit moment
+        // horen te staan, en wordt de tekst alleen aangeraakt als dat aantal verandert.
         const typ = (el, snelheid, wacht) => {
           const tekst = el.textContent.replace(/\s+/g, ' ').trim();
           el.innerHTML = '<span></span><span class="cursor">|</span><span class="nog"></span>';
           const [klaar, cursor, nog] = el.children;
           nog.textContent = tekst;
           cursor.hidden = true;
-          let n = 0;
-          const stap = () => {
-            n += 1;
-            klaar.textContent = tekst.slice(0, n);
-            nog.textContent = tekst.slice(n);
-            cursor.hidden = n >= tekst.length;
-            if (n < tekst.length) setTimeout(stap, snelheid);
+          let getoond = 0;
+          let start = null;
+          const beeld = (nu) => {
+            if (start === null) start = nu + wacht;
+            const n = Math.max(0, Math.min(tekst.length, Math.floor((nu - start) / snelheid) + 1));
+            if (n !== getoond) {
+              getoond = n;
+              klaar.textContent = tekst.slice(0, n);
+              nog.textContent = tekst.slice(n);
+              cursor.hidden = n === 0 || n >= tekst.length;
+            }
+            if (n < tekst.length) requestAnimationFrame(beeld);
           };
-          setTimeout(stap, wacht);
+          requestAnimationFrame(beeld);
         };
         const kop = app.querySelector('.groet h2');
         const sub = app.querySelector('.groet-sub');
