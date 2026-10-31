@@ -2352,7 +2352,13 @@ section.slot.donker {
 }
 
 .slot h2 {
-  margin-bottom: 10px;
+  margin-bottom: 24px;
+}
+
+/* "Probeer Vinn nu een maand gratis" onder de downloadknop (31-10-2026, Wouter). */
+.slot p.onder-knop {
+  margin: 14px 0 0;
+  font-size: 16px;
 }
 
 .slot p {
