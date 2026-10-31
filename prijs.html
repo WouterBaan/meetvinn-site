@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Vóór de opmaak, zodat de kopbalk op de telefoon meteen goed staat (31-10-2026). -->
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="style.css?v=20261031x" />
+    <link rel="stylesheet" href="style.css?v=20261031y" />
   </head>
   <body>
     <header class="kop">
@@ -71,7 +71,7 @@
               <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
             </div>
 
-            <div class="prijskaart jaarkaart" data-vinn="€ 59,99 per jaar" data-huishouden="€ 99,99 per jaar">
+            <div class="prijskaart jaarkaart gekozen" data-vinn="€ 59,99 per jaar" data-huishouden="€ 99,99 per jaar">
               <span class="kaart-gloeden" aria-hidden="true"><span class="gloed kaart-een"></span><span class="gloed kaart-twee"></span></span>
               <span class="per-persoon">
                 <span class="vinn">Bespaar 28%</span>
@@ -105,53 +105,81 @@
               </ul>
               <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
             </div>
+
+            <!-- Op de telefoon zijn de kaarten twee keuzetegels, met wat je krijgt maar één
+                 keer eronder en één knop (31-10-2026, Wouter akkoord). Op de laptop verborgen. -->
+            <div class="prijs-samen">
+              <ul class="wat vinn">
+                <li>Eén account, alleen voor jou</li>
+                <li>Al je eigen rekeningen in één overzicht</li>
+                <li>Budgetten en potjes op jouw maat</li>
+                <li>Een score voor jouw financiële gezondheid</li>
+              </ul>
+              <ul class="wat huishouden">
+                <li>Twee accounts, ieder met een eigen inlog</li>
+                <li>Jullie gezamenlijke rekening, samen in beeld</li>
+                <li>Eigen rekening en potjes blijven privé</li>
+                <li>Gedeelde betalingen eerlijk verdelen</li>
+                <li>Eén score voor jullie samen</li>
+              </ul>
+              <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="prijs-beide">
         <div class="binnen">
+          <div class="sectiekop alleen-mobiel">
+            <h2>In elk abonnement</h2>
+          </div>
           <div class="lijstpunten drie">
           <div class="lijstpunt">
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-6 9 6" /><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9" /><path d="M3 21h18M3 18h18" /></svg></span>
             <div>
               <h3>Je bank koppelen</h3>
-              <p>Je betalingen komen vanzelf binnen, via de beveiligde PSD2-koppeling van je bank.</p>
+              <p class="lang">Je betalingen komen vanzelf binnen, via de beveiligde PSD2-koppeling van je bank.</p>
+              <p class="kort">Je betalingen komen vanzelf binnen.</p>
             </div>
           </div>
           <div class="lijstpunt">
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z" /><circle cx="7.5" cy="7.5" r="1.5" /></svg></span>
             <div>
               <h3>Slim indelen</h3>
-              <p>Vinn stelt bij elke betaling een potje voor en leert van je keuzes.</p>
+              <p class="lang">Vinn stelt bij elke betaling een potje voor en leert van je keuzes.</p>
+              <p class="kort">Vinn stelt bij elke betaling een potje voor.</p>
             </div>
           </div>
           <div class="lijstpunt">
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" opacity="0.35" /><path d="M12 3a9 9 0 0 1 8.5 12" /></svg></span>
             <div>
               <h3>Je gezondheidsscore</h3>
-              <p>Eén score die laat zien hoe je ervoor staat en wat je verder brengt.</p>
+              <p class="lang">Eén score die laat zien hoe je ervoor staat en wat je verder brengt.</p>
+              <p class="kort">Zie hoe je ervoor staat.</p>
             </div>
           </div>
           <div class="lijstpunt">
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18" /><path d="m7 15 4-4 3 3 5-6" /></svg></span>
             <div>
               <h3>Inzicht in je uitgaven</h3>
-              <p>Zie wat je tot je volgende salaris nog vrij kunt besteden, en hoe je uitgaven zich ontwikkelen.</p>
+              <p class="lang">Zie wat je tot je volgende salaris nog vrij kunt besteden, en hoe je uitgaven zich ontwikkelen.</p>
+              <p class="kort">Wat je nog vrij kunt besteden.</p>
             </div>
           </div>
           <div class="lijstpunt">
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" /></svg></span>
             <div>
               <h3>Sparen met potjes</h3>
-              <p>Potjes en spaardoelen op je spaarrekening, zodat je weet waar elke euro voor is.</p>
+              <p class="lang">Potjes en spaardoelen op je spaarrekening, zodat je weet waar elke euro voor is.</p>
+              <p class="kort">Weet waar elke euro voor is.</p>
             </div>
           </div>
           <div class="lijstpunt">
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13M5 12v9h14v-9" /><path d="M12 8S10.5 3.5 8 4.5 9 8 12 8zM12 8s1.5-4.5 4-3.5S15 8 12 8z" /></svg></span>
             <div>
               <h3>Een maand gratis</h3>
-              <p>Probeer alles een maand zonder te betalen. Zeg je in die maand op, dan betaal je niets.</p>
+              <p class="lang">Probeer alles een maand zonder te betalen. Zeg je in die maand op, dan betaal je niets.</p>
+              <p class="kort">Opzeggen in die maand kost niets.</p>
             </div>
           </div>
           </div>
@@ -263,12 +291,21 @@
         });
       });
 
+      // Op de telefoon zijn Maandelijks en Jaarlijks keuzetegels: tikken kiest er een, en de
+      // knop eronder neemt die keuze mee naar het venster. Op de laptop doet dit niets zichtbaars.
+      const tegels = document.querySelectorAll('.prijs-kaarten .prijskaart');
+      tegels.forEach((tegel) => {
+        tegel.addEventListener('click', () => {
+          tegels.forEach((t) => t.classList.toggle('gekozen', t === tegel));
+        });
+      });
+
       // Een link als prijs.html?abonnement=huishouden opent meteen op Vinn Huishouden.
       const gevraagd = new URLSearchParams(location.search).get('abonnement');
       const knopVoor = document.querySelector('.periode button[data-product="' + gevraagd + '"]');
       if (knopVoor) knopVoor.click();
     </script>
-    <script src="download.js"></script>
+    <script src="download.js?v=20261031y"></script>
     <script src="menu.js?v=20261031o"></script>
     <script src="cookies.js"></script>
     <!-- Bezoekers tellen zonder cookies en zonder IP-adressen (GoatCounter, 28-10-2026). -->
