@@ -1353,10 +1353,11 @@ section.donker {
   color: var(--tekst);
 }
 
-/* Het logo in de voet is geen link (Wouter, 26-10-2026); zelfde grijs als voorheen. */
+/* Het logo in de voet is geen link (Wouter, 26-10-2026); de naam in dezelfde kleur als in de
+   kopbalk (31-10-2026). */
 .voet .merk {
   font-size: 17px;
-  color: var(--zacht);
+  color: var(--tekst);
 }
 
 .voet .merk img {
@@ -2797,7 +2798,7 @@ section.privacy-punten {
   color: var(--groen);
 }
 
-/* En verder: de overige punten als rustige lijst, zonder kaders. */
+/* Meer informatie: de overige punten als rustige lijst, zonder kaders. */
 section.privacy-verder {
   padding-top: 24px;
 }
@@ -3975,7 +3976,7 @@ section.privacy-verder {
   }
 
   /* 5. De Privacy-pagina (31-10-2026, Wouter akkoord): een kortere opening, de vier blokken
-     als veegkaarten, de reis compacter en En verder als uitklaplijst. */
+     als veegkaarten, de reis compacter en Meer informatie als uitklaplijst. */
   .privacy-pagina .pagina-opening {
     padding: 40px 0 44px;
   }
@@ -4213,6 +4214,10 @@ section.privacy-verder {
 
   section.privacy-verder {
     padding-top: 16px;
+  }
+
+  .privacy-verder .sectiekop {
+    margin-bottom: 16px;
   }
 
   .lijstpunten {

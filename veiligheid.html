@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Vóór de opmaak, zodat de kopbalk op de telefoon meteen goed staat (31-10-2026). -->
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="style.css?v=20261031p" />
+    <link rel="stylesheet" href="style.css?v=20261031q" />
   </head>
   <body>
     <header class="kop">
@@ -114,7 +114,7 @@
       <section class="privacy-verder">
         <div class="binnen">
           <div class="sectiekop">
-            <h2>En verder</h2>
+            <h2>Meer informatie</h2>
           </div>
           <div class="lijstpunten">
           <div class="lijstpunt">
@@ -237,7 +237,7 @@
       });
     </script>
     <script>
-      // En verder op de telefoon: een uitklaplijst (31-10-2026, Wouter akkoord). Elke titel wordt
+      // Meer informatie op de telefoon: een uitklaplijst (31-10-2026, Wouter akkoord). Elke titel wordt
       // een knop die de uitleg eronder opent en sluit. Op de laptop staat de uitleg altijd open
       // en doet de knop niets zichtbaars (zie .lijstpunt in style.css).
       document.querySelectorAll('.privacy-verder .lijstpunt').forEach((punt) => {
@@ -250,7 +250,13 @@
         kop.textContent = '';
         kop.appendChild(knop);
         knop.addEventListener('click', () => {
-          const open = punt.classList.toggle('open');
+          const open = !punt.classList.contains('open');
+          // Eén punt tegelijk open: wie een ander opent, sluit het vorige (Wouter, 31-10-2026).
+          document.querySelectorAll('.privacy-verder .lijstpunt.open').forEach((ander) => {
+            ander.classList.remove('open');
+            ander.querySelector('.uitklap').setAttribute('aria-expanded', 'false');
+          });
+          punt.classList.toggle('open', open);
           knop.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
       });
