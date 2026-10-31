@@ -3810,6 +3810,11 @@ section.privacy-verder {
     display: none;
   }
 
+  /* Geen uitleg van de niveaus onder de ring op de telefoon (31-10-2026, Wouter). */
+  .score .banden {
+    display: none;
+  }
+
   .score .sectiekop p.kort {
     display: block;
   }
