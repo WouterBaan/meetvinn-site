@@ -81,7 +81,12 @@
   // of per jaar, en wat het kost. De prijs staat op de kaart zelf (data-vinn, data-huishouden).
   const toonKeuze = (knop) => {
     const vak = venster.querySelector('.qrkeuze');
-    const kaart = knop && knop.closest ? knop.closest('.prijskaart') : null;
+    // De knop onder de keuzetegels op de telefoon hoort bij de gekozen tegel.
+    const kaart =
+      knop && knop.closest
+        ? knop.closest('.prijskaart') ||
+          (knop.closest('.prijs-samen') && document.querySelector('.prijskaart.gekozen'))
+        : null;
     if (!vak) return;
     if (!kaart) {
       vak.hidden = true;
