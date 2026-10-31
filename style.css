@@ -1701,9 +1701,37 @@ section.prijs-beide {
   padding: 48px 0 24px;
 }
 
-/* Alleen voor de telefoon: de gedeelde lijst onder de keuzetegels, het kopje boven de zes
-   punten en hun korte zinnen (zie het telefoonblok). */
-.prijs-samen,
+/* Onder de twee kaarten: wat je bij Vinn of Vinn Huishouden krijgt, één keer, in twee kolommen
+   (31-10-2026, Wouter). De knop erin, het kopje boven de zes punten en hun korte zinnen zijn
+   alleen voor de telefoon (zie het telefoonblok). */
+.prijs-samen {
+  grid-column: 1 / -1;
+  padding: 24px 28px;
+  border: 1px solid var(--rand);
+  border-radius: 24px;
+  background: var(--vlak);
+}
+
+.samen-kop {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.prijs-samen .wat {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 32px;
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+}
+
+@media (max-width: 760px) {
+  .prijs-samen .wat {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prijs-samen .knop,
 .prijs-pagina .alleen-mobiel,
 .prijs-beide .lijstpunt p.kort,
 .prijs-beide .lijstpunt h3 .kort {
@@ -4351,9 +4379,11 @@ section.privacy-verder {
     box-shadow: 0 0 0 2px var(--groen);
   }
 
+  /* Jaarlijks zonder groene rand, ook als hij gekozen is (31-10-2026, Wouter): het donkere
+     vlak valt al op. */
   .prijskaart.jaarkaart.gekozen {
-    border-color: #2ecc71;
-    box-shadow: 0 0 0 2px #2ecc71;
+    border-color: #ffffff1f;
+    box-shadow: none;
   }
 
   .prijskaart .wat,
@@ -4388,8 +4418,15 @@ section.privacy-verder {
     font-size: 12px;
   }
 
+  .prijs-samen .samen-kop {
+    display: none;
+  }
+
+  .prijs-samen .knop {
+    display: inline-flex;
+  }
+
   .prijs-samen {
-    display: block;
     grid-column: 1 / -1;
     margin-top: 10px;
     padding: 20px 18px;
