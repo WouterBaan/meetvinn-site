@@ -4036,7 +4036,7 @@ section.privacy-verder {
      dezelfde pijlen. Telefoon en bank even groot. In de kaarten alleen icoon en naam; de
      stappen staan eronder. */
   .reis {
-    grid-template-columns: minmax(0, 0.8fr) 26px minmax(0, 1fr) 26px minmax(0, 0.8fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr) 26px) minmax(0, 1fr);
     grid-template-areas:
       'tel s1 vinn s2 bank'
       'tel .  s3   .  bank'
