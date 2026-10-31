@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-rond-192.png" />
     <link rel="apple-touch-icon" href="icon.png" />
-    <link rel="stylesheet" href="style.css?v=20261031l" />
+    <link rel="stylesheet" href="style.css?v=20261031m" />
   </head>
   <body>
     <header class="kop">
@@ -34,7 +34,8 @@
         <div class="binnen">
           <span class="label">Privacy</span>
           <h1>Je gegevens blijven van jou</h1>
-          <p>Je financiën zijn persoonlijk. Daarom doet Vinn er alles aan om je gegevens te beschermen, zodat ze van jou blijven. Bij elke keuze die we maken, staat je privacy voorop: we gebruiken alleen wat nodig is, en wat we bewaren, beschermen we zo goed als we kunnen. Hieronder lees je hoe we dat doen.</p>
+          <p class="kort">Je financiën zijn persoonlijk. Bij elke keuze die we maken, staat je privacy voorop. Hieronder lees je hoe we dat doen.</p>
+          <p class="lang">Je financiën zijn persoonlijk. Daarom doet Vinn er alles aan om je gegevens te beschermen, zodat ze van jou blijven. Bij elke keuze die we maken, staat je privacy voorop: we gebruiken alleen wat nodig is, en wat we bewaren, beschermen we zo goed als we kunnen. Hieronder lees je hoe we dat doen.</p>
         </div>
       </section>
 
@@ -224,6 +225,26 @@
         if (!location.hash) document.documentElement.scrollIntoView({ block: 'start', behavior: 'instant' });
       });
     </script>
+    <script>
+      // En verder op de telefoon: een uitklaplijst (31-10-2026, Wouter akkoord). Elke titel wordt
+      // een knop die de uitleg eronder opent en sluit. Op de laptop staat de uitleg altijd open
+      // en doet de knop niets zichtbaars (zie .lijstpunt in style.css).
+      document.querySelectorAll('.privacy-verder .lijstpunt').forEach((punt) => {
+        const kop = punt.querySelector('h3');
+        const knop = document.createElement('button');
+        knop.type = 'button';
+        knop.className = 'uitklap';
+        knop.setAttribute('aria-expanded', 'false');
+        knop.textContent = kop.textContent;
+        kop.textContent = '';
+        kop.appendChild(knop);
+        knop.addEventListener('click', () => {
+          const open = punt.classList.toggle('open');
+          knop.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
+    </script>
+    <script src="veeg.js?v=20261031m"></script>
     <script src="menu.js"></script>
     <script src="cookies.js"></script>
     <!-- Bezoekers tellen zonder cookies en zonder IP-adressen (GoatCounter, 28-10-2026). -->
