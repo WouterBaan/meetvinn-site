@@ -3106,6 +3106,11 @@ section.privacy-verder {
   display: none;
 }
 
+/* De stappen als lijst onder het schema: alleen op de telefoon (zie het telefoonblok). */
+.reis-legenda {
+  display: none;
+}
+
 /* De pijl: een lijn met een punt, getekend met randen zodat hij elke kant op kan. */
 .lijn {
   position: relative;
@@ -4017,23 +4022,158 @@ section.privacy-verder {
     padding-bottom: 32px;
   }
 
+  /* Zo reizen je gegevens als schema in twee kolommen, dezelfde rondgang als op de laptop
+     (31-10-2026, Wouter): links je bank, Vinn en de database onder elkaar, rechts je telefoon
+     over de volle hoogte. In de kaarten alleen icoon en naam; de stappen staan eronder. */
   .reis {
+    grid-template-columns: minmax(0, 1fr) 40px minmax(0, 0.82fr);
+    grid-template-areas:
+      'bank .  tel'
+      's2   .  tel'
+      'vinn s1 tel'
+      's3   .  tel'
+      'db   s4 tel';
     padding: 14px;
     border-radius: 22px;
   }
 
   .reis .knoop {
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .reis .knoop .icoon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+
+  .reis .knoop .icoon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .reis .knoop h3 {
+    font-size: 14.5px;
+    line-height: 1.2;
+    white-space: normal;
   }
 
   .reis .knoop p {
-    margin-top: 8px;
-    font-size: 14.5px;
+    display: none;
   }
 
-  .reis-stap {
-    padding: 6px 0 6px 30px;
-    font-size: 13.5px;
+  .reis .k-tel {
+    justify-content: center;
+    --uit-x: 0%;
+    --uit-y: 50%;
+    --in-x: 0%;
+    --in-y: 88%;
+  }
+
+  .reis-stap .stap-tekst {
+    display: none;
+  }
+
+  .reis-stap .nr {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    box-shadow: 0 0 0 3px #13744a1f;
+  }
+
+  /* Bank en Vinn, en Vinn en de database: een korte pijl omlaag met het nummer ernaast. */
+  .s2,
+  .s3 {
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .s2 .lijn,
+  .s3 .lijn {
+    height: 26px;
+  }
+
+  /* Je telefoon en Vinn: pijlen opzij, met het nummer erboven. */
+  .s1,
+  .s4 {
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 4px;
+  }
+
+  .s1 .lijn,
+  .s4 .lijn {
+    order: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, currentColor 50%, transparent 0) 0 0 / 8px 2px repeat-x;
+  }
+
+  .s1 .lijn::after {
+    left: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%) rotate(135deg);
+  }
+
+  .s4 .lijn::after {
+    left: auto;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .s1 .vonk,
+  .s4 .vonk {
+    top: 50%;
+    left: 0;
+    margin: -4px 0 0 -4px;
+    animation-name: vonk-links;
+  }
+
+  .s4 .vonk {
+    animation-name: vonk-rechts;
+  }
+
+  .reis-legenda {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--zacht);
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .reis-legenda li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .reis-legenda .nr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    border-radius: 50%;
+    background: var(--groen);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
   }
 
   section.privacy-verder {
