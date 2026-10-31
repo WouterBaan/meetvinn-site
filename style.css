@@ -4024,43 +4024,44 @@ section.privacy-verder {
     padding-bottom: 32px;
   }
 
-  /* Zo reizen je gegevens als schema in twee kolommen, dezelfde rondgang als op de laptop
-     (31-10-2026, Wouter): links je bank, Vinn en de database onder elkaar, rechts je telefoon
-     over de volle hoogte. In de kaarten alleen icoon en naam; de stappen staan eronder. */
+  /* Zo reizen je gegevens als schema met dezelfde verdeling als op de laptop (31-10-2026,
+     Wouter): links je telefoon, in het midden Vinn en de database, rechts je bank, met
+     dezelfde pijlen. Telefoon en bank even groot. In de kaarten alleen icoon en naam; de
+     stappen staan eronder. */
   .reis {
-    grid-template-columns: minmax(0, 1fr) 40px minmax(0, 0.82fr);
+    grid-template-columns: minmax(0, 0.8fr) 26px minmax(0, 1fr) 26px minmax(0, 0.8fr);
     grid-template-areas:
-      'bank .  tel'
-      's2   .  tel'
-      'vinn s1 tel'
-      's3   .  tel'
-      'db   s4 tel';
-    padding: 14px;
+      'tel s1 vinn s2 bank'
+      'tel .  s3   .  bank'
+      'tel s4 db   .  bank';
+    padding: 12px 10px;
     border-radius: 22px;
   }
 
   .reis .knoop {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 12px;
-    border-radius: 16px;
+    padding: 12px 6px;
+    border-radius: 14px;
+    text-align: center;
   }
 
   .reis .knoop .icoon {
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
   }
 
   .reis .knoop .icoon svg {
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
   }
 
   .reis .knoop h3 {
-    font-size: 14.5px;
+    font-size: 13px;
     line-height: 1.2;
     white-space: normal;
   }
@@ -4069,12 +4070,31 @@ section.privacy-verder {
     display: none;
   }
 
+  /* Telefoon en bank even groot, in het midden van de hoogte: hoog genoeg dat de pijlen van
+     Vinn (boven) en de database (onder) ze nog raken. */
+  .reis .k-tel,
+  .reis .k-bank {
+    align-self: center;
+    height: 150px;
+  }
+
   .reis .k-tel {
-    justify-content: center;
-    --uit-x: 0%;
-    --uit-y: 50%;
-    --in-x: 0%;
-    --in-y: 88%;
+    --uit-x: 100%;
+    --uit-y: 22%;
+    --in-x: 100%;
+    --in-y: 78%;
+  }
+
+  .gloed.tel-een {
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+  }
+
+  .gloed.tel-twee {
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0 -60px;
   }
 
   .reis-stap .stap-tekst {
@@ -4088,29 +4108,30 @@ section.privacy-verder {
     box-shadow: 0 0 0 3px #13744a1f;
   }
 
-  /* Bank en Vinn, en Vinn en de database: een korte pijl omlaag met het nummer ernaast. */
-  .s2,
+  /* Vinn en de database: een korte pijl omlaag met het nummer ernaast. */
   .s3 {
     justify-content: center;
     gap: 8px;
     padding: 4px 0;
   }
 
-  .s2 .lijn,
   .s3 .lijn {
     height: 26px;
   }
 
-  /* Je telefoon en Vinn: pijlen opzij, met het nummer erboven. */
+  /* De pijlen opzij, met het nummer erboven: naar Vinn, heen en terug naar je bank, en terug
+     naar je telefoon. */
   .s1,
+  .s2,
   .s4 {
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    padding: 0 4px;
+    padding: 0 2px;
   }
 
   .s1 .lijn,
+  .s2 .lijn,
   .s4 .lijn {
     order: 0;
     width: 100%;
@@ -4118,14 +4139,8 @@ section.privacy-verder {
     background: linear-gradient(90deg, currentColor 50%, transparent 0) 0 0 / 8px 2px repeat-x;
   }
 
-  .s1 .lijn::after {
-    left: 0;
-    top: 50%;
-    bottom: auto;
-    transform: translateY(-50%) rotate(135deg);
-  }
-
-  .s4 .lijn::after {
+  .s1 .lijn::after,
+  .s2 .lijn::after {
     left: auto;
     right: 0;
     top: 50%;
@@ -4133,16 +4148,34 @@ section.privacy-verder {
     transform: translateY(-50%) rotate(-45deg);
   }
 
+  .s2 .lijn::before {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .s4 .lijn::after {
+    left: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%) rotate(135deg);
+  }
+
   .s1 .vonk,
+  .s2 .vonk,
   .s4 .vonk {
     top: 50%;
     left: 0;
     margin: -4px 0 0 -4px;
-    animation-name: vonk-links;
+    animation-name: vonk-rechts;
+  }
+
+  .s2 .vonk {
+    animation-name: vonk-heen-terug;
   }
 
   .s4 .vonk {
-    animation-name: vonk-rechts;
+    animation-name: vonk-links;
   }
 
   .reis-legenda {
