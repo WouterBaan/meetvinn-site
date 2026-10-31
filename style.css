@@ -4574,8 +4574,10 @@ section.privacy-verder {
     margin-top: 28px;
   }
 
-  .slot {
-    padding-top: 64px;
-    padding-bottom: 72px;
+  /* De afsluiting minder hoog (31-10-2026, Wouter). Met de volledige selector: `.slot` alleen
+     verloor van section.slot.donker hierboven, en deed dus niets. */
+  section.slot.donker {
+    padding-top: 48px;
+    padding-bottom: 52px;
   }
 }
