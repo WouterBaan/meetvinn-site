@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Vóór de opmaak, zodat de kopbalk op de telefoon meteen goed staat (31-10-2026). -->
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="style.css?v=20261031zd" />
+    <link rel="stylesheet" href="style.css?v=20261031ze" />
   </head>
   <body>
     <header class="kop">
@@ -49,10 +49,9 @@
                 <span class="vinn"><b>€ 6,99</b> per maand</span>
                 <span class="huishouden"><b>€ 11,99</b> per maand</span>
               </p>
-              <p class="onder">
-                <span class="vinn">Voor jezelf</span>
-                <span class="huishouden">Voor jou en je partner</span>
-              </p>
+              <!-- Lege regel waar bij Jaarlijks de jaarprijs staat, zodat de punten in beide kaarten
+                   op dezelfde hoogte beginnen. -->
+              <p class="onder leeg" aria-hidden="true">&nbsp;</p>
               <!-- Per kaart alleen wat bij deze betaalwijze hoort; wat je bij Vinn of Vinn
                    Huishouden krijgt, staat één keer onder de kaarten (31-10-2026, Wouter). -->
               <ul class="wat">
@@ -88,18 +87,12 @@
               <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
             </div>
 
-            <!-- Wat je bij Vinn of Vinn Huishouden krijgt, één keer onder de kaarten
-                 (31-10-2026, Wouter). -->
-            <div class="prijs-samen">
-              <h3 class="samen-kop"><span class="vinn">Met Vinn</span><span class="huishouden">Met Vinn Huishouden</span></h3>
-              <ul class="wat vinn">
-                <li>Eén account, alleen voor jou</li>
-                <li>Al je eigen rekeningen in één overzicht</li>
-                <li>Budgetten en potjes op jouw maat</li>
-                <li>Een score voor jouw financiële gezondheid</li>
-              </ul>
-              <ul class="wat huishouden">
-                <li>Twee accounts, ieder met een eigen inlog</li>
+            <!-- Wat Vinn Huishouden extra geeft, één keer onder de kaarten. Bij Vinn verborgen:
+                 wat daar stond, staat bij de punten hieronder (31-10-2026, Wouter). -->
+            <div class="prijs-samen huishouden">
+              <h3 class="samen-kop">Met Vinn Huishouden</h3>
+              <ul class="wat">
+                <li>Twee accounts aan elkaar gekoppeld, ieder met een eigen inlog</li>
                 <li>Jullie gezamenlijke rekening, samen in beeld</li>
                 <li>Eigen rekening en potjes blijven privé</li>
                 <li>Gedeelde betalingen eerlijk verdelen</li>
@@ -120,8 +113,8 @@
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-6 9 6" /><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9" /><path d="M3 21h18M3 18h18" /></svg></span>
             <div>
               <h3>Je bank koppelen</h3>
-              <p class="lang">Je betalingen komen vanzelf binnen, via de beveiligde PSD2-koppeling van je bank.</p>
-              <p class="kort">Je betalingen komen vanzelf binnen.</p>
+              <p class="lang">Al je eigen rekeningen in één overzicht. Je betalingen komen vanzelf binnen, via de beveiligde PSD2-koppeling van je bank.</p>
+              <p class="kort">Al je rekeningen in één overzicht.</p>
             </div>
           </div>
           <div class="lijstpunt">
@@ -151,8 +144,8 @@
           <div class="lijstpunt">
             <span class="icoon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" /></svg></span>
             <div>
-              <h3>Sparen met potjes</h3>
-              <p class="lang">Potjes en spaardoelen op je spaarrekening, zodat je weet waar elke euro voor is.</p>
+              <h3>Budgetten en potjes</h3>
+              <p class="lang">Budgetten en potjes op jouw maat, en spaardoelen op je spaarrekening, zodat je weet waar elke euro voor is.</p>
               <p class="kort">Weet waar elke euro voor is.</p>
             </div>
           </div>
