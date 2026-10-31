@@ -4236,28 +4236,28 @@ section.privacy-verder {
     margin-bottom: 16px;
   }
 
-  .lijstpunten {
+  .privacy-verder .lijstpunten {
     gap: 0;
   }
 
-  .lijstpunt {
+  .privacy-verder .lijstpunt {
     align-items: start;
     gap: 14px;
     padding: 12px 0;
     border-bottom: 1px solid var(--rand);
   }
 
-  .lijstpunt:first-child {
+  .privacy-verder .lijstpunt:first-child {
     border-top: 1px solid var(--rand);
   }
 
-  .lijstpunt .icoon {
+  .privacy-verder .lijstpunt .icoon {
     width: 36px;
     height: 36px;
     border-radius: 11px;
   }
 
-  .lijstpunt h3 {
+  .privacy-verder .lijstpunt h3 {
     margin: 0;
   }
 
@@ -4288,13 +4288,13 @@ section.privacy-verder {
     transform: translateY(2px) rotate(-135deg);
   }
 
-  .lijstpunt p {
+  .privacy-verder .lijstpunt p {
     display: none;
     margin: 4px 0 6px;
     font-size: 15px;
   }
 
-  .lijstpunt.open p {
+  .privacy-verder .lijstpunt.open p {
     display: block;
   }
 
