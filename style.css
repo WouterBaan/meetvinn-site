@@ -2189,6 +2189,11 @@ th {
   margin-top: 14px;
 }
 
+/* De korte teksten zijn er alleen voor de telefoon. */
+.score .sectiekop p.kort {
+  display: none;
+}
+
 /* De vier pijlers bij de score, zoals op Score in de app: naam met het oordeel eronder, en
    rechts het percentage met een balkje in de kleur van dat oordeel. */
 .mini.pijlerkaart {
@@ -3758,6 +3763,55 @@ section.privacy-verder {
   .score .schaal {
     padding: 16px 0;
     gap: 12px;
+  }
+
+  /* 2b. De ring direct onder de titel, daarna één korte alinea, de beoordelingen en de
+     kanttekening (31-10-2026, Wouter akkoord). De kolom met de tekst lost op in de rij,
+     zodat de ring tussen de titel en de tekst kan staan. */
+  .score .tweeluik {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .score .tweeluik .sectiekop {
+    display: contents;
+  }
+
+  .score .sectiekop .label {
+    order: 1;
+  }
+
+  .score h2 {
+    order: 2;
+    margin-bottom: 8px;
+  }
+
+  .score .schaal {
+    order: 3;
+    padding: 8px 0 24px;
+  }
+
+  .score .sectiekop p {
+    order: 4;
+  }
+
+  .score .beoordeelkaart {
+    order: 5;
+    align-self: stretch;
+  }
+
+  .score .sectiekop p.kanttekening {
+    order: 6;
+  }
+
+  .score .sectiekop p.lang {
+    display: none;
+  }
+
+  .score .sectiekop p.kort {
+    display: block;
   }
 
   /* 3. De voet: slogan onder het logo, de links op één regel, en daaronder copyright en de
