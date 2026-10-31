@@ -1249,6 +1249,11 @@ section.donker {
   margin: 0;
 }
 
+/* De korte zin is er alleen voor de tegels op de telefoon. */
+.beloftes .kort {
+  display: none;
+}
+
 /* Afsluiter */
 
 .afsluiter {
@@ -3753,9 +3758,39 @@ section.privacy-verder {
     margin-bottom: 32px;
   }
 
+  /* 3b. De vier beloftes als 2×2 tegels met één korte zin (31-10-2026, Wouter: optie A).
+     De lange tekst blijft op de laptop en op de Privacy-pagina. */
   .beloftes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 28px;
-    gap: 24px;
+    gap: 10px;
+  }
+
+  .beloftes > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 14px;
+    border: 1px solid #ffffff1a;
+    border-radius: 16px;
+    background: #ffffff0a;
+  }
+
+  .beloftes h3 {
+    font-size: 15.5px;
+    line-height: 1.25;
+  }
+
+  .beloftes > div > p {
+    display: none;
+  }
+
+  .beloftes > div > p.kort {
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
   }
 
   .score {
