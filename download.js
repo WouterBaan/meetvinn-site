@@ -93,7 +93,7 @@
       return;
     }
     const product = kaart.closest('.prijs-kaarten').dataset.product;
-    const periode = kaart.querySelector('h2').textContent.trim().toLowerCase();
+    const periode = kaart.dataset.periode;
     vak.querySelector('strong').textContent =
       (product === 'huishouden' ? 'Vinn Huishouden' : 'Vinn') + ', ' + periode;
     vak.querySelector('span').textContent = kaart.dataset[product] + ', de eerste maand gratis';

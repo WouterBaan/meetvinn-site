@@ -41,9 +41,9 @@
           </div>
 
           <div class="prijs-kaarten" data-product="vinn">
-            <div class="prijskaart" data-vinn="€ 6,99 per maand" data-huishouden="€ 11,99 per maand">
+            <div class="prijskaart" data-periode="maandelijks" data-vinn="€ 6,99 per maand" data-huishouden="€ 11,99 per maand">
               <div class="prijskop">
-                <h2>Maandelijks</h2>
+                <h2><span class="vinn">Vinn</span><span class="huishouden">Vinn Huishouden</span> maandelijks</h2>
               </div>
               <p class="bedrag">
                 <span class="vinn"><b>€ 6,99</b> per maand</span>
@@ -63,14 +63,14 @@
               <button class="knop groen" type="button" data-download>Probeer een maand gratis</button>
             </div>
 
-            <div class="prijskaart jaarkaart gekozen" data-vinn="€ 59,99 per jaar" data-huishouden="€ 99,99 per jaar">
+            <div class="prijskaart jaarkaart gekozen" data-periode="jaarlijks" data-vinn="€ 59,99 per jaar" data-huishouden="€ 99,99 per jaar">
               <span class="kaart-gloeden" aria-hidden="true"><span class="gloed kaart-een"></span><span class="gloed kaart-twee"></span></span>
               <span class="per-persoon">
                 <span class="vinn">Bespaar 28%</span>
                 <span class="huishouden">Bespaar 30%</span>
               </span>
               <div class="prijskop">
-                <h2>Jaarlijks</h2>
+                <h2><span class="vinn">Vinn</span><span class="huishouden">Vinn Huishouden</span> jaarlijks</h2>
               </div>
               <p class="bedrag">
                 <span class="vinn"><b>€ 5,00</b> per maand</span>
@@ -81,7 +81,7 @@
                 <span class="huishouden">€ 99,99 per jaar</span>
               </p>
               <ul class="wat">
-                <li><span><span class="vinn">€ 23,89</span><span class="huishouden">€ 43,89</span> voordeliger per jaar</span></li>
+                <li>Voordeliger dan maandelijks</li>
                 <li>Eén keer per jaar betalen</li>
                 <li>De eerste maand gratis</li>
               </ul>
@@ -288,7 +288,7 @@
       const knopVoor = document.querySelector('.periode button[data-product="' + gevraagd + '"]');
       if (knopVoor) knopVoor.click();
     </script>
-    <script src="download.js?v=20261031y"></script>
+    <script src="download.js?v=20261031zc"></script>
     <script src="menu.js?v=20261031o"></script>
     <script src="cookies.js"></script>
     <!-- Bezoekers tellen zonder cookies en zonder IP-adressen (GoatCounter, 28-10-2026). -->
